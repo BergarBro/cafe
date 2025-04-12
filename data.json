@@ -1,0 +1,2823 @@
+{
+    "results": [
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": 0.0,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": {
+                        "currencyIso": "SEK",
+                        "value": 169.0,
+                        "priceType": "BUY",
+                        "formattedValue": "169,00 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "offerStatus": null,
+                    "productCodes": null,
+                    "promotionTheme": {
+                        "code": "Z060",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 99.0,
+                        "priceType": "BUY",
+                        "formattedValue": "99,00 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "SubtotalOrderPromotion",
+                    "conditionLabel": "Spara 70,00 kr/kg",
+                    "rewardLabel": "99/kg",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": null,
+                    "splashTitleText": "Kampanj",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "101218952_KG",
+                    "comparePrice": "99,00 kr/kg",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 609,
+                    "code": "2500223997"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 169.0,
+            "price": "169,00 kr/kg",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/02359733300009_C1C1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 240.09985982738,
+            "depositPrice": "",
+            "averageWeight": 2.25,
+            "comparePrice": "169,00 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": false,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "AFFCO, ca: 2.25kg",
+            "pickupProductLine2": "AFFCO, ca: 2.25kg",
+            "priceUnit": "kr/kg",
+            "priceNoUnit": "169,00",
+            "savingsAmount": 70.0,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Affco",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/02359733300009_C1C1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "ca: 2.25kg",
+            "addToCartDisabled": false,
+            "name": "Lammstek med Ben Fryst Nya Zeeland",
+            "code": "101218952_KG"
+        },
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": 0.0,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": null,
+                    "offerStatus": null,
+                    "productCodes": null,
+                    "promotionTheme": {
+                        "code": "Z020",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 69.9,
+                        "priceType": "BUY",
+                        "formattedValue": "69,90 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "SubtotalOrderPromotion",
+                    "conditionLabel": "Spara 39,10 kr/kg",
+                    "rewardLabel": "69,90/kg",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": null,
+                    "splashTitleText": "",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "101290661_KG",
+                    "comparePrice": "69,90 kr/kg",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 609,
+                    "code": "2500224008"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 109.0,
+            "price": "109,00 kr/kg",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/02330045300000_C1N1_s05",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 200.89995459602,
+            "depositPrice": "",
+            "averageWeight": 0.9,
+            "comparePrice": "109,00 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": false,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "DALSJÖFORS, ca: 900g",
+            "pickupProductLine2": "DALSJÖFORS, ca: 900g",
+            "priceUnit": "kr/kg",
+            "priceNoUnit": "109,00",
+            "savingsAmount": 39.1,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [
+                "swedish_flag",
+                "meat_from_sweden"
+            ],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Dalsjöfors",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/02330045300000_C1N1_s05",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "ca: 900g",
+            "addToCartDisabled": false,
+            "name": "Fläskytterfilé Sverige",
+            "code": "101290661_KG"
+        },
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": 0.0,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": {
+                        "currencyIso": "SEK",
+                        "value": 61.9,
+                        "priceType": "BUY",
+                        "formattedValue": "61,90 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "offerStatus": null,
+                    "productCodes": null,
+                    "promotionTheme": {
+                        "code": "Z020",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 44.900000000000006,
+                        "priceType": "BUY",
+                        "formattedValue": "44,90 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "SubtotalOrderPromotion",
+                    "conditionLabel": "Spara 17,00 kr/kg",
+                    "rewardLabel": "44,90/kg",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": null,
+                    "splashTitleText": "",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "101550770_KG",
+                    "comparePrice": "44,90 kr/kg",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 609,
+                    "code": "2500224001"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 61.9,
+            "price": "61,90 kr/kg",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/02360511600006_C1N1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 200.89979015506,
+            "depositPrice": "",
+            "averageWeight": 2.0,
+            "comparePrice": "61,90 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": false,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "DAHLBERGS, ca: 2kg",
+            "pickupProductLine2": "DAHLBERGS, ca: 2kg",
+            "priceUnit": "kr/kg",
+            "priceNoUnit": "61,90",
+            "savingsAmount": 16.999999999999993,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [
+                "swedish_flag",
+                "meat_from_sweden"
+            ],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Dahlbergs",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/02360511600006_C1N1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "ca: 2kg",
+            "addToCartDisabled": false,
+            "name": "Helgskinka Kokt med Svål Sverige",
+            "code": "101550770_KG"
+        },
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": 0.0,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": null,
+                    "offerStatus": null,
+                    "productCodes": null,
+                    "promotionTheme": {
+                        "code": "Z020",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 149.0,
+                        "priceType": "BUY",
+                        "formattedValue": "149,00 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "SubtotalOrderPromotion",
+                    "conditionLabel": "Spara 40,00 kr/kg",
+                    "rewardLabel": "149/kg",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": null,
+                    "splashTitleText": "",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "101543666_KG",
+                    "comparePrice": "149,00 kr/kg",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 609,
+                    "code": "2500224003"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 189.0,
+            "price": "189,00 kr/kg",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/02381228300003_C1N1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 200.89978048274,
+            "depositPrice": "",
+            "averageWeight": 1.5,
+            "comparePrice": "189,00 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": false,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "FÅDDMAN, ca: 1.5kg",
+            "pickupProductLine2": "FÅDDMAN, ca: 1.5kg",
+            "priceUnit": "kr/kg",
+            "priceNoUnit": "189,00",
+            "savingsAmount": 40.0,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Fåddman",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/02381228300003_C1N1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "ca: 1.5kg",
+            "addToCartDisabled": false,
+            "name": "Lammstek Provencal Nya Zeeland",
+            "code": "101543666_KG"
+        },
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": 0.0,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": {
+                        "currencyIso": "SEK",
+                        "value": 175.0,
+                        "priceType": "BUY",
+                        "formattedValue": "175,00 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "offerStatus": null,
+                    "productCodes": null,
+                    "promotionTheme": {
+                        "code": "Z020",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 149.0,
+                        "priceType": "BUY",
+                        "formattedValue": "149,00 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "SubtotalOrderPromotion",
+                    "conditionLabel": "Spara 26,00 kr/kg",
+                    "rewardLabel": "149/kg",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": null,
+                    "splashTitleText": "",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "100449285_KG",
+                    "comparePrice": "149,00 kr/kg",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 609,
+                    "code": "2500224006"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 175.0,
+            "price": "175,00 kr/kg",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/02381228000002_C1N1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 200.89977081042,
+            "depositPrice": "",
+            "averageWeight": 2.0,
+            "comparePrice": "175,00 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": false,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "FÅDDMAN, ca: 2kg",
+            "pickupProductLine2": "FÅDDMAN, ca: 2kg",
+            "priceUnit": "kr/kg",
+            "priceNoUnit": "175,00",
+            "savingsAmount": 26.0,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Fåddman",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/02381228000002_C1N1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "ca: 2kg",
+            "addToCartDisabled": false,
+            "name": "Lammfiol Rökt med Ben",
+            "code": "100449285_KG"
+        },
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": 0.0,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": {
+                        "currencyIso": "SEK",
+                        "value": 79.9,
+                        "priceType": "BUY",
+                        "formattedValue": "79,90 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "offerStatus": null,
+                    "productCodes": null,
+                    "promotionTheme": {
+                        "code": "Z020",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 89.89999999999999,
+                        "priceType": "BUY",
+                        "formattedValue": "89,90 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "SubtotalOrderPromotion",
+                    "conditionLabel": "Spara 19,10 kr/kg",
+                    "rewardLabel": "89,90/kg",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": null,
+                    "splashTitleText": "",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "101590519_KG",
+                    "comparePrice": "89,90 kr/kg",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 609,
+                    "code": "2500224009"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 109.0,
+            "price": "109,00 kr/kg",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/02359774700004_C1N1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 200.89975146578,
+            "depositPrice": "",
+            "averageWeight": 1.0,
+            "comparePrice": "109,00 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": false,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "TOP CHOICE, ca: 1kg",
+            "pickupProductLine2": "TOP CHOICE, ca: 1kg",
+            "priceUnit": "kr/kg",
+            "priceNoUnit": "109,00",
+            "savingsAmount": 19.10000000000001,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [
+                "keyhole"
+            ],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Top Choice",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/02359774700004_C1N1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "ca: 1kg",
+            "addToCartDisabled": false,
+            "name": "Kyckling Bröstfilé",
+            "code": "101590519_KG"
+        },
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": 0.0,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": {
+                        "currencyIso": "SEK",
+                        "value": 79.9,
+                        "priceType": "BUY",
+                        "formattedValue": "79,90 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "offerStatus": null,
+                    "productCodes": null,
+                    "promotionTheme": {
+                        "code": "Z020",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 89.89999999999999,
+                        "priceType": "BUY",
+                        "formattedValue": "89,90 kr/kg",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "SubtotalOrderPromotion",
+                    "conditionLabel": "Spara 19,10 kr/kg",
+                    "rewardLabel": "89,90/kg",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": null,
+                    "splashTitleText": "",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "101590519_KG",
+                    "comparePrice": "89,90 kr/kg",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 609,
+                    "code": "2500224009"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 109.0,
+            "price": "109,00 kr/kg",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/02359777100009_C1L1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 200.89975146578,
+            "depositPrice": "",
+            "averageWeight": 1.0,
+            "comparePrice": "109,00 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": false,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "TOP CHOICE, ca: 1kg",
+            "pickupProductLine2": "TOP CHOICE, ca: 1kg",
+            "priceUnit": "kr/kg",
+            "priceNoUnit": "109,00",
+            "savingsAmount": 19.10000000000001,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Top Choice",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/02359777100009_C1L1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "ca: 1kg",
+            "addToCartDisabled": false,
+            "name": "Kycklinglårfil",
+            "code": "101705470_KG"
+        },
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": null,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": {
+                        "currencyIso": "SEK",
+                        "value": 76.9,
+                        "priceType": "BUY",
+                        "formattedValue": "76,90 kr",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "offerStatus": null,
+                    "productCodes": [
+                        "101547532_ST",
+                        "101290884_ST",
+                        "101692731_ST"
+                    ],
+                    "promotionTheme": {
+                        "code": "Z020",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 64.9,
+                        "priceType": "BUY",
+                        "formattedValue": "64,90 kr",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "MixMatchPricePromotion",
+                    "conditionLabel": "Spara 20,00 kr/st",
+                    "rewardLabel": "64,90/st",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": 1,
+                    "splashTitleText": "",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "101547532_ST",
+                    "comparePrice": "135,21 kr",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 608,
+                    "code": "2500224012"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 84.9,
+            "price": "84,90 kr",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/07391049003651_C1L1_s03",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 200.89974179346,
+            "depositPrice": "",
+            "averageWeight": null,
+            "comparePrice": "176,87 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": true,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "LÖNNEBERGA, 480g",
+            "pickupProductLine2": "LÖNNEBERGA, 480g",
+            "priceUnit": "kr/st",
+            "priceNoUnit": "84,90",
+            "savingsAmount": 20.0,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [
+                "swedish_flag",
+                "swedish_bird"
+            ],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Lönneberga",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/07391049003651_C1L1_s03",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "480g",
+            "addToCartDisabled": false,
+            "name": "Kycklingspett Barbeque",
+            "code": "101547532_ST"
+        },
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": null,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": {
+                        "currencyIso": "SEK",
+                        "value": 76.9,
+                        "priceType": "BUY",
+                        "formattedValue": "76,90 kr",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "offerStatus": null,
+                    "productCodes": [
+                        "101547532_ST",
+                        "101290884_ST",
+                        "101692731_ST"
+                    ],
+                    "promotionTheme": {
+                        "code": "Z020",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 64.9,
+                        "priceType": "BUY",
+                        "formattedValue": "64,90 kr",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "MixMatchPricePromotion",
+                    "conditionLabel": "Spara 20,00 kr/st",
+                    "rewardLabel": "64,90/st",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": 1,
+                    "splashTitleText": "",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "101547532_ST",
+                    "comparePrice": "135,21 kr",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 608,
+                    "code": "2500224012"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 84.9,
+            "price": "84,90 kr",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/07391049001749_C1L1_s02",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 200.89974179346,
+            "depositPrice": "",
+            "averageWeight": null,
+            "comparePrice": "176,87 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": true,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "LÖNNEBERGA, 480g",
+            "pickupProductLine2": "LÖNNEBERGA, 480g",
+            "priceUnit": "kr/st",
+            "priceNoUnit": "84,90",
+            "savingsAmount": 20.0,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [
+                "swedish_flag",
+                "swedish_bird"
+            ],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Lönneberga",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/07391049001749_C1L1_s02",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "480g",
+            "addToCartDisabled": false,
+            "name": "Kycklingspett Paprika Örter Sverige",
+            "code": "101290884_ST"
+        },
+        {
+            "potentialPromotions": [
+                {
+                    "threshold": null,
+                    "applied": false,
+                    "campaignType": "LOYALTY",
+                    "lowestHistoricalPrice": null,
+                    "offerStatus": null,
+                    "productCodes": [
+                        "101547532_ST",
+                        "101290884_ST",
+                        "101692731_ST"
+                    ],
+                    "promotionTheme": {
+                        "code": "Z020",
+                        "visible": null
+                    },
+                    "textLabelGenerated": "",
+                    "textLabelManual": null,
+                    "price": {
+                        "currencyIso": "SEK",
+                        "value": 64.9,
+                        "priceType": "BUY",
+                        "formattedValue": "64,90 kr",
+                        "minQuantity": null,
+                        "maxQuantity": null
+                    },
+                    "promotionType": "MixMatchPricePromotion",
+                    "conditionLabel": "Spara 20,00 kr/st",
+                    "rewardLabel": "64,90/st",
+                    "textLabel": "",
+                    "redeemLimitLabel": "Max 3 köp",
+                    "cartLabel": null,
+                    "validUntil": null,
+                    "timesUsed": null,
+                    "qualifyingCount": 1,
+                    "splashTitleText": "",
+                    "realMixAndMatch": false,
+                    "mainProductCode": "101547532_ST",
+                    "comparePrice": "135,21 kr",
+                    "conditionLabelFormatted": "",
+                    "promotionRedeemLimit": null,
+                    "promotionPercentage": null,
+                    "cartLabelFormatted": "",
+                    "priority": 608,
+                    "code": "2500224012"
+                }
+            ],
+            "inactivePotentialPromotions": [],
+            "priceValue": 84.9,
+            "price": "84,90 kr",
+            "image": {
+                "imageType": "PRIMARY",
+                "format": "product",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_200/07391049003880_C1L1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "ranking": 200.89974179346,
+            "depositPrice": "",
+            "averageWeight": null,
+            "comparePrice": "176,87 kr",
+            "comparePriceUnit": "kg",
+            "isDrugProduct": false,
+            "solrSearchScore": 1.0,
+            "energyDeclaration": null,
+            "newsSplashProduct": true,
+            "notAllowedB2b": false,
+            "notAllowedAnonymous": false,
+            "productLine2": "LÖNNEBERGA, 480g",
+            "pickupProductLine2": "LÖNNEBERGA, 480g",
+            "priceUnit": "kr/st",
+            "priceNoUnit": "84,90",
+            "savingsAmount": 20.0,
+            "googleAnalyticsCategory": "",
+            "gdprTrackingIncompliant": false,
+            "showGoodPriceIcon": false,
+            "nicotineMedicalProduct": false,
+            "tobaccoFreeNicotineProduct": false,
+            "nonEkoProduct": false,
+            "precautionaryStatements": [],
+            "hazards": [],
+            "tobaccoProduct": false,
+            "labels": [
+                "swedish_flag",
+                "swedish_bird"
+            ],
+            "seoDescription": "",
+            "seoTitle": "",
+            "manufacturer": "Lönneberga",
+            "incrementValue": 1.0,
+            "productBasketType": {
+                "code": "ST",
+                "type": "ProductBasketTypeEnum"
+            },
+            "bargainProduct": false,
+            "addToCartMessage": "",
+            "thumbnail": {
+                "imageType": "PRIMARY",
+                "format": "thumbnail",
+                "url": "https://assets.axfood.se/image/upload/f_auto,t_100/07391049003880_C1L1_s01",
+                "altText": null,
+                "galleryIndex": null,
+                "width": null
+            },
+            "outOfStock": false,
+            "online": true,
+            "displayVolume": "480g",
+            "addToCartDisabled": false,
+            "name": "Kycklingspett Bbq Chipotle",
+            "code": "101692731_ST"
+        }
+    ],
+    "sorts": [
+        {
+            "code": "topRated",
+            "name": "Populärast",
+            "selected": true
+        },
+        {
+            "code": "name-asc",
+            "name": "A – Ö",
+            "selected": false
+        },
+        {
+            "code": "name-desc",
+            "name": "Ö – A",
+            "selected": false
+        },
+        {
+            "code": "price-asc",
+            "name": "Pris (Billigast - Dyrast)",
+            "selected": false
+        },
+        {
+            "code": "price-desc",
+            "name": "Pris (Dyrast - Billigast)",
+            "selected": false
+        },
+        {
+            "code": "compareprice-asc",
+            "name": "Jämförpris (Billigast - Dyrast)",
+            "selected": false
+        },
+        {
+            "code": "compareprice-desc",
+            "name": "Jämförpris (Dyrast - Billigast)",
+            "selected": false
+        }
+    ],
+    "pagination": {
+        "pageSize": 10,
+        "currentPage": 0,
+        "sort": "topRated",
+        "numberOfPages": 71,
+        "totalNumberOfResults": 704,
+        "allProductsInCategoriesCount": 704,
+        "allProductsInSearchCount": 0
+    },
+    "relatedResults": null,
+    "relatedResultsPagination": null,
+    "currentQuery": null,
+    "breadcrumbs": [],
+    "facets": [
+        {
+            "code": "commercialName2",
+            "name": "commercialName2",
+            "priority": -400,
+            "category": false,
+            "multiSelect": true,
+            "visible": true,
+            "topValues": null,
+            "values": [
+                {
+                    "code": "1bite",
+                    "name": "1bite",
+                    "count": 5,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3A1bite",
+                        "query": {
+                            "value": ":topRated:commercialName2:1bite",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "782",
+                    "name": "782",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3A782",
+                        "query": {
+                            "value": ":topRated:commercialName2:782",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Affco",
+                    "name": "Affco",
+                    "count": 6,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AAffco",
+                        "query": {
+                            "value": ":topRated:commercialName2:Affco",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Aladin",
+                    "name": "Aladin",
+                    "count": 7,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AAladin",
+                        "query": {
+                            "value": ":topRated:commercialName2:Aladin",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Al Madina",
+                    "name": "Al Madina",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AAl%2BMadina",
+                        "query": {
+                            "value": ":topRated:commercialName2:Al+Madina",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Arboga",
+                    "name": "Arboga",
+                    "count": 5,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AArboga",
+                        "query": {
+                            "value": ":topRated:commercialName2:Arboga",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Atria",
+                    "name": "Atria",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AAtria",
+                        "query": {
+                            "value": ":topRated:commercialName2:Atria",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Bedford",
+                    "name": "Bedford",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ABedford",
+                        "query": {
+                            "value": ":topRated:commercialName2:Bedford",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Boeuf De Norma",
+                    "name": "Boeuf De Norma",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ABoeuf%2BDe%2BNorma",
+                        "query": {
+                            "value": ":topRated:commercialName2:Boeuf+De+Norma",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Coren",
+                    "name": "Coren",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ACoren",
+                        "query": {
+                            "value": ":topRated:commercialName2:Coren",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Corte Parma",
+                    "name": "Corte Parma",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ACorte%2BParma",
+                        "query": {
+                            "value": ":topRated:commercialName2:Corte+Parma",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Csabai",
+                    "name": "Csabai",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ACsabai",
+                        "query": {
+                            "value": ":topRated:commercialName2:Csabai",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Dahlbergs",
+                    "name": "Dahlbergs",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ADahlbergs",
+                        "query": {
+                            "value": ":topRated:commercialName2:Dahlbergs",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Dalsjöfors",
+                    "name": "Dalsjöfors",
+                    "count": 7,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ADalsj%25C3%25B6fors",
+                        "query": {
+                            "value": ":topRated:commercialName2:Dalsj%C3%B6fors",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Danish Crown",
+                    "name": "Danish Crown",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ADanish%2BCrown",
+                        "query": {
+                            "value": ":topRated:commercialName2:Danish+Crown",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Eldorado",
+                    "name": "Eldorado",
+                    "count": 44,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AEldorado",
+                        "query": {
+                            "value": ":topRated:commercialName2:Eldorado",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Ello Lammhult",
+                    "name": "Ello Lammhult",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AEllo%2BLammhult",
+                        "query": {
+                            "value": ":topRated:commercialName2:Ello+Lammhult",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Elpozo",
+                    "name": "Elpozo",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AElpozo",
+                        "query": {
+                            "value": ":topRated:commercialName2:Elpozo",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Engelmanns",
+                    "name": "Engelmanns",
+                    "count": 5,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AEngelmanns",
+                        "query": {
+                            "value": ":topRated:commercialName2:Engelmanns",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Familie Wein",
+                    "name": "Familie Wein",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AFamilie%2BWein",
+                        "query": {
+                            "value": ":topRated:commercialName2:Familie+Wein",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Farmers",
+                    "name": "Farmers",
+                    "count": 4,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AFarmers",
+                        "query": {
+                            "value": ":topRated:commercialName2:Farmers",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Felix",
+                    "name": "Felix",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AFelix",
+                        "query": {
+                            "value": ":topRated:commercialName2:Felix",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Fumagalli",
+                    "name": "Fumagalli",
+                    "count": 8,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AFumagalli",
+                        "query": {
+                            "value": ":topRated:commercialName2:Fumagalli",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Fåddman",
+                    "name": "Fåddman",
+                    "count": 7,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AF%25C3%25A5ddman",
+                        "query": {
+                            "value": ":topRated:commercialName2:F%C3%A5ddman",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Garant",
+                    "name": "Garant",
+                    "count": 144,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AGarant",
+                        "query": {
+                            "value": ":topRated:commercialName2:Garant",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Garant Eko",
+                    "name": "Garant Eko",
+                    "count": 18,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AGarant%2BEko",
+                        "query": {
+                            "value": ":topRated:commercialName2:Garant+Eko",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Geas",
+                    "name": "Geas",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AGeas",
+                        "query": {
+                            "value": ":topRated:commercialName2:Geas",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Grilstad",
+                    "name": "Grilstad",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AGrilstad",
+                        "query": {
+                            "value": ":topRated:commercialName2:Grilstad",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Gudruns",
+                    "name": "Gudruns",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AGudruns",
+                        "query": {
+                            "value": ":topRated:commercialName2:Gudruns",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Guldfågeln",
+                    "name": "Guldfågeln",
+                    "count": 27,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AGuldf%25C3%25A5geln",
+                        "query": {
+                            "value": ":topRated:commercialName2:Guldf%C3%A5geln",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Gustafs",
+                    "name": "Gustafs",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AGustafs",
+                        "query": {
+                            "value": ":topRated:commercialName2:Gustafs",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Gustafskorv",
+                    "name": "Gustafskorv",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AGustafskorv",
+                        "query": {
+                            "value": ":topRated:commercialName2:Gustafskorv",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Gustoland",
+                    "name": "Gustoland",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AGustoland",
+                        "query": {
+                            "value": ":topRated:commercialName2:Gustoland",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Göl",
+                    "name": "Göl",
+                    "count": 18,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AG%25C3%25B6l",
+                        "query": {
+                            "value": ":topRated:commercialName2:G%C3%B6l",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Helmut Walch",
+                    "name": "Helmut Walch",
+                    "count": 15,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AHelmut%2BWalch",
+                        "query": {
+                            "value": ":topRated:commercialName2:Helmut+Walch",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Härryda Karlss",
+                    "name": "Härryda Karlss",
+                    "count": 13,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AH%25C3%25A4rryda%2BKarlss",
+                        "query": {
+                            "value": ":topRated:commercialName2:H%C3%A4rryda+Karlss",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Ingelstakalkon",
+                    "name": "Ingelstakalkon",
+                    "count": 11,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AIngelstakalkon",
+                        "query": {
+                            "value": ":topRated:commercialName2:Ingelstakalkon",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Jakobsdals",
+                    "name": "Jakobsdals",
+                    "count": 24,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AJakobsdals",
+                        "query": {
+                            "value": ":topRated:commercialName2:Jakobsdals",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Jamones Arroyo",
+                    "name": "Jamones Arroyo",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AJamones%2BArroyo",
+                        "query": {
+                            "value": ":topRated:commercialName2:Jamones+Arroyo",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Jojjen",
+                    "name": "Jojjen",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AJojjen",
+                        "query": {
+                            "value": ":topRated:commercialName2:Jojjen",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Julius",
+                    "name": "Julius",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AJulius",
+                        "query": {
+                            "value": ":topRated:commercialName2:Julius",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Kitchen Joy",
+                    "name": "Kitchen Joy",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AKitchen%2BJoy",
+                        "query": {
+                            "value": ":topRated:commercialName2:Kitchen+Joy",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Kotivara",
+                    "name": "Kotivara",
+                    "count": 4,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AKotivara",
+                        "query": {
+                            "value": ":topRated:commercialName2:Kotivara",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Kronfågel",
+                    "name": "Kronfågel",
+                    "count": 24,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AKronf%25C3%25A5gel",
+                        "query": {
+                            "value": ":topRated:commercialName2:Kronf%C3%A5gel",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Kühlmann",
+                    "name": "Kühlmann",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AK%25C3%25BChlmann",
+                        "query": {
+                            "value": ":topRated:commercialName2:K%C3%BChlmann",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Köttkultur",
+                    "name": "Köttkultur",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AK%25C3%25B6ttkultur",
+                        "query": {
+                            "value": ":topRated:commercialName2:K%C3%B6ttkultur",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "La Belle De Fr",
+                    "name": "La Belle De Fr",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ALa%2BBelle%2BDe%2BFr",
+                        "query": {
+                            "value": ":topRated:commercialName2:La+Belle+De+Fr",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Lammhults",
+                    "name": "Lammhults",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ALammhults",
+                        "query": {
+                            "value": ":topRated:commercialName2:Lammhults",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Lindbergs",
+                    "name": "Lindbergs",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ALindbergs",
+                        "query": {
+                            "value": ":topRated:commercialName2:Lindbergs",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Lindvalls",
+                    "name": "Lindvalls",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ALindvalls",
+                        "query": {
+                            "value": ":topRated:commercialName2:Lindvalls",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Lithells",
+                    "name": "Lithells",
+                    "count": 4,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ALithells",
+                        "query": {
+                            "value": ":topRated:commercialName2:Lithells",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Lönneberga",
+                    "name": "Lönneberga",
+                    "count": 9,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AL%25C3%25B6nneberga",
+                        "query": {
+                            "value": ":topRated:commercialName2:L%C3%B6nneberga",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Moab",
+                    "name": "Moab",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AMoab",
+                        "query": {
+                            "value": ":topRated:commercialName2:Moab",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Monte Castello",
+                    "name": "Monte Castello",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AMonte%2BCastello",
+                        "query": {
+                            "value": ":topRated:commercialName2:Monte+Castello",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Mountain River",
+                    "name": "Mountain River",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AMountain%2BRiver",
+                        "query": {
+                            "value": ":topRated:commercialName2:Mountain+River",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Munzert",
+                    "name": "Munzert",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AMunzert",
+                        "query": {
+                            "value": ":topRated:commercialName2:Munzert",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Noel",
+                    "name": "Noel",
+                    "count": 10,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ANoel",
+                        "query": {
+                            "value": ":topRated:commercialName2:Noel",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Nonna Elide",
+                    "name": "Nonna Elide",
+                    "count": 8,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ANonna%2BElide",
+                        "query": {
+                            "value": ":topRated:commercialName2:Nonna+Elide",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Normeat",
+                    "name": "Normeat",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ANormeat",
+                        "query": {
+                            "value": ":topRated:commercialName2:Normeat",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Nybergs Deli",
+                    "name": "Nybergs Deli",
+                    "count": 4,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ANybergs%2BDeli",
+                        "query": {
+                            "value": ":topRated:commercialName2:Nybergs+Deli",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Onsala",
+                    "name": "Onsala",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AOnsala",
+                        "query": {
+                            "value": ":topRated:commercialName2:Onsala",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Osterians",
+                    "name": "Osterians",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AOsterians",
+                        "query": {
+                            "value": ":topRated:commercialName2:Osterians",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Pastejköket",
+                    "name": "Pastejköket",
+                    "count": 8,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3APastejk%25C3%25B6ket",
+                        "query": {
+                            "value": ":topRated:commercialName2:Pastejk%C3%B6ket",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Paul Och Thom",
+                    "name": "Paul Och Thom",
+                    "count": 4,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3APaul%2BOch%2BThom",
+                        "query": {
+                            "value": ":topRated:commercialName2:Paul+Och+Thom",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Peas Of Heaven",
+                    "name": "Peas Of Heaven",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3APeas%2BOf%2BHeaven",
+                        "query": {
+                            "value": ":topRated:commercialName2:Peas+Of+Heaven",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Pepi",
+                    "name": "Pepi",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3APepi",
+                        "query": {
+                            "value": ":topRated:commercialName2:Pepi",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Pick",
+                    "name": "Pick",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3APick",
+                        "query": {
+                            "value": ":topRated:commercialName2:Pick",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Prime",
+                    "name": "Prime",
+                    "count": 8,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3APrime",
+                        "query": {
+                            "value": ":topRated:commercialName2:Prime",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Prime Patrol",
+                    "name": "Prime Patrol",
+                    "count": 28,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3APrime%2BPatrol",
+                        "query": {
+                            "value": ":topRated:commercialName2:Prime+Patrol",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Pärsons",
+                    "name": "Pärsons",
+                    "count": 14,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AP%25C3%25A4rsons",
+                        "query": {
+                            "value": ":topRated:commercialName2:P%C3%A4rsons",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Qibbla Halal",
+                    "name": "Qibbla Halal",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AQibbla%2BHalal",
+                        "query": {
+                            "value": ":topRated:commercialName2:Qibbla+Halal",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Reinert",
+                    "name": "Reinert",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AReinert",
+                        "query": {
+                            "value": ":topRated:commercialName2:Reinert",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Ridderheims",
+                    "name": "Ridderheims",
+                    "count": 8,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ARidderheims",
+                        "query": {
+                            "value": ":topRated:commercialName2:Ridderheims",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Rose",
+                    "name": "Rose",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ARose",
+                        "query": {
+                            "value": ":topRated:commercialName2:Rose",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Sanpareil",
+                    "name": "Sanpareil",
+                    "count": 5,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASanpareil",
+                        "query": {
+                            "value": ":topRated:commercialName2:Sanpareil",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Sanvincenzo",
+                    "name": "Sanvincenzo",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASanvincenzo",
+                        "query": {
+                            "value": ":topRated:commercialName2:Sanvincenzo",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Scan",
+                    "name": "Scan",
+                    "count": 55,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AScan",
+                        "query": {
+                            "value": ":topRated:commercialName2:Scan",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Schysst Käk",
+                    "name": "Schysst Käk",
+                    "count": 4,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASchysst%2BK%25C3%25A4k",
+                        "query": {
+                            "value": ":topRated:commercialName2:Schysst+K%C3%A4k",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Sibylla",
+                    "name": "Sibylla",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASibylla",
+                        "query": {
+                            "value": ":topRated:commercialName2:Sibylla",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Signal & Ander",
+                    "name": "Signal & Ander",
+                    "count": 4,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASignal%2B%2526%2BAnder",
+                        "query": {
+                            "value": ":topRated:commercialName2:Signal+%26+Ander",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Signature Food",
+                    "name": "Signature Food",
+                    "count": 4,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASignature%2BFood",
+                        "query": {
+                            "value": ":topRated:commercialName2:Signature+Food",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Smakavgotland",
+                    "name": "Smakavgotland",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASmakavgotland",
+                        "query": {
+                            "value": ":topRated:commercialName2:Smakavgotland",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Solbacka",
+                    "name": "Solbacka",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASolbacka",
+                        "query": {
+                            "value": ":topRated:commercialName2:Solbacka",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Spicefield",
+                    "name": "Spicefield",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASpicefield",
+                        "query": {
+                            "value": ":topRated:commercialName2:Spicefield",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Svea",
+                    "name": "Svea",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ASvea",
+                        "query": {
+                            "value": ":topRated:commercialName2:Svea",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Sörensens",
+                    "name": "Sörensens",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AS%25C3%25B6rensens",
+                        "query": {
+                            "value": ":topRated:commercialName2:S%C3%B6rensens",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Terre Ducali",
+                    "name": "Terre Ducali",
+                    "count": 7,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ATerre%2BDucali",
+                        "query": {
+                            "value": ":topRated:commercialName2:Terre+Ducali",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Theburgervault",
+                    "name": "Theburgervault",
+                    "count": 3,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ATheburgervault",
+                        "query": {
+                            "value": ":topRated:commercialName2:Theburgervault",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Top Choice",
+                    "name": "Top Choice",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ATop%2BChoice",
+                        "query": {
+                            "value": ":topRated:commercialName2:Top+Choice",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Tradifood",
+                    "name": "Tradifood",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ATradifood",
+                        "query": {
+                            "value": ":topRated:commercialName2:Tradifood",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Tulip",
+                    "name": "Tulip",
+                    "count": 15,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3ATulip",
+                        "query": {
+                            "value": ":topRated:commercialName2:Tulip",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Viani",
+                    "name": "Viani",
+                    "count": 2,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AViani",
+                        "query": {
+                            "value": ":topRated:commercialName2:Viani",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Wild Man",
+                    "name": "Wild Man",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3AWild%2BMan",
+                        "query": {
+                            "value": ":topRated:commercialName2:Wild+Man",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Åke P",
+                    "name": "Åke P",
+                    "count": 4,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3A%25C3%2585ke%2BP",
+                        "query": {
+                            "value": ":topRated:commercialName2:%C3%85ke+P",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "Öresundschark",
+                    "name": "Öresundschark",
+                    "count": 1,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AcommercialName2%3A%25C3%2596resundschark",
+                        "query": {
+                            "value": ":topRated:commercialName2:%C3%96resundschark",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "code": "productLabelTypes",
+            "name": "productLabelTypes",
+            "priority": -1000,
+            "category": false,
+            "multiSelect": false,
+            "visible": true,
+            "topValues": null,
+            "values": [
+                {
+                    "code": "ECOLOGICAL",
+                    "name": "Ekologisk",
+                    "count": 24,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AproductLabelTypes%3AECOLOGICAL",
+                        "query": {
+                            "value": ":topRated:productLabelTypes:ECOLOGICAL",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "GLUTENFREE",
+                    "name": "Glutenfri",
+                    "count": 56,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AproductLabelTypes%3AGLUTENFREE",
+                        "query": {
+                            "value": ":topRated:productLabelTypes:GLUTENFREE",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "LAKTOSFREE",
+                    "name": "Laktosfri",
+                    "count": 41,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AproductLabelTypes%3ALAKTOSFREE",
+                        "query": {
+                            "value": ":topRated:productLabelTypes:LAKTOSFREE",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "KEYHOLE",
+                    "name": "Nyckelhålet",
+                    "count": 101,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AproductLabelTypes%3AKEYHOLE",
+                        "query": {
+                            "value": ":topRated:productLabelTypes:KEYHOLE",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                },
+                {
+                    "code": "SWEDISH_FLAG",
+                    "name": "Svenskt",
+                    "count": 332,
+                    "query": {
+                        "url": "kott-chark-och-fagel?q=%3AtopRated%3AproductLabelTypes%3ASWEDISH_FLAG",
+                        "query": {
+                            "value": ":topRated:productLabelTypes:SWEDISH_FLAG",
+                            "filterQueries": [],
+                            "searchQueryContext": null,
+                            "searchType": null
+                        }
+                    },
+                    "selected": false
+                }
+            ]
+        }
+    ],
+    "freeTextSearch": "",
+    "categoryCode": null,
+    "keywordRedirectUrl": null,
+    "spellingSuggestion": null,
+    "categoryName": null,
+    "customSuggestion": null,
+    "categoryBreadcrumbs": {
+        "url": "kott-chark-och-fagel",
+        "name": "Kött, chark & fågel",
+        "linkClass": null,
+        "categoryCode": "N01"
+    },
+    "navigationCategories": null,
+    "usedQuery": null,
+    "subCategories": [
+        {
+            "code": "N0101",
+            "name": "Fågel",
+            "url": "kott-chark-och-fagel/fagel",
+            "description": null,
+            "image": null,
+            "parentCategoryName": "Kött, chark & fågel",
+            "sequence": 0,
+            "seoTitle": null,
+            "seoDescription": null
+        },
+        {
+            "code": "N0102",
+            "name": "Kött",
+            "url": "kott-chark-och-fagel/kott",
+            "description": null,
+            "image": null,
+            "parentCategoryName": "Kött, chark & fågel",
+            "sequence": 0,
+            "seoTitle": null,
+            "seoDescription": null
+        },
+        {
+            "code": "N0103",
+            "name": "Korv",
+            "url": "kott-chark-och-fagel/korv",
+            "description": null,
+            "image": null,
+            "parentCategoryName": "Kött, chark & fågel",
+            "sequence": 0,
+            "seoTitle": null,
+            "seoDescription": null
+        },
+        {
+            "code": "N0105",
+            "name": "Chark",
+            "url": "kott-chark-och-fagel/chark",
+            "description": null,
+            "image": null,
+            "parentCategoryName": "Kött, chark & fågel",
+            "sequence": 0,
+            "seoTitle": null,
+            "seoDescription": null
+        },
+        {
+            "code": "N0106",
+            "name": "Pålägg",
+            "url": "kott-chark-och-fagel/palagg",
+            "description": null,
+            "image": null,
+            "parentCategoryName": "Kött, chark & fågel",
+            "sequence": 0,
+            "seoTitle": null,
+            "seoDescription": null
+        },
+        {
+            "code": "N0107",
+            "name": "Delikatesschark",
+            "url": "kott-chark-och-fagel/delikatesschark",
+            "description": null,
+            "image": null,
+            "parentCategoryName": "Kött, chark & fågel",
+            "sequence": 0,
+            "seoTitle": null,
+            "seoDescription": null
+        }
+    ],
+    "categoryInfo": {
+        "code": "N01",
+        "name": "Kött, chark & fågel",
+        "url": "kott-chark-och-fagel",
+        "description": null,
+        "image": null,
+        "parentCategoryName": null,
+        "sequence": 0,
+        "seoTitle": null,
+        "seoDescription": null
+    },
+    "superCategories": [
+        {
+            "code": "N00",
+            "name": "Alla varor",
+            "url": "/alla-varor/c/",
+            "description": null,
+            "image": null,
+            "parentCategoryName": null,
+            "sequence": 0,
+            "seoTitle": null,
+            "seoDescription": null
+        }
+    ],
+    "restrictedProductTypes": ""
+}
