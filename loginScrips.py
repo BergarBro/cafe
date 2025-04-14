@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 import sqlite3
 import datetime
+import importBread
 
 
 urlList = [ # List of Important URL:s
@@ -17,7 +18,7 @@ urlList = [ # List of Important URL:s
     "https://shop.svenskcater.se/webbshop/starta-bestaellningen/?f=120367&d=131%20Malm%C3%B6"  # Name: Skåp
 ]
 
-urlName = [ # List of Names of the URL:s above
+urlCategory = [ # List of Names of the URL:s above
     "Main Site",
     "Ej Mat",
     "Frukt och Grönt",
@@ -35,7 +36,12 @@ delayButton = 1000   # Time to wait between button-clicks
 delay = 5000        # Time to wait between jumps to websites
 delayLogin = 30000  # Time to wait after loging in, first time
 
+executeProductsScrape = True
+executePriceScrape = False
+executeImportBread = False
 
+if executeImportBread :
+    importBread.importBread()
 
 # Step 2: Connect to SQLite (creates file if if doesn't exist)
 conn = sqlite3.connect("hilbertDatabase.db")
@@ -46,7 +52,8 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS products (
         id INT PRIMARY KEY,
         name TEXT NOT NULL,
-        brand TEXT
+        brand TEXT,
+        category TEXT
     )
 ''')
 
@@ -85,7 +92,7 @@ with sync_playwright() as p:
 
     page.wait_for_timeout(delayLogin)
 
-    for url, name in zip(urlList[1:],urlName[1:]) :
+    for url, categoryName in zip(urlList[1:],urlCategory[1:]) :
         page.goto(url)
         page.wait_for_timeout(delay)
 
@@ -103,15 +110,17 @@ with sync_playwright() as p:
             unit = priceText[unitLocation:]
             timestamp = datetime.datetime.now().isoformat()
 
-            cursor.execute('''
-                INSERT OR REPLACE INTO products (id, name, brand)
-                VALUES (?, ?, ?)
-            ''', (productId, name, brandName))
+            if executeProductsScrape :
+                cursor.execute('''
+                    INSERT OR REPLACE INTO products (id, name, brand, category)
+                    VALUES (?, ?, ?, ?)
+                ''', (productId, name, brandName, categoryName))
 
-            cursor.execute('''
-                INSERT OR REPLACE INTO prices (productId, price, unit, timestamp)
-                VALUES (?, ?, ?, ?)
-            ''', (productId, price, unit, timestamp))
+            if executePriceScrape :
+                cursor.execute('''
+                    INSERT INTO prices (productId, price, unit, timestamp)
+                    VALUES (?, ?, ?, ?)
+                ''', (productId, price, unit, timestamp))
 
             # print(f"{productId:<10} {name:<30} {brandName:<20} {price:<10} {unit:<10} {timestamp:<10}")
 
