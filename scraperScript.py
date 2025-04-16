@@ -38,9 +38,9 @@ delay = 5000        # Time to wait between jumps to websites
 delayLogin = 30000  # Time to wait after loging in, first time
 
 executeProductsScrape   = False
-executePriceScrape      = False
+executePriceScrape      = True
 executeImportBread      = False
-executePlotPrices       = True
+executePlotPrices       = False
 
 # Step 2: Connect to SQLite (creates file if if doesn't exist)
 conn = sqlite3.connect("hilbertDatabase.db")

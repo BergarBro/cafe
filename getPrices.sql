@@ -17,7 +17,7 @@
 SELECT p.category, p.name, p.id, pri.price, pri.unit, pri.timestamp 
 FROM prices pri
 JOIN products p ON pri.productId = p.id
-WHERE p.category = 'Bröd'
+WHERE p.id = 43598
 ORDER BY p.name ASC;
 
 -- SELECT p.category, p.name, pp.price, pp.unit, pp.max_ts
