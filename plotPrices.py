@@ -20,7 +20,9 @@ import numpy as np
 import random as rn
 
 def main():
-    makeRandomPlot()
+    print("Main")
+    # makeRandomPlot()
+    
 
 def makeRandomPlot() :
     print("Here is funny plot!")
@@ -38,7 +40,7 @@ def makeRandomPlot() :
     plt.show()
 
 def makePricePlot(category) :
-    print("hi")
+    print("Plot")
 
 
 

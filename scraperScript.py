@@ -37,7 +37,7 @@ delayButton = 1000   # Time to wait between button-clicks
 delay = 5000        # Time to wait between jumps to websites
 delayLogin = 30000  # Time to wait after loging in, first time
 
-executeProductsScrape   = False
+executeProductsScrape   = True
 executePriceScrape      = True
 executeImportBread      = False
 executePlotPrices       = False
