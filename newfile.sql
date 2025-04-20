@@ -1,0 +1,117 @@
+-- CREATE TABLE IF NOT EXISTS products (
+--     id INT PRIMARY KEY,
+--     name TEXT NOT NULL,
+--     brand TEXT,
+--     category TEXT
+-- );
+
+-- CREATE TABLE IF NOT EXISTS prices (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     productId INT NOT NULL,
+--     price DECIMAL(10,2) NOT NULL,
+--     unit TEXT NOT NULL,
+--     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+--     FOREIGN KEY (productId) REFERENCES products(id) ON DELETE CASCADE
+-- );
+
+
+CREATE TABLE IF NOT EXISTS categorys (
+    category_name TEXT,
+    PRIMARY KEY (category_name)
+);
+
+CREATE TABLE IF NOT EXISTS products_test (
+    product_id INT,
+    product_name TEXT NOT NULL,
+    product_brand TEXT DEFAULT ('Not Found')
+    product_unit TEXT NOT NULL,
+    category_name TEXT,
+    ingredient_name TEXT,
+    PRIMARY KEY (product_id),
+        FOREIGN KEY (category_name) REFERENCES categorys(category_name),
+        FOREIGN KEY (ingredient_name) REFERENCES ingredients(ingredient_name)
+);
+
+CREATE TABLE IF NOT EXISTS price_offers (
+    offer_id TEXT DEFAULT (lower(hex(randomblob(16)))),
+    offer_price INT NOT NULL,
+    offer_timestamp DATETIME NOT NULL,
+    product_id INT,
+    PRIMARY KEY (offer_id, product_id)
+        FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+CREATE TABLE IF NOT EXISTS ingredients (
+    ingredient_name TEXT,
+    ingredient_comment TEXT, -- Like if one cheese slice is 15g, information for the user
+    PRIMARY KEY (ingredient_name)
+);
+
+CREATE TABLE IF NOT EXISTS mixtures (
+    mixture_name TEXT,
+    nbr_of_sandwiches INT, -- The amount of sandwhiches one batch mixture will make
+    mixture_instructions TEXT,
+    PRIMARY KEY (mixture_name)
+);
+
+CREATE TABLE IF NOT EXISTS mixture_amount (
+    ingredient_amount INT,
+    ingredient_unit TEXT,
+    ingredient_name TEXT,
+    mixture_name TEXT,
+    PRIMARY KEY (ingredient_name, mixture_name),
+        FOREIGN KEY (ingredient_name) REFERENCES ingredients(ingredient_name),
+        FOREIGN KEY (mixture_name) REFERENCES mixtures(mixture_name)
+);
+
+CREATE TABLE IF NOT EXISTS sandwiches (
+    sandwich_name TEXT,
+    vegan BOOLEAN,
+    vegatarian BOOLEAN, -- True means the it is vegan, vegetarian respectively
+    bread_type TEXT,
+    prep_info TEXT,
+    mixture_name TEXT,
+    PRIMARY KEY (sandwich_name)
+        FOREIGN KEY (mixture_name) REFERENCES mixtures(mixture_name)
+);
+
+CREATE TABLE IF NOT EXISTS sandwich_amount (
+    ingredient_amount INT,
+    ingredient_unit TEXT,
+    ingredient_name TEXT,
+    sandwich_name TEXT,
+    PRIMARY KEY (ingredient_name, sandwich_name),
+        FOREIGN KEY (ingredient_name) REFERENCES ingredients(ingredient_name),
+        FOREIGN KEY (sandwich_name) REFERENCES sandwhiches(sandwich_name)
+);
+
+-- SELECT p.category, p.name, p.id, pri.price, pri.unit, pri.timestamp 
+-- FROM prices pri
+-- JOIN products p ON pri.productId = p.id
+-- WHERE p.category = 'Frukt och Grönt'
+-- ORDER BY p.name ASC;
+
+-- SELECT p.category, SUM(price) as totSum
+-- FROM products p
+-- JOIN (
+--     SELECT productId, price, MAX(timestamp) AS max_ts
+--     FROM prices
+--     WHERE price < 20
+--     GROUP BY productId
+-- ) AS pp 
+-- ON p.id = pp.productId
+-- GROUP BY p.category
+
+
+-- SELECT p.category, SUM(pp.price) AS totSum --, pp.unit, pp.max_ts
+-- FROM products p
+-- JOIN (
+--     SELECT productId, price, unit, MAX(timestamp) AS max_ts
+--     FROM prices
+--     GROUP BY productId
+-- ) pp ON p.id = pp.productId
+-- GROUP BY p.category
+-- HAVING totSum > 1000
+-- ORDER BY p.category ASC, pp.price DESC;
+
+-- SELECT * FROM products;
