@@ -26,7 +26,7 @@ _- mixture_name : TEXT_
 - nbr_of_sandwiches : INT
 - mixture_instructions : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>280</y><w>40</w><h>160</h></coordinates><panel_attributes>m1=*
 m2=*</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>260</y><w>190</w><h>120</h></coordinates><panel_attributes>&lt;weak&gt;
-Mixture_Amount
+Mixture_Amounts
 --
 - ingredient_amount : INT
 - ingredient_unit : TEXT
@@ -43,7 +43,7 @@ _- sandwich_name : TEXT_
 + mixture_name : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>280</y><w>40</w><h>330</h></coordinates><panel_attributes>m1=*
 m2=*</panel_attributes><additional_attributes>10;10;10;310</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>490</y><w>50</w><h>120</h></coordinates><panel_attributes>m1=0...1
 m2=*</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>350</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>400</y><w>190</w><h>120</h></coordinates><panel_attributes>&lt;weak&gt;
-Sandwich_Amount
+Sandwich_Amounts
 --
 - ingredient_amount : INT
 - ingredient_unit : TEXT
