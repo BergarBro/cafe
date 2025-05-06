@@ -33,8 +33,8 @@ urlCategory = [ # List of Names of the URL:s above
     "Skåp"
 ]
 
-delayButton = 1000   # Time to wait between button-clicks
-delay = 5000        # Time to wait between jumps to websites
+delayButton = 1000  # Time to wait between button-clicks
+delay = 3000        # Time to wait between jumps to websites
 delayLogin = 30000  # Time to wait after loging in, first time
 
 executeProductsScrape   = True
