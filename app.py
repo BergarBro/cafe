@@ -1,5 +1,6 @@
 import time
 import tkinter as tk
+from tkinter import *
 import random as rd
 import threading
 
@@ -11,6 +12,10 @@ def startPlotPrices() :
 def startScraperScript() :
     thread1 = threading.Thread(target=scraperScript.runScraperScript, daemon=True)
     thread1.start()
+
+def test() :
+    print(opt.get())
+    print(listbox1.curselection())
 
 root = tk.Tk()
 root.title("Hilbot 2000")
@@ -27,6 +32,23 @@ button1.pack(pady=5)
 
 button2 = tk.Button(root, text="Scrape Prices from SvenskCater",command=startScraperScript)
 button2.pack(pady=5)
+
+button3 = tk.Button(root, text="Test",command=test)
+button3.pack(pady=5)
+
+# Dropdown options  
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]  
+
+# Selected option variable  
+opt = StringVar(value="Monday")  
+
+# Dropdown menu  
+dropdown1 = tk.OptionMenu(root, opt, *days).pack()
+
+listbox1 = tk.Listbox(root, selectmode='multiple', height=6)
+for item in days :
+    listbox1.insert(tk.END, item)
+listbox1.pack(pady=10)
 
 # label2 = tk.Label(root, text="Recored Movment")
 # label2.pack(pady=5)
