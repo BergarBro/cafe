@@ -123,7 +123,7 @@ def runScraperScript() :
                             VALUES (?, ?, ?, ?)
                         ''', (productId, price, unit, timestamp))
                     i = i + 1
-                    print(f"{i:<4} {productId:<10} {name:<30} {brandName:<20} {price:<10} {unit:<10} {timestamp:<10}")
+                    # print(f"{i:<4} {productId:<10} {name:<30} {brandName:<20} {price:<10} {unit:<10} {timestamp:<10}")
 
 
                 # print("-" * 30)

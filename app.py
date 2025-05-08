@@ -6,7 +6,7 @@ import threading
 import plotPrices, scraperScript
 
 def startPlotPrices() :
-    plotPrices.makePricePlot(["Gurka"])
+    plotPrices.makePricePlot(["kaffe"])
 
 def startScraperScript() :
     thread1 = threading.Thread(target=scraperScript.runScraperScript, daemon=True)
