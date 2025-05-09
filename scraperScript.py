@@ -39,8 +39,8 @@ def runScraperScript() :
     delayLogin = 30000  # Time to wait after loging in, first time
 
     executeProductsScrape   = True
-    executePriceScrape      = False
-    executeImportBread      = False
+    executePriceScrape      = True
+    executeImportBread      = True
     executePlotPrices       = False
 
     # Step 2: Connect to SQLite (creates file if if doesn't exist)

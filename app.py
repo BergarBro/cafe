@@ -1,13 +1,21 @@
 import time
 import tkinter as tk
 from tkinter import *
+from tkinter import ttk
 import random as rd
 import threading
 
-import plotPrices, scraperScript
+import plotPrices, scraperScript, getFunctions
 
 def startPlotPrices() :
-    plotPrices.makePricePlot(["kaffe"])
+    global categorys, activList
+    productList = products[activList]
+    selectedProductsIndex = listOfListBoxes[activList].curselection()
+    selectedProducts = []
+    for index in selectedProductsIndex :
+        selectedProducts.append(productList[index])
+
+    plotPrices.makePricePlot(selectedProducts)
 
 def startScraperScript() :
     thread1 = threading.Thread(target=scraperScript.runScraperScript, daemon=True)
@@ -15,7 +23,15 @@ def startScraperScript() :
 
 def test() :
     print(opt.get())
-    print(listbox1.curselection())
+    # print(listbox1.curselection())
+
+def changeCategory(cat) :
+    global activList, listOfListBoxes, categorys
+    catIndex = categorys.index(cat)
+    listOfListBoxes[activList].pack_forget()
+    listOfListBoxes[catIndex].pack(pady=5)
+    activList = catIndex
+
 
 root = tk.Tk()
 root.title("Hilbot 2000")
@@ -37,18 +53,24 @@ button3 = tk.Button(root, text="Test",command=test)
 button3.pack(pady=5)
 
 # Dropdown options  
-days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]  
+products, categorys = getFunctions.getProductsAndCategorys()
 
 # Selected option variable  
-opt = StringVar(value="Monday")  
+opt = StringVar(value=categorys[0])  
 
 # Dropdown menu  
-dropdown1 = tk.OptionMenu(root, opt, *days).pack()
+dropdown1 = tk.OptionMenu(root, opt, *categorys, command=changeCategory)
+dropdown1.pack(pady=5)
 
-listbox1 = tk.Listbox(root, selectmode='multiple', height=6)
-for item in days :
-    listbox1.insert(tk.END, item)
-listbox1.pack(pady=10)
+listOfListBoxes = []
+for i in range(len(categorys)) :
+    tempListBox = tk.Listbox(root, selectmode='multiple', height=6, width=50)
+    for item in products[i] :
+        tempListBox.insert(tk.END, item)
+    listOfListBoxes.append(tempListBox)
+
+activList = 0
+listOfListBoxes[0].pack(pady=5)
 
 # label2 = tk.Label(root, text="Recored Movment")
 # label2.pack(pady=5)

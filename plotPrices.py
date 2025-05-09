@@ -48,9 +48,10 @@ def makePricePlot(productsName) :
     conn = sqlite3.connect("hilbertDatabase.db")
     cursor = conn.cursor()
     units = []
+    plt.cla()
 
     for productName in productsName :
-        search = f"%{productName.lower()}%"
+        # search = f"{productName.lower()}"
         cursor.execute('''
             -- SELECT price, DATE(timestamp) FROM prices
             -- WHERE ProductId = 49553;
@@ -58,8 +59,8 @@ def makePricePlot(productsName) :
             SELECT pri.price, pri.unit, DATE(pri.timestamp) 
             FROM prices pri
             JOIN products p ON pri.productId = p.id
-            WHERE LOWER(p.name) LIKE ?;
-        ''', (search,))
+            WHERE p.name = ?;
+        ''', (productName,))
 
         elems = cursor.fetchall()
 

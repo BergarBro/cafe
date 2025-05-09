@@ -16,10 +16,28 @@
 
 import sqlite3
 
-def getProductsName() :
+def getProductsAndCategorys() :
     conn = sqlite3.connect("hilbertDatabase.db")
     cursor = conn.cursor()
 
     cursor.execute('''
-        SELECT name 
+        SELECT category, name FROM products;
     ''')
+    elems = cursor.fetchall()
+    conn.close()
+
+    products = []
+    categorys = []
+    for cat, prod in elems :
+        try :
+            ind = categorys.index(cat)
+        except :
+            prodList = [prod]
+            products.append(prodList)
+            categorys.append(cat)
+        else :
+            products[ind].append(prod)
+
+    return (products, categorys)
+
+
