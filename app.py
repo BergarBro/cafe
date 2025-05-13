@@ -43,17 +43,19 @@ label1text = "This is a tool to 'help'/replace mackåsnan..."
 label1 = tk.Label(root, text=label1text)
 label1.pack(pady=5)
 
-button1 = tk.Button(root, text="Plot Prices over Time",command=startPlotPrices)
-button1.pack(pady=5)
-
 button2 = tk.Button(root, text="Scrape Prices from SvenskCater",command=startScraperScript)
 button2.pack(pady=5)
 
+button1 = tk.Button(root, text="Plot Prices over Time",command=startPlotPrices)
+button1.pack(pady=5)
+
 button3 = tk.Button(root, text="Test",command=test)
-button3.pack(pady=5)
+# button3.pack(pady=5)
 
 # Dropdown options  
 products, categorys = getFunctions.getProductsAndCategorys()
+for l in products :
+    l.sort()
 
 # Selected option variable  
 opt = StringVar(value=categorys[0])  
@@ -62,15 +64,21 @@ opt = StringVar(value=categorys[0])
 dropdown1 = tk.OptionMenu(root, opt, *categorys, command=changeCategory)
 dropdown1.pack(pady=5)
 
+scrollbar = Scrollbar(root) 
+scrollbar.pack(side = RIGHT, fill = BOTH) 
+
 listOfListBoxes = []
 for i in range(len(categorys)) :
-    tempListBox = tk.Listbox(root, selectmode='multiple', height=6, width=50)
+    tempListBox = tk.Listbox(root, selectmode='multiple', height=10, width=50)
     for item in products[i] :
         tempListBox.insert(tk.END, item)
     listOfListBoxes.append(tempListBox)
 
 activList = 0
 listOfListBoxes[0].pack(pady=5)
+
+listOfListBoxes[0].config(yscrollcommand = scrollbar.set)
+scrollbar.config(command = listOfListBoxes[0].yview) 
 
 # label2 = tk.Label(root, text="Recored Movment")
 # label2.pack(pady=5)
