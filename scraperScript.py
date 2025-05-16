@@ -2,10 +2,12 @@ from playwright.sync_api import sync_playwright
 import sqlite3
 import datetime
 
-import importBread, plotPrices
+import importBread
 
+def main() :
+    runScraperScript([True, False, True])
 
-def runScraperScript() :
+def runScraperScript(optionsList) :
     urlList = [ # List of Important URL:s
         "https://shop.svenskcater.se/", # Main website
         "https://shop.svenskcater.se/webbshop/starta-bestaellningen/?f=120361&d=131%20Malm%C3%B6",  # Name: Ej Mat
@@ -38,10 +40,10 @@ def runScraperScript() :
     # delay = 4000        # Time to wait between jumps to websites
     delayLogin = 30000  # Time to wait after loging in, first time
 
-    executeProductsScrape   = True
-    executePriceScrape      = True
-    executeImportBread      = True
-    executePlotPrices       = False
+    optionsList[0]  = True # executeProductsScrape
+    optionsList[1]  = True # executePriceScrape
+    optionsList[2]  = True # executeImportBread
+
 
     # Step 2: Connect to SQLite (creates file if if doesn't exist)
     conn = sqlite3.connect("hilbertDatabase.db")
@@ -68,7 +70,7 @@ def runScraperScript() :
         )
     ''')
 
-    if executeProductsScrape or executePriceScrape :
+    if optionsList[0] or optionsList[1] :
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=False)  # False to see the browser
             page = browser.new_page()
@@ -91,14 +93,19 @@ def runScraperScript() :
             # page.pause()
 
             # page.wait_for_timeout(delayLogin)
-            page.wait_for_selector('text="STARTA DIN BESTÄLLNING"')
+            page.wait_for_selector('text="STARTA DIN BESTÄLLNING"', timeout=120000)
             i = 0
             for url, categoryName in zip(urlList[1:],urlCategory[1:]) :
                 page.goto(url, wait_until="networkidle")
                 # page.wait_for_timeout(delay)
 
-                # print("-" * 10 + " " + name + " " + "-" * 10) 
-                product_wrapper = page.query_selector_all(".shop-gallery-item-wrapper")
+                product_wrapper = []
+                while product_wrapper == [] :
+                    product_wrapper = page.query_selector_all(".shop-gallery-item-wrapper")
+                    if product_wrapper == [] :
+                        print("Error fetching products from: ", categoryName)
+                        print("Trying fetching again!")
+                        page.wait_for_timeout(500)
                 for product in product_wrapper:
                     productId = int(product.query_selector(".productId").text_content())
                     name = product.query_selector("strong a").text_content()
@@ -111,13 +118,13 @@ def runScraperScript() :
                     unit = priceText[unitLocation:]
                     timestamp = datetime.datetime.now().isoformat()
 
-                    if executeProductsScrape :
+                    if optionsList[0] :
                         cursor.execute('''
                             INSERT OR REPLACE INTO products (id, name, brand, category)
                             VALUES (?, ?, ?, ?)
                         ''', (productId, name, brandName, categoryName))
 
-                    if executePriceScrape :
+                    if optionsList[1] :
                         cursor.execute('''
                             INSERT INTO prices (productId, price, unit, timestamp)
                             VALUES (?, ?, ?, ?)
@@ -135,11 +142,9 @@ def runScraperScript() :
     conn.commit()
     conn.close()
 
-    if executeImportBread :
+    if optionsList[2] :
         importBread.importBread()
 
-    if executePlotPrices :
-        category = input("What category of products do you want ploted? ")
-        plotPrices.makePricePlot(category)
+    print("Done Scrapeing!")
 
-    print("Done")
+# main()

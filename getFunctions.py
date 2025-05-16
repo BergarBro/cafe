@@ -26,17 +26,27 @@ def getProductsAndCategorys() :
     elems = cursor.fetchall()
     conn.close()
 
-    products = []
+    products = {}
     categorys = []
+
+    categorys.append("All Products")
+    products["All Products"] = []
+
     for cat, prod in elems :
         try :
-            ind = categorys.index(cat)
+            categorys.index(cat)
         except :
-            prodList = [prod]
-            products.append(prodList)
+            products[cat] = []
             categorys.append(cat)
-        else :
-            products[ind].append(prod)
+
+        products[cat].append(prod)
+        products["All Products"].append(prod)
+    
+
+    categorys.sort()
+
+    for cat in categorys :
+        products[cat].sort()
 
     return (products, categorys)
 

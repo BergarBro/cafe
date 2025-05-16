@@ -53,9 +53,6 @@ def makePricePlot(productsName) :
     for productName in productsName :
         # search = f"{productName.lower()}"
         cursor.execute('''
-            -- SELECT price, DATE(timestamp) FROM prices
-            -- WHERE ProductId = 49553;
-                       
             SELECT pri.price, pri.unit, DATE(pri.timestamp) 
             FROM prices pri
             JOIN products p ON pri.productId = p.id
@@ -82,10 +79,11 @@ def makePricePlot(productsName) :
             productsName.remove(productName)
             print("Could not find product in list:", productName)
     plt.legend(productsName, loc="upper left")
-    if len(set(units)) == 1 :
-        plt.ylabel(units[0], rotation=0)
-    else :
-        print("Products have different units, could not compare")
+    if len(set(units)) != 0 :
+        if len(set(units)) == 1 :
+            plt.ylabel(units[0], rotation=0)
+        else :
+            print("Products have different units, could not compare")
 
     plt.tight_layout() 
     plt.show()
