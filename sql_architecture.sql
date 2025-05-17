@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS mixtures (
     PRIMARY KEY (mixture_name)
 );
 
-CREATE TABLE IF NOT EXISTS mixture_amount (
+CREATE TABLE IF NOT EXISTS mixture_amounts (
     ingredient_amount INT,
     ingredient_unit TEXT,
     ingredient_name TEXT,
@@ -75,14 +75,27 @@ CREATE TABLE IF NOT EXISTS sandwiches (
         FOREIGN KEY (mixture_name) REFERENCES mixtures(mixture_name)
 );
 
-CREATE TABLE IF NOT EXISTS sandwich_amount (
+CREATE TABLE IF NOT EXISTS sandwich_amounts (
     ingredient_amount INT,
     ingredient_unit TEXT,
     ingredient_name TEXT,
     sandwich_name TEXT,
     PRIMARY KEY (ingredient_name, sandwich_name),
         FOREIGN KEY (ingredient_name) REFERENCES ingredients(ingredient_name),
-        FOREIGN KEY (sandwich_name) REFERENCES sandwhiches(sandwich_name)
+        FOREIGN KEY (sandwich_name) REFERENCES sandwiches(sandwich_name)
+);
+
+CREATE TABLE IF NOT EXISTS weekdays (
+    weekday_name TEXT,
+    active_status BOOLEAN, -- True means that we need to order for that day
+    PRIMARY KEY (weekday_name)
+);
+
+CREATE TABLE IF NOT EXISTS sandwich_day_statuses (
+    sandwich_status BOOLEAN, -- True means that we are making the sandwich that week
+    PRIMARY KEY (sandwich_name, weekday_name)
+        FOREIGN KEY (sandwich_name) REFERENCES sandwiches(sandwich_name),
+        FOREIGN KEY (weekday_name) REFERENCES weekdays(weekday_name),
 );
 
 -- SELECT p.category, p.name, p.id, pri.price, pri.unit, pri.timestamp 

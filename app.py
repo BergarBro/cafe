@@ -6,6 +6,7 @@ import random as rd
 import threading
 
 import plotPrices, scraperScript, getFunctions
+from tooltip import ListboxTooltip
 
 def startPlotPrices() :
     global categorys, activeCategory, activeProducts
@@ -44,7 +45,7 @@ def open_popup_scraper():
     options = ["Fetch Products", "Fetch Prices", "Fetch Bread and Breadprices"]
     for opt in options:
         var = tk.BooleanVar()
-        ttk.Checkbutton(popup, text=opt, variable=var).pack(pady=5)
+        tk.Checkbutton(popup, text=opt, variable=var).pack(pady=5)
         option_vars[opt] = var
 
     def on_ok():
@@ -61,10 +62,10 @@ def open_popup_scraper():
         print("You canceled the Scraper")
         popup.destroy()
 
-    popButton1 = ttk.Button(popup, text="OK", command=on_ok)
+    popButton1 = tk.Button(popup, text="OK", command=on_ok)
     popButton1.pack(padx=10)
 
-    popButton2 = ttk.Button(popup, text="CANCEL", command=on_cancel)
+    popButton2 = tk.Button(popup, text="CANCEL", command=on_cancel)
     popButton2.pack(pady=10)
 
 def selectAll() :
@@ -153,6 +154,7 @@ listOfListBoxes[activeCategory].pack(side=tk.LEFT)
 listOfListBoxes[activeCategory].config(yscrollcommand = scrollbar.set)
 scrollbar.config(command = listOfListBoxes[activeCategory].yview)
 
+# tooltip = ListboxTooltip(listOfListBoxes[activeCategory], get_tooltip_text=lambda i: str(i) + "hej")
 
 # label2 = tk.Label(root, text="Recored Movment")
 # label2.pack(pady=5)
