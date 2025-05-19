@@ -5,9 +5,9 @@ import datetime
 import importBread
 
 def main() :
-    runScraperScript([True, False, True])
+    run_scraper_script([True, False, True])
 
-def runScraperScript(optionsList) :
+def run_scraper_script(optionsList) :
     urlList = [ # List of Important URL:s
         "https://shop.svenskcater.se/", # Main website
         "https://shop.svenskcater.se/webbshop/starta-bestaellningen/?f=120361&d=131%20Malm%C3%B6",  # Name: Ej Mat
