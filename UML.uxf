@@ -1,10 +1,10 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>14</x><y>0</y><w>190</w><h>110</h></coordinates><panel_attributes>Price_Offer
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>10</x><y>0</y><w>190</w><h>110</h></coordinates><panel_attributes>Price_Offer
 --
-_- offer_id : INT_
+_- offer_id : INT(hex)_
 - offer_price : INT
 - offer_timestamp : DATETIME
 --
-_+ product_id : INT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>294</x><y>0</y><w>190</w><h>140</h></coordinates><panel_attributes>Product
+_+ product_id : INT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>0</y><w>190</w><h>140</h></coordinates><panel_attributes>Product
 --
 _- product_id : INT_
 - product_name : TEXT
@@ -12,27 +12,27 @@ _- product_id : INT_
 - product_unit : TEXT
 --
 + catagory_name : TEXT
-+ ingredient_name : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>194</x><y>40</y><w>120</w><h>40</h></coordinates><panel_attributes>m1=*
-m2=1</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>564</x><y>0</y><w>150</w><h>60</h></coordinates><panel_attributes>Catagory
++ ingredient_name : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>40</y><w>120</w><h>40</h></coordinates><panel_attributes>m1=*
+m2=1</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>0</y><w>150</w><h>60</h></coordinates><panel_attributes>Catagory
 --
-_- catagory_name : TEXT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>474</x><y>40</y><w>110</w><h>40</h></coordinates><panel_attributes>m1=1
-m2=*</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>294</x><y>210</y><w>190</w><h>80</h></coordinates><panel_attributes>Ingredient
+_- catagory_name : TEXT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>40</y><w>110</w><h>40</h></coordinates><panel_attributes>m1=1
+m2=*</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>210</y><w>190</w><h>80</h></coordinates><panel_attributes>Ingredient
 --
 _- ingredient_name : TEXT_
-- ingredient_comment : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>374</x><y>130</y><w>50</w><h>100</h></coordinates><panel_attributes>m1=*
-m2=0...1</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>414</x><y>420</y><w>170</w><h>80</h></coordinates><panel_attributes>Mixture
+- ingredient_comment : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>130</y><w>50</w><h>100</h></coordinates><panel_attributes>m1=*
+m2=0...1</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>420</y><w>170</w><h>80</h></coordinates><panel_attributes>Mixture
 --
 _- mixture_name : TEXT_
 - nbr_of_sandwiches : INT
-- mixture_instructions : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>434</x><y>280</y><w>30</w><h>160</h></coordinates><panel_attributes>m1=*
-m2=*</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>534</x><y>260</y><w>190</w><h>120</h></coordinates><panel_attributes>&lt;weak&gt;
+- mixture_instructions : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>280</y><w>40</w><h>160</h></coordinates><panel_attributes>m1=*
+m2=*</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>260</y><w>190</w><h>120</h></coordinates><panel_attributes>&lt;weak&gt;
 Mixture_Amount
 --
 - ingredient_amount : INT
 - ingredient_unit : TEXT
 --
 _+ ingredient_name : TEXT_
-_+ mixture_name : TEXT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>294</x><y>590</y><w>190</w><h>140</h></coordinates><panel_attributes>Sandwich
+_+ mixture_name : TEXT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>590</y><w>190</w><h>140</h></coordinates><panel_attributes>Sandwich
 --
 _- sandwich_name : TEXT_
 - vegan : BOOLEAN
@@ -40,24 +40,26 @@ _- sandwich_name : TEXT_
 - bread_type : TEXT
 - prep_info : TEXT
 --
-+ mixture_name : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>334</x><y>280</y><w>30</w><h>330</h></coordinates><panel_attributes>m1=*
-m2=*</panel_attributes><additional_attributes>10;10;10;310</additional_attributes></element><element><id>Relation</id><coordinates><x>434</x><y>490</y><w>50</w><h>120</h></coordinates><panel_attributes>m1=0...1
-m2=*</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>434</x><y>350</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>14</x><y>400</y><w>190</w><h>120</h></coordinates><panel_attributes>&lt;weak&gt;
++ mixture_name : TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>280</y><w>40</w><h>330</h></coordinates><panel_attributes>m1=*
+m2=*</panel_attributes><additional_attributes>10;10;10;310</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>490</y><w>50</w><h>120</h></coordinates><panel_attributes>m1=0...1
+m2=*</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>350</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>400</y><w>190</w><h>120</h></coordinates><panel_attributes>&lt;weak&gt;
 Sandwich_Amount
 --
 - ingredient_amount : INT
 - ingredient_unit : TEXT
 --
 _+ ingredient_name : TEXT_
-_+ sandwich_name : TEXT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>194</x><y>450</y><w>170</w><h>30</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;150;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>294</x><y>890</y><w>190</w><h>80</h></coordinates><panel_attributes>Weekday
+_+ sandwich_name : TEXT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>450</y><w>170</w><h>30</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;150;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>890</y><w>190</w><h>90</h></coordinates><panel_attributes>Weekday
 --
-_- weekday_name : TEXT_
-- active_status : BOOLEAN
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>334</x><y>720</y><w>30</w><h>190</h></coordinates><panel_attributes>m1=*
-m2=*</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>14</x><y>750</y><w>190</w><h>120</h></coordinates><panel_attributes>&lt;weak&gt;
-Sandwich_Day_Status
+_- weekday_id: INT(hex)_
+- weekday_name : TEXT
+- weekday_date: DATETIME
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>720</y><w>40</w><h>190</h></coordinates><panel_attributes>m1=*
+m2=*</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>750</y><w>190</w><h>120</h></coordinates><panel_attributes>&lt;weak&gt;
+Day_Schedule
 --
-- sandwich_status : BOOL
+- sandwich_ratio: DOUBLE
+- day_comment: TEXT
 --
 _+ sandwich_name : TEXT_
-_+ weekday_name : TEXT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>194</x><y>800</y><w>170</w><h>30</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;150;10</additional_attributes></element></diagram>
+_+ weekday_id: INT_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>800</y><w>170</w><h>30</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;150;10</additional_attributes></element></diagram>

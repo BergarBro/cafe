@@ -13,7 +13,7 @@ def open_popup_scraper():
     popup_scraper.title("Scraping Prices")
     popup_scraper.geometry("300x300")
     
-    label_scraper_info = tk.Label(popup_scraper, text="Options for Scraping Prices:")
+    label_scraper_info = tk.Label(popup_scraper, text="Options for Scraping Prices on SvenskCater:")
     label_scraper_info.pack(pady=10)
     
     # Radio buttons for mutually exclusive choices
@@ -38,11 +38,14 @@ def open_popup_scraper():
         print("You canceled the Scraper")
         popup_scraper.destroy()
 
-    button_scraper_ok = tk.Button(popup_scraper, text="OK", command=on_ok)
-    button_scraper_ok.pack(padx=10)
+    frame_select = tk.Frame(popup_scraper)
+    frame_select.pack(pady=5)
 
-    button_scraper_cancel = tk.Button(popup_scraper, text="CANCEL", command=on_cancel)
-    button_scraper_cancel.pack(pady=10)
+    button_scraper_ok = tk.Button(frame_select, text="SCRAPE!", command=on_ok)
+    button_scraper_ok.pack(side=tk.LEFT, padx=10)
+
+    button_scraper_cancel = tk.Button(frame_select, text="CANCEL", command=on_cancel)
+    button_scraper_cancel.pack(side=tk.LEFT, padx=10)
 
 def open_popup_plotter() :
     global categorys, products, listOfListBoxes, scrollbar
@@ -97,15 +100,12 @@ def open_popup_plotter() :
 
     label_plotter_info = tk.Label(popup_plotter, text="Choose products to plot the price over time.")
     label_plotter_info.pack(pady=5)
-    
-    button_plot_prices = tk.Button(popup_plotter, text="Plot!",command=plot_prices)
-    button_plot_prices.pack(pady=5)
 
     # button3 = tk.Button(root, text="Pop-Up",command=test)
     # button3.pack(pady=5)
 
-    search_frame = tk.Frame(popup_plotter)
-    search_frame.pack(pady=5)  # You can also use padx here
+    frame_search = tk.Frame(popup_plotter)
+    frame_search.pack(pady=5)  # You can also use padx here
 
     # Dropdown options  
     products, categorys = getFunctions.getProductsAndCategorys()
@@ -114,19 +114,19 @@ def open_popup_plotter() :
     opt = StringVar(value=categorys[0])  
 
     # Dropdown menu  
-    dropdown_categorys = tk.OptionMenu(search_frame, opt, *categorys, command=change_category)
+    dropdown_categorys = tk.OptionMenu(frame_search, opt, *categorys, command=change_category)
     dropdown_categorys.pack(side=tk.LEFT, padx=5)
 
     search_var = tk.StringVar()
-    search_entry = tk.Entry(search_frame, textvariable=search_var)
+    search_entry = tk.Entry(frame_search, textvariable=search_var)
     # search_entry.insert(0, "Search...")
     search_entry.pack(side=tk.LEFT, padx=5)
 
     # Buttons packed inside the frame side-by-side
-    button_select_all = tk.Button(search_frame, text="Select All", command=select_all)
+    button_select_all = tk.Button(frame_search, text="Select All", command=select_all)
     button_select_all.pack(side=tk.LEFT, padx=5)
 
-    button_deselect_all = tk.Button(search_frame, text="Deselect All", command=deselect_all)
+    button_deselect_all = tk.Button(frame_search, text="Deselect All", command=deselect_all)
     button_deselect_all.pack(side=tk.LEFT, padx=5)
 
     listBox_frame = tk.Frame(popup_plotter)
@@ -154,8 +154,14 @@ def open_popup_plotter() :
 
     search_var.trace_add("write", lambda *args: update_search_category_list())
 
-    button_scraper_cancel = tk.Button(popup_plotter, text="CLOSE", command=on_close)
-    button_scraper_cancel.pack(pady=10)
+    frame_plot = tk.Frame(popup_plotter)
+    frame_plot.pack(pady=5)
+
+    button_plot_prices = tk.Button(frame_plot, text="PLOT!",command=plot_prices)
+    button_plot_prices.pack(side=tk.LEFT, padx=10)
+
+    button_plotter_cancel = tk.Button(frame_plot, text="CANCEL", command=on_close)
+    button_plotter_cancel.pack(side=tk.LEFT, pady=10)
 
 root = tk.Tk()
 root.title("Hilbot 2000")
@@ -165,10 +171,10 @@ label_info_text = "This is a tool to 'help'/replace mackåsnan..."
 label_info = tk.Label(root, text=label_info_text)
 label_info.pack(pady=5)
 
-button_open_scraper = tk.Button(root, text="Scrape Prices from SvenskCater",command=open_popup_scraper)
+button_open_scraper = tk.Button(root, text="Open Scraper",command=open_popup_scraper)
 button_open_scraper.pack(pady=5)
 
-button_open_plotter = tk.Button(root, text="Plot Prices over Time",command=open_popup_plotter)
+button_open_plotter = tk.Button(root, text="Open Plotter",command=open_popup_plotter)
 button_open_plotter.pack(pady=5)
 
 # button3 = tk.Button(root, text="Pop-Up",command=test)
