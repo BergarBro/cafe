@@ -5,7 +5,7 @@ from tkinter import ttk
 import random as rd
 import threading
 
-import plotPrices, scraperScript, getFunctions
+import plotPrices, scraperScript, getFunctions, makeBackupDB
 from tooltip import ListboxTooltip
 
 def open_popup_scraper():
@@ -163,6 +163,9 @@ def open_popup_plotter() :
     button_plotter_cancel = tk.Button(frame_plot, text="CANCEL", command=on_close)
     button_plotter_cancel.pack(side=tk.LEFT, pady=10)
 
+def create_backup() :
+    makeBackupDB.create_backup_of_DB(active_database)
+
 active_database = "hilbertDatabase.db" # Name of active database
 
 root = tk.Tk()
@@ -178,6 +181,9 @@ button_open_scraper.pack(pady=5)
 
 button_open_plotter = tk.Button(root, text="Open Plotter",command=open_popup_plotter)
 button_open_plotter.pack(pady=5)
+
+button_open_backup = tk.Button(root, text="Create Backup of Database", command=create_backup)
+button_open_backup.pack(pady=5)
 
 # button3 = tk.Button(root, text="Pop-Up",command=test)
 # button3.pack(pady=5)
