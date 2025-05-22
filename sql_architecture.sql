@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS mixtures (
 );
 
 CREATE TABLE IF NOT EXISTS mixture_amounts (
-    ingredient_amount INT,
+    ingredient_amount DECIMAL,
     ingredient_unit TEXT,
     ingredient_name TEXT,
     mixture_name TEXT,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS sandwiches (
 );
 
 CREATE TABLE IF NOT EXISTS sandwich_amounts (
-    ingredient_amount INT,
+    ingredient_amount DECIMAL,
     ingredient_unit TEXT,
     ingredient_name TEXT,
     sandwich_name TEXT,
@@ -86,16 +86,18 @@ CREATE TABLE IF NOT EXISTS sandwich_amounts (
 );
 
 CREATE TABLE IF NOT EXISTS weekdays (
-    weekday_name TEXT,
-    active_status BOOLEAN, -- True means that we need to order for that day
-    PRIMARY KEY (weekday_name)
+    weekday_id TEXT DECIMAL (lower(hex(randomblob(16)))),
+    weekday_name TEXT, -- = monday/tuseday/...
+    weekday_date DATETIME,
+    PRIMARY KEY (weekday_id)
 );
 
-CREATE TABLE IF NOT EXISTS sandwich_day_statuses (
-    sandwich_status BOOLEAN, -- True means that we are making the sandwich that week
-    PRIMARY KEY (sandwich_name, weekday_name)
+CREATE TABLE IF NOT EXISTS day_schedules (
+    sandwich_ratio DECIMAL DEFAULT (1.0), -- The ratio of how many times the recepie the sandwich is suppose to be, default 1:1
+    day_info TEXT, -- Lay a comment for why we are making 4 "satser" hummus, because "lunchföreläsning"
+    PRIMARY KEY (sandwich_name, weekday_id)
         FOREIGN KEY (sandwich_name) REFERENCES sandwiches(sandwich_name),
-        FOREIGN KEY (weekday_name) REFERENCES weekdays(weekday_name),
+        FOREIGN KEY (weekday_id) REFERENCES weekdays(weekday_id),
 );
 
 -- SELECT p.category, p.name, p.id, pri.price, pri.unit, pri.timestamp 
