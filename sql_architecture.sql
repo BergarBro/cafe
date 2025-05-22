@@ -20,11 +20,10 @@ CREATE TABLE IF NOT EXISTS categorys (
     PRIMARY KEY (category_name)
 );
 
-CREATE TABLE IF NOT EXISTS products_test (
+CREATE TABLE IF NOT EXISTS products (
     product_id INT,
-    product_name TEXT NOT NULL,
-    product_brand TEXT DEFAULT ('Not Found')
-    product_unit TEXT NOT NULL,
+    product_name TEXT,
+    product_brand TEXT DEFAULT ('Not Found'),
     category_name TEXT,
     ingredient_name TEXT,
     PRIMARY KEY (product_id),
@@ -33,11 +32,12 @@ CREATE TABLE IF NOT EXISTS products_test (
 );
 
 CREATE TABLE IF NOT EXISTS price_offers (
-    offer_id TEXT DEFAULT (lower(hex(randomblob(16)))),
-    offer_price INT NOT NULL,
-    offer_timestamp DATETIME NOT NULL,
+    offer_id TEXT DEFAULT (lower(hex(randomblob(8)))),
+    offer_price DECIMAL,
+    offer_timestamp DATETIME,
+    offer_unit TEXT,
     product_id INT,
-    PRIMARY KEY (offer_id, product_id)
+    PRIMARY KEY (offer_id, product_id),
         FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS sandwiches (
     bread_type TEXT,
     prep_info TEXT,
     mixture_name TEXT,
-    PRIMARY KEY (sandwich_name)
+    PRIMARY KEY (sandwich_name),
         FOREIGN KEY (mixture_name) REFERENCES mixtures(mixture_name)
 );
 
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS sandwich_amounts (
 );
 
 CREATE TABLE IF NOT EXISTS weekdays (
-    weekday_id TEXT DECIMAL (lower(hex(randomblob(16)))),
+    weekday_id TEXT DEFAULT (lower(hex(randomblob(8)))),
     weekday_name TEXT, -- = monday/tuseday/...
     weekday_date DATETIME,
     PRIMARY KEY (weekday_id)
@@ -95,9 +95,11 @@ CREATE TABLE IF NOT EXISTS weekdays (
 CREATE TABLE IF NOT EXISTS day_schedules (
     sandwich_ratio DECIMAL DEFAULT (1.0), -- The ratio of how many times the recepie the sandwich is suppose to be, default 1:1
     day_info TEXT, -- Lay a comment for why we are making 4 "satser" hummus, because "lunchföreläsning"
-    PRIMARY KEY (sandwich_name, weekday_id)
+    sandwich_name TEXT,
+    weekday_id TEXT,
+    PRIMARY KEY (sandwich_name, weekday_id),
         FOREIGN KEY (sandwich_name) REFERENCES sandwiches(sandwich_name),
-        FOREIGN KEY (weekday_id) REFERENCES weekdays(weekday_id),
+        FOREIGN KEY (weekday_id) REFERENCES weekdays(weekday_id)
 );
 
 -- SELECT p.category, p.name, p.id, pri.price, pri.unit, pri.timestamp 

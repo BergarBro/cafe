@@ -28,7 +28,7 @@ def open_popup_scraper():
         selected = [var.get() for opt, var in option_vars.items()]
 
         thread_scraper = threading.Thread(
-            target=lambda: scraperScript.run_scraper_script(optionsList=selected), 
+            target=lambda: scraperScript.run_scraper_script(optionsList=selected, active_database=active_database), 
             daemon=True
             )
         thread_scraper.start()
@@ -58,7 +58,7 @@ def open_popup_plotter() :
         for index in selectedProductsIndex :
             selectedProducts.append(activeProducts[index])
 
-        plotPrices.makePricePlot(selectedProducts)
+        plotPrices.makePricePlot(selectedProducts, active_database)
 
     def change_category(newCategory) :
         global activeCategory, listOfListBoxes, categorys, activeProducts, scrollbar
@@ -108,7 +108,7 @@ def open_popup_plotter() :
     frame_search.pack(pady=5)  # You can also use padx here
 
     # Dropdown options  
-    products, categorys = getFunctions.getProductsAndCategorys()
+    products, categorys = getFunctions.getProductsAndCategorys(active_database)
 
     # Selected option variable  
     opt = StringVar(value=categorys[0])  
@@ -162,6 +162,8 @@ def open_popup_plotter() :
 
     button_plotter_cancel = tk.Button(frame_plot, text="CANCEL", command=on_close)
     button_plotter_cancel.pack(side=tk.LEFT, pady=10)
+
+active_database = "hilbertDatabase.db" # Name of active database
 
 root = tk.Tk()
 root.title("Hilbot 2000")

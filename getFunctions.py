@@ -16,12 +16,12 @@
 
 import sqlite3
 
-def getProductsAndCategorys() :
-    conn = sqlite3.connect("hilbertDatabase.db")
+def getProductsAndCategorys(active_database) :
+    conn = sqlite3.connect(active_database)
     cursor = conn.cursor()
 
     cursor.execute('''
-        SELECT category, name FROM products;
+        SELECT category_name, product_name FROM products;
     ''')
     elems = cursor.fetchall()
     conn.close()

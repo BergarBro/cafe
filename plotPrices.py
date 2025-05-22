@@ -44,19 +44,18 @@ def makeRandomPlot() :
         plt.plot(z[i:i+2],y[i:i+2], color = c[rn.randrange(0,len(c))])
     plt.show()
 
-def makePricePlot(productsName) :
-    conn = sqlite3.connect("hilbertDatabase.db")
+def makePricePlot(productsName, active_database) :
+    conn = sqlite3.connect(active_database)
     cursor = conn.cursor()
     units = []
     plt.cla()
 
     for productName in productsName :
-        # search = f"{productName.lower()}"
         cursor.execute('''
-            SELECT pri.price, pri.unit, DATE(pri.timestamp) 
-            FROM prices pri
-            JOIN products p ON pri.productId = p.id
-            WHERE p.name = ?;
+            SELECT pri.offer_price, pri.offer_unit, DATE(pri.offer_timestamp) 
+            FROM price_offers pri
+            JOIN products p USING (product_id)
+            WHERE p.product_name = ?;
         ''', (productName,))
 
         elems = cursor.fetchall()
