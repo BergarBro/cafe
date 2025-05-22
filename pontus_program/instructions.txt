@@ -1,0 +1,45 @@
+This is a script that looks through the spreadsheet of prices from Svensk Cater
+and updates them to the new prices listed on their webpage.
+
+Prerequisites:
+*)  Updated list on Svensk Cater
+        Navigate to the favorite list called "ALLT CAFÉ" on Svensk Cater's website.
+        Make sure that all items in the spreadsheet is also here. Any extra entries here
+        that are not present in the spreadsheet will be safely ignored.
+
+*)  Updated sheet in Spreadsheet
+        In the correct Google Sheets spreadsheet file, and the correct sheet,
+        make sure that all entries have a correct article number.
+
+*)  Any program that can open Excel files (.xlsx)
+
+Usage:
+
+1)  Navigate to the relevant Google Spreadsheet and to the correct sheet.
+    Hit File -> Download -> Comma separated values (.csv) // Arkiv -> Ladda ner -> Kommaavgränsade värden (.csv)
+    Save in this folder as "old.csv"
+    
+2)  In the favorite list on Svensk Cater, hit print. This will generate a .pdf that you should
+    download to this folder and name it "updates.csv".
+
+3)  Optional (but recommended): Create a virtual environment 
+    (in VScode, press Ctrl-Shift-P on Windows and find Python: Create Environment. 
+    Use .venv. DO NOT USE CONDA!)
+
+4)  Install dependencies by opening a terminal and running "pip install -r requirements.txt"
+
+5)  Run the script update_cafe_prices.py. Ignore all printout that says 
+    "CropBox missing from /Page, defaulting to MediaBox"
+
+6)  Open the created file "new.xlsx". Pay special attention to any rows marked red. 
+    These could not be found in the list from Svensk Cater and have thus not been updated.
+
+7)  Copy the entire "Price" column, except for the first cell (containing the string "Price").
+
+8)  Navigate to the spreadsheet on Google Drive. Select the first price entry. Not the header
+    saying "Inköpspris", but the one just below. Should be cell C2. If you pick the wrong one,
+    all prices will be wrong without it notifying you.
+
+9)  Paste here. Ctrl+V or Cmd+V.
+
+10) Profit.
