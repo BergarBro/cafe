@@ -48,6 +48,7 @@ def run_scraper_script(optionsList, active_database) :
 
     # Step 2: Connect to SQLite (creates file if if doesn't exist)
     error = False
+    total_items_scraped = 0
     try :
         with sqlite3.connect(active_database) as conn :
             cursor = conn.cursor()
@@ -108,10 +109,10 @@ def run_scraper_script(optionsList, active_database) :
 
                             if optionsList[1] :
                                 cursor.execute('''
-                                    INSERT INTO price_offers (product_idd, offer_price, offer_unit, offer_timestamp)
+                                    INSERT INTO price_offers (product_id, offer_price, offer_unit, offer_timestamp)
                                     VALUES (?, ?, ?, ?)
                                 ''', (productId, price, unit, timestamp))
-                            i = i + 1
+                            total_items_scraped += 1
                             # print(f"{i:<4} {productId:<10} {name:<30} {brandName:<20} {price:<10} {unit:<10} {timestamp:<10}")
 
 
@@ -129,6 +130,7 @@ def run_scraper_script(optionsList, active_database) :
     if optionsList[2] :
         importBread.importBread(active_database)
     if not error :
+        print("Total Items Scraped from Svensk Cater: ", total_items_scraped)
         print("Done Scrapeing!")
 
 # main()

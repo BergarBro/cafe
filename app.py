@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 import random as rd
-import threading
+import multiprocessing
 
 import plotPrices, scraperScript, getFunctions, makeBackupDB
 from tooltip import ListboxTooltip
@@ -27,11 +27,11 @@ def open_popup_scraper():
     def on_ok():
         selected = [var.get() for opt, var in option_vars.items()]
 
-        thread_scraper = threading.Thread(
-            target=lambda: scraperScript.run_scraper_script(optionsList=selected, active_database=active_database), 
-            daemon=True
+        multiproc_scraper = multiprocessing.Process(
+            target=scraperScript.run_scraper_script,
+            args=(selected, active_database)
             )
-        thread_scraper.start()
+        multiproc_scraper.start()
         popup_scraper.destroy()
 
     def on_cancel():
@@ -289,49 +289,50 @@ def open_popup_ingredient() :
     tree.pack(pady=5)
 
 
-active_database = "hilbertDatabase.db" # Name of active database
+if __name__ == "__main__" :
+    active_database = "hilbertDatabase.db" # Name of active database
 
-root = tk.Tk()
-root.title("Hilbot 2000")
-root.geometry("600x600")
+    root = tk.Tk()
+    root.title("Hilbot 2000")
+    root.geometry("600x600")
 
-label_info_text = "This is a tool to 'help'/replace mackåsnan..."
-label_info = tk.Label(root, text=label_info_text)
-label_info.pack(pady=5)
+    label_info_text = "This is a tool to 'help'/replace mackåsnan..."
+    label_info = tk.Label(root, text=label_info_text)
+    label_info.pack(pady=5)
 
-button_open_scraper = tk.Button(root, text="Open Scraper",command=open_popup_scraper)
-button_open_scraper.pack(pady=5)
+    button_open_scraper = tk.Button(root, text="Open Scraper",command=open_popup_scraper)
+    button_open_scraper.pack(pady=5)
 
-button_open_plotter = tk.Button(root, text="Open Plotter",command=open_popup_plotter)
-button_open_plotter.pack(pady=5)
+    button_open_plotter = tk.Button(root, text="Open Plotter",command=open_popup_plotter)
+    button_open_plotter.pack(pady=5)
 
-button_open_backup = tk.Button(root, text="Create Backup of Database", command=create_backup)
-button_open_backup.pack(pady=5)
+    button_open_backup = tk.Button(root, text="Create Backup of Database", command=create_backup)
+    button_open_backup.pack(pady=5)
 
-button_open_ingredient_editor = tk.Button(root, text="Open Ingredient Editor",command=open_popup_ingredient)
-button_open_ingredient_editor.pack(pady=5)
+    button_open_ingredient_editor = tk.Button(root, text="Open Ingredient Editor",command=open_popup_ingredient)
+    button_open_ingredient_editor.pack(pady=5)
 
-# button3 = tk.Button(root, text="Pop-Up",command=test)
-# button3.pack(pady=5)
-
-
-
-# tooltip = ListboxTooltip(listOfListBoxes[activeCategory], get_tooltip_text=lambda i: str(i) + "hej")
-
-# label2 = tk.Label(root, text="Recored Movment")
-# label2.pack(pady=5)
-
-# label3 = tk.Label(root, text="Nummber of Clicks: " + str(clickCount))
-# label3.pack(pady=0)
-
-# button2 = tk.Button(root, text="Start",command=startRecored)
-# button2.pack(pady=5)
-
-# label4 = tk.Label(root, text="Time Between Clicks: (sek)")
-# label4.pack(pady=0)
-
-# entry1 = tk.Entry(root, textvariable=timeDelay)
-# #entry1.pack(pady=5)
+    # button3 = tk.Button(root, text="Pop-Up",command=test)
+    # button3.pack(pady=5)
 
 
-root.mainloop()
+
+    # tooltip = ListboxTooltip(listOfListBoxes[activeCategory], get_tooltip_text=lambda i: str(i) + "hej")
+
+    # label2 = tk.Label(root, text="Recored Movment")
+    # label2.pack(pady=5)
+
+    # label3 = tk.Label(root, text="Nummber of Clicks: " + str(clickCount))
+    # label3.pack(pady=0)
+
+    # button2 = tk.Button(root, text="Start",command=startRecored)
+    # button2.pack(pady=5)
+
+    # label4 = tk.Label(root, text="Time Between Clicks: (sek)")
+    # label4.pack(pady=0)
+
+    # entry1 = tk.Entry(root, textvariable=timeDelay)
+    # #entry1.pack(pady=5)
+
+
+    root.mainloop()

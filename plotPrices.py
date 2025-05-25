@@ -22,8 +22,8 @@ import numpy as np
 import random as rn
 import datetime
 
-def main():
-    print("Main")
+# def main():
+    # print("Main")
     # test()
     # makePricePlot(["Gurka", "Tomat Bas", "Kaffe"])
     # makeRandomPlot()
