@@ -198,16 +198,37 @@ def open_popup_ingredient() :
         # print(search_term)
         for item in tree_ingredient.get_children() :
             tree_ingredient.delete(item)
-        active_ingredients = []
         for ingr in ingredients :
             if search_term in ingr[0].lower() :
                 tree_ingredient.insert("", tk.END, values=ingr)
-                active_ingredients.append(ingr)
 
     def add_ingredient() :
-        global ingredients
+        global ingredients, check
         ingredient_name = entry_add_ingredient_name.get()
         if ingredient_name != "" :
+            check = True
+            if [item[0] for item in ingredients if item[0] == ingredient_name] != [] :
+                popup_add_ingredient = tk.Toplevel(popup_ingredient)
+                popup_add_ingredient.title("Update Ingredient?")
+                popup_add_ingredient.geometry("300x100")
+                
+                label_remove_ingredient_info = tk.Label(popup_add_ingredient, text=("That ingredient(", ingredient_name, ")already exist, are you sure you want to update it?"))
+                label_remove_ingredient_info.pack(pady=10)
+
+                frame_buttons = tk.Frame(popup_add_ingredient)
+                frame_buttons.pack(pady=5)
+
+                # button_remove_ok = tk.Button(frame_buttons, text="UPDATE!",    <-- TODO 
+                #                             command= lambda : (
+                #                                 check = True, 
+                #                                 popup_add_ingredient.destroy()))
+                # button_remove_ok.pack(side=tk.LEFT, padx=5)
+
+                button_remove_cancel = tk.Button(frame_buttons, text="CANCEL",
+                                                command= lambda : (
+                                                    popup_add_ingredient.destroy(),
+                                                    update_ingredients()))
+                button_remove_cancel.pack(side=tk.LEFT, padx=5)
             ingredient_comment = entry_add_ingredient_comment.get()
             get_set_funcs.set_ingredient(active_database, ingredient_name, ingredient_comment)
             update_ingredients()
@@ -221,12 +242,9 @@ def open_popup_ingredient() :
             popup_remove_ingredient.geometry("300x100")
 
             ingredient_to_remove = tree_ingredient.item(tree_ingredient.selection())["values"]
-
-            # print(ingredient_to_remove)
-            # print(ingredient_to_remove[0])
             
-            label_scraper_info = tk.Label(popup_remove_ingredient, text=("Are you sure you want to remove ingredient:\n" + ingredient_to_remove[0]))
-            label_scraper_info.pack(pady=10)
+            label_remove_ingredient_info = tk.Label(popup_remove_ingredient, text=("Are you sure you want to remove ingredient:\n" + ingredient_to_remove[0]))
+            label_remove_ingredient_info.pack(pady=10)
 
             frame_buttons = tk.Frame(popup_remove_ingredient)
             frame_buttons.pack(pady=5)

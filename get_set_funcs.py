@@ -61,7 +61,8 @@ def get_ingredients(active_database) :
     elems = cursor.fetchall()
     conn.close()
 
-    # print(elems)
+    print(elems)
+    print([item[0] for item in elems if item[0] == "test"])
 
     return elems
 
@@ -73,7 +74,7 @@ def set_ingredient(active_database, ingredient_name, ingredient_comment) :
         cursor.execute('''
             INSERT OR REPLACE INTO ingredients (ingredient_name, ingredient_comment)
             VALUES(?,?)
-        ''',(ingredient_name, ingredient_comment))
+        ''',(ingredient_name.lower(), ingredient_comment))
 
 
 def remove_ingredient(active_database, ingredient_name) :
