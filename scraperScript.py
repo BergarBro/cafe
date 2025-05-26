@@ -36,9 +36,7 @@ def run_scraper_script(optionsList, active_database) :
         "Skåp"
     ]
 
-    delayButton = 1000  # Time to wait between button-clicks
-    # delay = 4000        # Time to wait between jumps to websites
-    delayLogin = 30000  # Time to wait after loging in, first time
+    delayRetry = 500  # Time to wait between retries
 
     # optionsList[0]  = True # executeProductsScrape
     # optionsList[1]  = True # executePriceScrape
@@ -88,7 +86,7 @@ def run_scraper_script(optionsList, active_database) :
                             if product_wrapper == [] :
                                 print("Error fetching products from: ", categoryName)
                                 print("Trying fetching again!")
-                                page.wait_for_timeout(500)
+                                page.wait_for_timeout(delayRetry)
                         for product in product_wrapper:
                             productId = int(product.query_selector(".productId").text_content())
                             name = product.query_selector("strong a").text_content()
@@ -103,9 +101,13 @@ def run_scraper_script(optionsList, active_database) :
 
                             if optionsList[0] :
                                 cursor.execute('''
-                                    INSERT OR REPLACE INTO products (product_id, product_name, product_brand, category_name)
-                                    VALUES (?, ?, ?, ?)
-                                ''', (productId, name, brandName, categoryName))
+                                    INSERT INTO products (product_id, product_name, product_brand, category_name, ingredient_name)
+                                    VALUES (?, ?, ?, ?, ?)
+                                    ON CONFLICT (product_id) DO UPDATE SET
+                                        product_name = excluded.product_name,
+                                        product_brand = excluded.product_brand,
+                                        category_name = excluded.category_name
+                                ''', (productId, name, brandName, categoryName, ""))
 
                             if optionsList[1] :
                                 cursor.execute('''

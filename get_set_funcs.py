@@ -61,7 +61,7 @@ def get_ingredients(active_database) :
     elems = cursor.fetchall()
     conn.close()
 
-    print(elems)
+    # print(elems)
 
     return elems
 

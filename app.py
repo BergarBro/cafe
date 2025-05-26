@@ -207,40 +207,42 @@ def open_popup_ingredient() :
     def add_ingredient() :
         global ingredients
         ingredient_name = entry_add_ingredient_name.get()
-        ingredient_comment = entry_add_ingredient_comment.get()
-        get_set_funcs.set_ingredient(active_database, ingredient_name, ingredient_comment)
-        update_ingredients()
-        entry_add_ingredient_name.delete(0, tk.END)
-        entry_add_ingredient_comment.delete(0, tk.END)
+        if ingredient_name != "" :
+            ingredient_comment = entry_add_ingredient_comment.get()
+            get_set_funcs.set_ingredient(active_database, ingredient_name, ingredient_comment)
+            update_ingredients()
+            entry_add_ingredient_name.delete(0, tk.END)
+            entry_add_ingredient_comment.delete(0, tk.END)
 
     def remove_ingredient() :
-        popup_remove_ingredient = tk.Toplevel(popup_ingredient)
-        popup_remove_ingredient.title("Remove Ingredient?")
-        popup_remove_ingredient.geometry("300x100")
+        if (tree_ingredient.item(tree_ingredient.selection())["values"]) != "" :
+            popup_remove_ingredient = tk.Toplevel(popup_ingredient)
+            popup_remove_ingredient.title("Remove Ingredient?")
+            popup_remove_ingredient.geometry("300x100")
 
-        ingredient_to_remove = tree_ingredient.item(tree_ingredient.selection())["values"]
+            ingredient_to_remove = tree_ingredient.item(tree_ingredient.selection())["values"]
 
-        # print(ingredient_to_remove)
-        # print(ingredient_to_remove[0])
-        
-        label_scraper_info = tk.Label(popup_remove_ingredient, text=("Are you sure you want to remove ingredient:\n" + ingredient_to_remove[0]))
-        label_scraper_info.pack(pady=10)
+            # print(ingredient_to_remove)
+            # print(ingredient_to_remove[0])
+            
+            label_scraper_info = tk.Label(popup_remove_ingredient, text=("Are you sure you want to remove ingredient:\n" + ingredient_to_remove[0]))
+            label_scraper_info.pack(pady=10)
 
-        frame_buttons = tk.Frame(popup_remove_ingredient)
-        frame_buttons.pack(pady=5)
+            frame_buttons = tk.Frame(popup_remove_ingredient)
+            frame_buttons.pack(pady=5)
 
-        button_remove_ok = tk.Button(frame_buttons, text="REMOVE!", 
-                                     command= lambda : (
-                                        get_set_funcs.remove_ingredient(active_database, ingredient_to_remove[0]),
-                                        popup_remove_ingredient.destroy(),
-                                        update_ingredients()))
-        button_remove_ok.pack(side=tk.LEFT, padx=5)
-
-        button_remove_cancel = tk.Button(frame_buttons, text="CANCEL",
-                                         command= lambda : (
+            button_remove_ok = tk.Button(frame_buttons, text="REMOVE!", 
+                                        command= lambda : (
+                                            get_set_funcs.remove_ingredient(active_database, ingredient_to_remove[0]),
                                             popup_remove_ingredient.destroy(),
                                             update_ingredients()))
-        button_remove_cancel.pack(side=tk.LEFT, padx=5)
+            button_remove_ok.pack(side=tk.LEFT, padx=5)
+
+            button_remove_cancel = tk.Button(frame_buttons, text="CANCEL",
+                                            command= lambda : (
+                                                popup_remove_ingredient.destroy(),
+                                                update_ingredients()))
+            button_remove_cancel.pack(side=tk.LEFT, padx=5)
 
     def on_link() :
         product_name = list_of_products_tree[activeCategory].item(list_of_products_tree[activeCategory].selection())["values"][0]

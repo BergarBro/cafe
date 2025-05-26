@@ -40,9 +40,13 @@ def importBread (active_database):
                 timestamp = datetime.datetime.now().isoformat()
 
                 cursor.execute('''
-                    INSERT OR REPLACE INTO products (product_id, category_name, product_name, product_brand)
-                    VALUES (?, ?, ?, ?)
-                    ''', (id, category, name, brand))
+                    INSERT OR REPLACE INTO products (product_id, category_name, product_name, product_brand, ingredient_name)
+                    VALUES (?, ?, ?, ?, ?)
+                    ON CONFLICT (product_id) DO UPDATE SET
+                            product_name = excluded.product_name,
+                            product_brand = excluded.product_brand,
+                            category_name = excluded.category_name
+                    ''', (id, category, name, brand, ""))
                 
                 cursor.execute('''
                     INSERT INTO price_offers (product_id, offer_price, offer_unit, offer_timestamp)
