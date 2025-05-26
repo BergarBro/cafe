@@ -130,7 +130,7 @@ def run_scraper_script(optionsList, active_database) :
     if optionsList[2] :
         importBread.importBread(active_database)
     if not error :
-        print("Total Items Scraped from Svensk Cater: ", total_items_scraped)
+        print("Total Items Scraped from Svensk Cater:", total_items_scraped)
         print("Done Scrapeing!")
 
 # main()
