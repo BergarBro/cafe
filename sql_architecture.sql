@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS ingredients (
 CREATE TABLE IF NOT EXISTS mixtures (
     mixture_name TEXT,
     nbr_of_sandwiches INT, -- The amount of sandwhiches one batch mixture will make
-    mixture_instructions TEXT,
+    mixture_instruction TEXT,
     PRIMARY KEY (mixture_name)
 );
 
@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS mixture_amounts (
 
 CREATE TABLE IF NOT EXISTS sandwiches (
     sandwich_name TEXT,
-    vegan BOOLEAN,
-    vegatarian BOOLEAN, -- True means the it is vegan, vegetarian respectively
+    vegan BOOLEAN,  -- True means the it is vegan, vegetarian respectively
+    vegatarian BOOLEAN,
     bread_type TEXT,
     prep_info TEXT,
     mixture_name TEXT,

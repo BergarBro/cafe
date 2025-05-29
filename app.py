@@ -2,12 +2,69 @@ import time
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
+from tkinter import font
 import random as rd
 import multiprocessing
 
 import plotPrices, scraperScript, get_set_funcs, makeBackupDB
 from tooltip import ListboxTooltip
 
+### Global Helper Functions ###
+def make_treeview_with_search(current_frame, heading_names, heading_width = [], tree_names = ["0"]) :
+    if heading_width == [] :
+        heading_width = [-1] * len(heading_names)
+
+    frame_search = tk.Frame(current_frame)
+    frame_search.pack(pady=5)
+    
+    label_search = tk.Label(frame_search, text="Search:")
+    label_search.pack(side=tk.LEFT)
+
+    search_var = tk.StringVar()
+    entry_search = ttk.Entry(frame_search, textvariable=search_var)
+    entry_search.pack(side=tk.LEFT)
+
+    frame_tree = tk.Frame(current_frame)
+    frame_tree.pack(pady=5)
+
+    tree_frames = {}
+    trees = {}
+    for j in range(len(tree_names)) :
+        temp_frame = tk.Frame(frame_tree)
+        temp_tree = ttk.Treeview(temp_frame, columns=heading_names, show="headings", selectmode="browse")
+
+        for i in range(len(heading_names)) :
+            temp_tree.heading(heading_names[i], text=heading_names[i])
+            if heading_width[i] > 0 :
+                temp_tree.column(heading_names[i], width=heading_width[i])
+
+        scrollbar = ttk.Scrollbar(temp_frame) 
+        scrollbar.pack(side = RIGHT, fill = BOTH)
+
+        temp_tree.config(yscrollcommand = scrollbar.set)
+        scrollbar.config(command = temp_tree.yview)
+
+        temp_tree.pack(expand=True)
+
+        tree_frames[tree_names[j]] = temp_frame
+        trees[tree_names[j]] = temp_tree
+
+    tree_frames[tree_names[0]].pack()
+
+    return (frame_search, label_search, search_var, trees, tree_frames)
+
+def update_search_in_tree(tree, search_var, list_of_items) :
+    search_term = search_var.get().lower()
+    # print(search_term)
+    for i in tree.get_children() :
+        tree.delete(i)
+
+    for item in list_of_items :
+        if search_term in item[0].lower() :
+            tree.insert("", tk.END, values=item)
+
+
+### Button Functions ###
 def open_popup_scraper():
     popup_scraper = tk.Toplevel(root)
     popup_scraper.title("Scraping Prices")
@@ -41,54 +98,54 @@ def open_popup_scraper():
     frame_select = tk.Frame(popup_scraper)
     frame_select.pack(pady=5)
 
-    button_scraper_ok = tk.Button(frame_select, text="SCRAPE!", command=on_ok)
+    button_scraper_ok = ttk.Button(frame_select, text="SCRAPE!", command=on_ok)
     button_scraper_ok.pack(side=tk.LEFT, padx=10)
 
-    button_scraper_cancel = tk.Button(frame_select, text="CANCEL", command=on_cancel)
+    button_scraper_cancel = ttk.Button(frame_select, text="CANCEL", command=on_cancel)
     button_scraper_cancel.pack(side=tk.LEFT, padx=10)
 
 def open_popup_plotter() :
     global categorys, products, listOfListBoxes, scrollbar
-    global activeCategory, activeProducts, search_var, search_entry
+    global active_category, active_products, search_var, search_entry
 
     def plot_prices() :
-        global categorys, activeCategory, activeProducts
-        selectedProductsIndex = listOfListBoxes[activeCategory].curselection()
+        global categorys, active_category, active_products
+        selectedProductsIndex = listOfListBoxes[active_category].curselection()
         selectedProducts = []
         for index in selectedProductsIndex :
-            selectedProducts.append(activeProducts[index][0])
+            selectedProducts.append(active_products[index][0])
 
         plotPrices.makePricePlot(selectedProducts, active_database)
 
     def change_category(newCategory) :
-        global activeCategory, listOfListBoxes, categorys, activeProducts, scrollbar
-        listOfListBoxes[activeCategory].pack_forget()
+        global active_category, listOfListBoxes, categorys, active_products, scrollbar
+        listOfListBoxes[active_category].pack_forget()
         listOfListBoxes[newCategory].pack(pady=5)
-        activeCategory = newCategory
-        activeProducts = products[activeCategory]
+        active_category = newCategory
+        active_products = products[active_category]
         # search_entry.delete(0, tk.END)
-        # print(listOfListBoxes[activeCategory].size())
-        listOfListBoxes[activeCategory].config(yscrollcommand = scrollbar.set)
-        scrollbar.config(command = listOfListBoxes[activeCategory].yview)
+        # print(listOfListBoxes[active_category].size())
+        listOfListBoxes[active_category].config(yscrollcommand = scrollbar.set)
+        scrollbar.config(command = listOfListBoxes[active_category].yview)
 
     def select_all() :
-        global activeCategory, listOfListBoxes
-        listOfListBoxes[activeCategory].selection_set(0,listOfListBoxes[activeCategory].size())
+        global active_category, listOfListBoxes
+        listOfListBoxes[active_category].selection_set(0,listOfListBoxes[active_category].size())
 
     def deselect_all() :
-        global activeCategory, listOfListBoxes
-        listOfListBoxes[activeCategory].selection_clear(0,listOfListBoxes[activeCategory].size())
+        global active_category, listOfListBoxes
+        listOfListBoxes[active_category].selection_clear(0,listOfListBoxes[active_category].size())
 
     def update_search_category_list() :
-        global activeProducts, listOfListBoxes, activeProducts, activeCategory
+        global active_products, listOfListBoxes, active_products, active_category
         search_term = search_entry.get().lower()
         # print(search_term)
-        listOfListBoxes[activeCategory].delete(0,tk.END)
-        activeProducts = []
-        for prod in products[activeCategory] :
+        listOfListBoxes[active_category].delete(0,tk.END)
+        active_products = []
+        for prod in products[active_category] :
             if search_term in prod[0].lower() :
-                listOfListBoxes[activeCategory].insert(tk.END, prod[0])
-                activeProducts.append(prod)
+                listOfListBoxes[active_category].insert(tk.END, prod[0])
+                active_products.append(prod)
 
     def on_close():
         print("You canceled the Plotter.")
@@ -101,7 +158,7 @@ def open_popup_plotter() :
     label_plotter_info = tk.Label(popup_plotter, text="Choose products to plot the price over time.")
     label_plotter_info.pack(pady=5)
 
-    # button3 = tk.Button(root, text="Pop-Up",command=test)
+    # button3 = ttk.Button(root, text="Pop-Up",command=test)
     # button3.pack(pady=5)
 
     frame_search = tk.Frame(popup_plotter)
@@ -111,29 +168,32 @@ def open_popup_plotter() :
     products, categorys = get_set_funcs.getProductsAndCategorys(active_database)
 
     # Selected option variable  
-    opt = StringVar(value=categorys[0])  
+    opt = StringVar()  
 
     # Dropdown menu  
-    dropdown_categorys = tk.OptionMenu(frame_search, opt, *categorys, command=change_category)
+    dropdown_categorys = ttk.OptionMenu(frame_search, opt, categorys[0], *categorys, command=change_category)
     dropdown_categorys.pack(side=tk.LEFT, padx=5)
 
+    label_search = tk.Label(frame_search, text="Search:")
+    label_search.pack(side=tk.LEFT)
+
     search_var = tk.StringVar()
-    search_entry = tk.Entry(frame_search, textvariable=search_var)
+    search_entry = ttk.Entry(frame_search, textvariable=search_var)
     # search_entry.insert(0, "Search...")
-    search_entry.pack(side=tk.LEFT, padx=5)
+    search_entry.pack(side=tk.LEFT)
 
     # Buttons packed inside the frame side-by-side
-    button_select_all = tk.Button(frame_search, text="Select All", command=select_all)
-    button_select_all.pack(side=tk.LEFT, padx=5)
+    button_select_all = ttk.Button(frame_search, text="Select All", command=select_all)
+    button_select_all.pack(side=tk.LEFT, padx=10)
 
-    button_deselect_all = tk.Button(frame_search, text="Deselect All", command=deselect_all)
+    button_deselect_all = ttk.Button(frame_search, text="Deselect All", command=deselect_all)
     button_deselect_all.pack(side=tk.LEFT, padx=5)
 
     listBox_frame = tk.Frame(popup_plotter)
     listBox_frame.pack(pady=5)
 
-    style = ttk.Style(popup_plotter)
-    style.theme_use("clam")
+    # style = ttk.Style(popup_plotter)
+    # style.theme_use("clam")
 
     scrollbar = ttk.Scrollbar(listBox_frame) 
     scrollbar.pack(side = RIGHT, fill = BOTH) 
@@ -145,95 +205,77 @@ def open_popup_plotter() :
             tempListBox.insert(tk.END, item[0])
         listOfListBoxes[cat] = tempListBox
 
-    activeCategory = categorys[0]
-    activeProducts = products[activeCategory]
-    listOfListBoxes[activeCategory].pack(side=tk.LEFT)
+    active_category = categorys[0]
+    active_products = products[active_category]
+    listOfListBoxes[active_category].pack(side=tk.LEFT)
 
-    listOfListBoxes[activeCategory].config(yscrollcommand = scrollbar.set)
-    scrollbar.config(command = listOfListBoxes[activeCategory].yview)
+    listOfListBoxes[active_category].config(yscrollcommand = scrollbar.set)
+    scrollbar.config(command = listOfListBoxes[active_category].yview)
 
     search_var.trace_add("write", lambda *args: update_search_category_list())
 
     frame_plot = tk.Frame(popup_plotter)
     frame_plot.pack(pady=5)
 
-    button_plot_prices = tk.Button(frame_plot, text="PLOT!",command=plot_prices)
+    button_plot_prices = ttk.Button(frame_plot, text="PLOT!",command=plot_prices)
     button_plot_prices.pack(side=tk.LEFT, padx=10)
 
-    button_plotter_cancel = tk.Button(frame_plot, text="CANCEL", command=on_close)
+    button_plotter_cancel = ttk.Button(frame_plot, text="CANCEL", command=on_close)
     button_plotter_cancel.pack(side=tk.LEFT, pady=10)
 
 def create_backup() :
     makeBackupDB.create_backup_of_DB(active_database)
 
 def open_popup_ingredient() :
-    global categorys, products, list_of_products_tree, scrollbar, search_products_var, search_ingredients_var
-    global activeCategory, activeProducts, search_var, entry_search_products, active_ingrediets, ingredients
+    global categorys, products, product_tress, scrollbar, search_products_var, search_ingredients_var, product_frames
+    global active_category, search_var, ingredients, tree_ingredient
 
     def change_category(newCategory) :
-        global activeCategory, list_of_products_tree, categorys, activeProducts, scrollbar
-        list_of_products_tree[activeCategory].pack_forget()
-        list_of_products_tree[newCategory].pack(pady=5)
-        activeCategory = newCategory
-        activeProducts = products[activeCategory]
-        # search_entry.delete(0, tk.END)
-        # print(listOfListBoxes[activeCategory].size())
-        list_of_products_tree[activeCategory].config(yscrollcommand = scrollbar_products.set)
-        scrollbar_products.config(command = list_of_products_tree[activeCategory].yview)
-
-    def update_search_products_list() :
-        global activeProducts, list_of_products_tree, activeProducts, activeCategory
-        search_term = entry_search_products.get().lower()
-        for item in list_of_products_tree[activeCategory].get_children() :
-            list_of_products_tree[activeCategory].delete(item)
-        activeProducts = []
-        for prod in products[activeCategory] :
-            if search_term in prod[0].lower() :
-                list_of_products_tree[activeCategory].insert("", tk.END, values=prod)
-                activeProducts.append(prod)
-
-    def update_search_ingredients_list() :
-        global activeProducts, list_of_products_tree, activeProducts, activeCategory
-        search_term = entry_search_ingredients.get().lower()
-        # print(search_term)
-        for item in tree_ingredient.get_children() :
-            tree_ingredient.delete(item)
-        for ingr in ingredients :
-            if search_term in ingr[0].lower() :
-                tree_ingredient.insert("", tk.END, values=ingr)
+        global active_category, product_tress, categorys, scrollbar, product_frames
+        product_frames[active_category].pack_forget()
+        product_frames[newCategory].pack()
+        active_category = newCategory
+        update_products()
 
     def add_ingredient() :
-        global ingredients, check
-        ingredient_name = entry_add_ingredient_name.get()
+        global ingredients
+
+        def add_new_ingredient(ingredient_name) :
+            ingredient_comment = entry_add_ingredient_comment.get()
+            get_set_funcs.add_ingredient(active_database, ingredient_name, ingredient_comment)
+            update_ingredients()
+            entry_add_ingredient_name.delete(0, tk.END)
+            entry_add_ingredient_comment.delete(0, tk.END)
+
+        ingredient_name = entry_add_ingredient_name.get().upper()
         if ingredient_name != "" :
-            check = True
-            if [item[0] for item in ingredients if item[0] == ingredient_name] != [] :
+            if [item[0] for item in ingredients if item[0].lower() == ingredient_name.lower()] != [] :
                 popup_add_ingredient = tk.Toplevel(popup_ingredient)
                 popup_add_ingredient.title("Update Ingredient?")
                 popup_add_ingredient.geometry("300x100")
+
+                frame_add_ingredient_info = tk.Frame(popup_add_ingredient)
                 
-                label_remove_ingredient_info = tk.Label(popup_add_ingredient, text=("That ingredient(", ingredient_name, ")already exist, are you sure you want to update it?"))
-                label_remove_ingredient_info.pack(pady=10)
+                tk.Label(frame_add_ingredient_info, text="Ingredient ").pack(side="left")
+                tk.Label(frame_add_ingredient_info, text=ingredient_name, font=bold_font).pack(side="left")
+                tk.Label(frame_add_ingredient_info, text=" already exists."). pack(side="left")
+                frame_add_ingredient_info.pack()
+                tk.Label(popup_add_ingredient, text="Are you sure you want to update it?").pack(pady=5)
 
                 frame_buttons = tk.Frame(popup_add_ingredient)
                 frame_buttons.pack(pady=5)
 
-                # button_remove_ok = tk.Button(frame_buttons, text="UPDATE!",    <-- TODO 
-                #                             command= lambda : (
-                #                                 check = True, 
-                #                                 popup_add_ingredient.destroy()))
-                # button_remove_ok.pack(side=tk.LEFT, padx=5)
+                button_remove_ok = ttk.Button(frame_buttons, text="UPDATE!",
+                                            command= lambda : (
+                                                add_new_ingredient(ingredient_name),
+                                                popup_add_ingredient.destroy()))
+                button_remove_ok.pack(side=tk.LEFT, padx=5)
 
-                button_remove_cancel = tk.Button(frame_buttons, text="CANCEL",
-                                                command= lambda : (
-                                                    popup_add_ingredient.destroy(),
-                                                    update_ingredients()))
+                button_remove_cancel = ttk.Button(frame_buttons, text="CANCEL",
+                                                command= lambda : popup_add_ingredient.destroy())
                 button_remove_cancel.pack(side=tk.LEFT, padx=5)
-            ingredient_comment = entry_add_ingredient_comment.get()
-            get_set_funcs.set_ingredient(active_database, ingredient_name, ingredient_comment)
-            update_ingredients()
-            entry_add_ingredient_name.delete(0, tk.END)
-            entry_add_ingredient_comment.delete(0, tk.END)
+            else :
+                add_new_ingredient(ingredient_name)
 
     def remove_ingredient() :
         if (tree_ingredient.item(tree_ingredient.selection())["values"]) != "" :
@@ -243,49 +285,54 @@ def open_popup_ingredient() :
 
             ingredient_to_remove = tree_ingredient.item(tree_ingredient.selection())["values"]
             
-            label_remove_ingredient_info = tk.Label(popup_remove_ingredient, text=("Are you sure you want to remove ingredient:\n" + ingredient_to_remove[0]))
-            label_remove_ingredient_info.pack(pady=10)
+            label_remove_ingredient_info1 = tk.Label(popup_remove_ingredient, text="Are you sure you want to remove Ingredient:")
+            label_remove_ingredient_info1.pack()
+            label_remove_ingredient_info2 = tk.Label(popup_remove_ingredient, text=ingredient_to_remove[0], font=bold_font)
+            label_remove_ingredient_info2.pack(pady=5)
 
             frame_buttons = tk.Frame(popup_remove_ingredient)
             frame_buttons.pack(pady=5)
 
-            button_remove_ok = tk.Button(frame_buttons, text="REMOVE!", 
+            button_remove_ok = ttk.Button(frame_buttons, text="REMOVE!", 
                                         command= lambda : (
                                             get_set_funcs.remove_ingredient(active_database, ingredient_to_remove[0]),
                                             popup_remove_ingredient.destroy(),
                                             update_ingredients()))
             button_remove_ok.pack(side=tk.LEFT, padx=5)
 
-            button_remove_cancel = tk.Button(frame_buttons, text="CANCEL",
+            button_remove_cancel = ttk.Button(frame_buttons, text="CANCEL",
                                             command= lambda : (
                                                 popup_remove_ingredient.destroy(),
                                                 update_ingredients()))
             button_remove_cancel.pack(side=tk.LEFT, padx=5)
 
     def on_link() :
-        product_name = list_of_products_tree[activeCategory].item(list_of_products_tree[activeCategory].selection())["values"][0]
-        ingredient_name = tree_ingredient.item(tree_ingredient.selection())["values"][0]
-        get_set_funcs.link_product_ingredient(active_database, product_name, ingredient_name)
-        update_products()
+        if (tree_ingredient.item(tree_ingredient.selection())["values"]) != "" and (product_tress[active_category].item(product_tress[active_category].selection())["values"]) != "" :
+            product_name = product_tress[active_category].item(product_tress[active_category].selection())["values"][0]
+            ingredient_name = tree_ingredient.item(tree_ingredient.selection())["values"][0]
+            get_set_funcs.link_product_ingredient(active_database, product_name, ingredient_name)
+            update_products()
 
     def on_unlink() :
-        product_name = list_of_products_tree[activeCategory].item(list_of_products_tree[activeCategory].selection())["values"][0]
-        get_set_funcs.unlink_product_ingredient(active_database, product_name)
-        update_products()
+        if product_tress[active_category].item(product_tress[active_category].selection())["values"] != "" :
+            product_name = product_tress[active_category].item(product_tress[active_category].selection())["values"][0]
+            get_set_funcs.unlink_product_ingredient(active_database, product_name)
+            update_products()
 
     def on_close():
         print("You closed the Ingredient Editor.")
         popup_ingredient.destroy()
 
     def update_ingredients() :
-        global ingredients
+        global ingredients, tree_ingredient, search_ingredients_var
         ingredients = get_set_funcs.get_ingredients(active_database)
-        update_search_ingredients_list()
+        print(ingredients)
+        update_search_in_tree(tree= tree_ingredient, search_var= search_ingredients_var, list_of_items= ingredients)
 
     def update_products() :
         global products
         products, x = get_set_funcs.getProductsAndCategorys(active_database)
-        update_search_products_list()
+        update_search_in_tree(tree= product_tress[active_category], search_var= search_products_var, list_of_items= products[active_category])
 
 
     popup_ingredient = tk.Toplevel(root)
@@ -297,154 +344,443 @@ def open_popup_ingredient() :
     "If the ingredient does not exist, create a new one.")
     label_ingredient_info.pack(pady=5)
 
-    # button3 = tk.Button(root, text="Pop-Up",command=test)
+    # button3 = ttk.Button(root, text="Pop-Up",command=test)
     # button3.pack(pady=5)
 
     frame_main = tk.Frame(popup_ingredient)
     frame_main.pack(pady=5)  # You can also use padx here
 
     frame_products = tk.Frame(frame_main)
-    frame_products.pack(side=tk.LEFT, padx=5)
+    frame_products.pack(side=tk.LEFT, padx=20)
 
     frame_ingredients = tk.Frame(frame_main)
-    frame_ingredients.pack(side=tk.LEFT, padx=5)
+    frame_ingredients.pack(side=tk.LEFT)
 
     frame_search_products = tk.Frame(frame_products)
     frame_search_products.pack(pady=5)
 
     # Dropdown options  
-    products, categorys = get_set_funcs.getProductsAndCategorys(active_database) # categorys and porducts include an "All Products" item
+    products, categorys = get_set_funcs.getProductsAndCategorys(active_database) # categorys and products include an "All Products" category
 
-    # Selected option variable  
-    opt = StringVar(value=categorys[0])  
+    search_frame, search_label, search_products_var, product_tress, product_frames = make_treeview_with_search(current_frame= frame_products, 
+                                                                                                               heading_names= ("Product Name", "Linked Ingredient"), 
+                                                                                                               tree_names= categorys)
 
-    # Dropdown menu  
-    dropdown_categorys = tk.OptionMenu(frame_search_products, opt, *categorys, command=change_category)
-    dropdown_categorys.pack(side=tk.LEFT, padx=5)
+    opt = StringVar() 
+    dropdown_categorys = ttk.OptionMenu(search_frame, opt, categorys[0], *categorys, command=change_category)
+    dropdown_categorys.pack(before=search_label, side=tk.LEFT, padx=20)
 
-    search_products_var = tk.StringVar()
-    entry_search_products = tk.Entry(frame_search_products, textvariable=search_products_var)
-    entry_search_products.pack(side=tk.LEFT, padx=5)
-
-    listBox_frame = tk.Frame(frame_products)
-    listBox_frame.pack(pady=5)
-
-    style = ttk.Style(listBox_frame)
-    style.theme_use("clam")
-
-    scrollbar_products = ttk.Scrollbar(listBox_frame) 
-    scrollbar_products.pack(side = RIGHT, fill = BOTH) 
-
-    list_of_products_tree = {}
     for cat in categorys :
-        temp_tree = ttk.Treeview(listBox_frame, columns=("Product Name", "Linked Ingredient"), show="headings")
-        temp_tree.heading("Product Name", text="Product Name")
-        temp_tree.heading("Linked Ingredient", text="Linked Ingredient")
-        # tempListBox = tk.Listbox(listBox_frame, selectmode='multiple', height=14, width=50)
         for item in products[cat] :
-            temp_tree.insert("", tk.END, values=item)
-        list_of_products_tree[cat] = temp_tree
+            product_tress[cat].insert("", tk.END, values=item)
 
-    activeCategory = categorys[0]
-    activeProducts = products[activeCategory]
-    list_of_products_tree[activeCategory].pack(side=tk.LEFT)
+    active_category = categorys[0]
 
-    list_of_products_tree[activeCategory].config(yscrollcommand = scrollbar_products.set)
-    scrollbar_products.config(command = list_of_products_tree[activeCategory].yview)
+    search_products_var.trace_add("write", lambda *args: update_search_in_tree(tree= product_tress[active_category],
+                                                                               search_var= search_products_var, 
+                                                                               list_of_items= products[active_category]))
 
-    search_products_var.trace_add("write", lambda *args: update_search_products_list())
+    frame, label, search_ingredients_var, trees, tree_frames = make_treeview_with_search(current_frame= frame_ingredients, 
+                                                                                      heading_names= ("Ingredient Name", "Ingredient Comment"), 
+                                                                                      heading_width= (120, -1))
+    tree_ingredient = trees["0"]
 
+    update_ingredients()
 
-    search_ingredients_var = tk.StringVar()
-    entry_search_ingredients = tk.Entry(frame_ingredients, textvariable=search_ingredients_var)
-    entry_search_ingredients.pack(pady=5)
-
-    active_ingrediets = []
-
-    frame_tree_ingredient = tk.Frame(frame_ingredients)
-    frame_tree_ingredient.pack(pady=5)
-
-    ingredients = get_set_funcs.get_ingredients(active_database)
-
-    tree_ingredient = ttk.Treeview(frame_tree_ingredient, columns=("Ingredient Name", "Ingredient Comment"), show="headings")
-    tree_ingredient.heading("Ingredient Name", text="Ingredient Name")
-    tree_ingredient.heading("Ingredient Comment", text="Ingredient Comment")
-    tree_ingredient.column("Ingredient Name", width=120)
-
-    for ingr in ingredients:
-        tree_ingredient.insert("", tk.END, values=ingr)
-
-    scrollbar_ingredient = ttk.Scrollbar(frame_tree_ingredient) 
-    scrollbar_ingredient.pack(side = RIGHT, fill = BOTH)
-
-    tree_ingredient.config(yscrollcommand = scrollbar_ingredient.set)
-    scrollbar_ingredient.config(command = tree_ingredient.yview)
-
-    tree_ingredient.pack(expand=True)
-    tree_ingredient.pack(pady=5)
-
-    search_ingredients_var.trace_add("write", lambda *args: update_search_ingredients_list())
+    search_ingredients_var.trace_add("write", lambda *args: update_search_in_tree(tree= tree_ingredient, 
+                                                                                  search_var= search_ingredients_var, 
+                                                                                  list_of_items= ingredients))
 
     frame_add_ingredient = tk.Frame(frame_ingredients)
     frame_add_ingredient.pack(pady=5)
 
-    entry_add_ingredient_name = tk.Entry(frame_add_ingredient)
-    entry_add_ingredient_name.pack(side=tk.LEFT, padx=5)
+    label_name_ingredients = tk.Label(frame_add_ingredient, text="Name:")
+    label_name_ingredients.pack(side=tk.LEFT)
 
-    entry_add_ingredient_comment = tk.Entry(frame_add_ingredient)
-    entry_add_ingredient_comment.pack(side=tk.LEFT, padx=5)
+    entry_add_ingredient_name = ttk.Entry(frame_add_ingredient)
+    entry_add_ingredient_name.pack(side=tk.LEFT)
+
+    label_comment_ingredients = tk.Label(frame_add_ingredient, text="    Comment:")
+    label_comment_ingredients.pack(side=tk.LEFT)
+
+    entry_add_ingredient_comment = ttk.Entry(frame_add_ingredient)
+    entry_add_ingredient_comment.pack(side=tk.LEFT)
 
     frame_add_ingredient_buttons = tk.Frame(frame_ingredients)
     frame_add_ingredient_buttons.pack(pady=5)
 
-    button_add_ingredient = tk.Button(frame_add_ingredient_buttons, text="Add Ingredient", command=add_ingredient)
+    button_add_ingredient = ttk.Button(frame_add_ingredient_buttons, text="Add Ingredient", command=add_ingredient)
     button_add_ingredient.pack(side=tk.LEFT, padx=5)
 
-    button_remove_ingredient = tk.Button(frame_add_ingredient_buttons, text="Remove Ingredient", command=remove_ingredient)
+    button_remove_ingredient = ttk.Button(frame_add_ingredient_buttons, text="Remove Ingredient", command=remove_ingredient)
     button_remove_ingredient.pack(side=tk.LEFT, padx=5)
 
     frame_link_buttons = tk.Frame(popup_ingredient)
     frame_link_buttons.pack(pady=5)
 
-    button_link = tk.Button(frame_link_buttons, text="LINK!", command=on_link)
+    button_link = ttk.Button(frame_link_buttons, text="LINK!", command=on_link)
     button_link.pack(side=tk.LEFT, padx=10)
 
-    button_unlink = tk.Button(frame_link_buttons, text="UNLINK!", command=on_unlink)
+    button_unlink = ttk.Button(frame_link_buttons, text="UNLINK!", command=on_unlink)
     button_unlink.pack(side=tk.LEFT, padx=10)
 
-    button_ingredient_cancel = tk.Button(frame_link_buttons, text="CANCEL", command=on_close)
+    button_ingredient_cancel = ttk.Button(frame_link_buttons, text="CANCEL", command=on_close)
     button_ingredient_cancel.pack(side=tk.LEFT, pady=10)
+
+def open_popup_recipe() :
+    global frame_sandwich, frame_mixture, search_mixture_var, mixtures, tree_mixture
+
+    # def change_category(newCategory) :
+    #     global active_category, list_of_products_tree, categorys, active_products, scrollbar
+    #     list_of_products_tree[active_category].pack_forget()
+    #     list_of_products_tree[newCategory].pack(pady=5)
+    #     active_category = newCategory
+    #     active_products = products[active_category]
+    #     # search_entry.delete(0, tk.END)
+    #     # print(listOfListBoxes[active_category].size())
+    #     list_of_products_tree[active_category].config(yscrollcommand = scrollbar_products.set)
+    #     scrollbar_products.config(command = list_of_products_tree[active_category].yview)
+
+    def create_new_mixture() :
+        global mixtures, tree_mixture
+
+        name_of_new_mixture = "NEW MIXTURE"
+
+        get_set_funcs.add_mixture(active_database, name_of_new_mixture)
+        update_mixture_tree()
+        for i in tree_mixture.get_children() :
+            if tree_mixture.item(i, "values")[0] == name_of_new_mixture :
+                tree_mixture.selection_set(i)
+                tree_mixture.see(i)
+                break
+
+    def remove_mixture() :
+        if (tree_mixture.item(tree_mixture.selection())["values"]) != "" :
+            popup_remove_mixture = tk.Toplevel(popup_recipe)
+            popup_remove_mixture.title("Remove Mixture?")
+            popup_remove_mixture.geometry("300x100")
+
+            mixture_to_remove = tree_mixture.item(tree_mixture.selection(),"values")[0]
+            
+            label_remove_mixture_info1 = tk.Label(popup_remove_mixture, text="Are you sure you want to remove Mixture:")
+            label_remove_mixture_info1.pack()
+            label_remove_mixture_info2 = tk.Label(popup_remove_mixture, text=mixture_to_remove, font=bold_font)
+            label_remove_mixture_info2.pack(pady=5)
+
+            frame_buttons = tk.Frame(popup_remove_mixture)
+            frame_buttons.pack(pady=5)
+
+            button_remove_ok = ttk.Button(frame_buttons, text="REMOVE!", 
+                                        command= lambda : (
+                                            get_set_funcs.remove_mixture(active_database, mixture_to_remove),
+                                            popup_remove_mixture.destroy(),
+                                            update_mixture_tree()))
+            button_remove_ok.pack(side=tk.LEFT, padx=5)
+
+            button_remove_cancel = ttk.Button(frame_buttons, text="CANCEL",
+                                            command= lambda : (
+                                                popup_remove_mixture.destroy(),
+                                                update_mixture_tree()))
+            button_remove_cancel.pack(side=tk.LEFT, padx=5)
+
+    # def on_link() :
+    #     product_name = list_of_products_tree[active_category].item(list_of_products_tree[active_category].selection())["values"][0]
+    #     ingredient_name = tree_ingredient.item(tree_ingredient.selection())["values"][0]
+    #     get_set_funcs.link_product_ingredient(active_database, product_name, ingredient_name)
+    #     update_products()
+
+    # def on_unlink() :
+    #     product_name = list_of_products_tree[active_category].item(list_of_products_tree[active_category].selection())["values"][0]
+    #     get_set_funcs.unlink_product_ingredient(active_database, product_name)
+    #     update_products()
+
+    # def on_close():
+    #     print("You closed the Ingredient Editor.")
+    #     popup_ingredient.destroy()
+
+    def update_mixture_tree() :
+        global mixtures, tree_mixture
+        list = get_set_funcs.get_mixtures(active_database)
+        mixtures = []
+        for mix, nbr, com in list :
+            mixtures.append((mix,))
+        # print(mixtures)
+        tree_mixture.selection_remove(tree_mixture.selection())
+        update_search_in_tree(tree=tree_mixture, search_var=search_mixture_var, list_of_items= mixtures)
+
+    def update_mixture() :
+        print("UPDATE!!!")
+
+    def select_mixture(event) :
+        global tree_mixture
+        temp = tree_mixture.item(tree_mixture.selection(), "values")
+        print(temp)
+        if temp != [] :
+            mixture_name = temp[0]
+            print(mixture_name)
+            mixture_name_var.set(mixture_name)
+
+
+    popup_recipe = tk.Toplevel(root)
+    popup_recipe.title("Recipe Editor")
+    popup_recipe.geometry("1000x500")
+
+    label_ingredient_info = tk.Label(popup_recipe, text="Make Recipe...")
+    label_ingredient_info.pack(pady=5)
+
+    frame_select = tk.Frame(popup_recipe)
+    frame_select.pack(pady=5)
+
+    intVar = tk.IntVar()
+    intVar.set(1)
+
+    radio_mixture = tk.Radiobutton(frame_select, text = "Make Mixture Recipe", variable = intVar, value=1, 
+                                    command= lambda : (
+                                        frame_sandwich.pack_forget(),
+                                        frame_mixture.pack()
+                                    ))
+    radio_mixture.pack(side=tk.LEFT, padx=10)
+
+    radio_sandwich = tk.Radiobutton(frame_select, text = "Make Sandwich Recipe", variable = intVar, value=2,
+                                    command= lambda : (
+                                        frame_mixture.pack_forget(),
+                                        frame_sandwich.pack()
+                                    ))
+    radio_sandwich.pack(side=tk.LEFT, padx=10)
+
+    frame_mixture = tk.Frame(popup_recipe)
+    frame_mixture.pack()
+
+    frame_sandwich = tk.Frame(popup_recipe)
+
+    frame_mixture_select = tk.Frame(frame_mixture)
+    frame_mixture_select.pack(side=tk.LEFT, padx=20)
+
+
+    frame, label, search_mixture_var, trees, tree_frames = make_treeview_with_search(current_frame=frame_mixture_select, 
+                                                                              heading_names= ("Mixture Name",) , 
+                                                                              heading_width= (300,))
+    tree_mixture = trees["0"]
+
+    update_mixture_tree()
+
+    search_mixture_var.trace_add("write", lambda *args: update_search_in_tree(tree=tree_mixture, 
+                                                                              search_var=search_mixture_var, 
+                                                                              list_of_items= mixtures))
+
+    frame_add_mixture = tk.Frame(frame_mixture_select)
+    frame_add_mixture.pack(pady=5)
+
+    # label_name_mixture = tk.Label(frame_add_mixture, text="Name:")
+    # label_name_mixture.pack(side=tk.LEFT)
+
+    # entry_add_mixture_name = ttk.Entry(frame_add_mixture)
+    # entry_add_mixture_name.pack(side=tk.LEFT)
+
+    button_add_mixture = ttk.Button(frame_add_mixture, text="Create New Mixture", command=create_new_mixture)
+    button_add_mixture.pack(side=tk.LEFT, padx=10)
+
+    button_remove_mixture = ttk.Button(frame_add_mixture, text="Remove Mixture", command=remove_mixture)
+    button_remove_mixture.pack(side=tk.LEFT, padx=5)
+
+
+    frame_mixture_ingredients = tk.Frame(frame_mixture)
+    frame_mixture_ingredients.pack(side=tk.LEFT, padx=20)
+
+    frame_mixture_name = tk.Frame(frame_mixture_ingredients)
+    frame_mixture_name.pack(pady=5)
+
+    label_name_mixture = tk.Label(frame_mixture_name, text="Name:")
+    label_name_mixture.pack(side=tk.LEFT)
+
+    mixture_name_var = tk.StringVar()
+    entry_name_mixture = ttk.Entry(frame_mixture_name, textvariable=mixture_name_var)
+    entry_name_mixture.pack(side=tk.LEFT)
+
+    frame_mixture_amount = tk.Frame(frame_mixture_ingredients)
+    frame_mixture_amount.pack(pady=5)
+
+    label_amount_mixture = tk.Label(frame_mixture_amount, text="Number of Sandwiches(st):")
+    label_amount_mixture.pack(side=tk.LEFT)
+
+    entry_amount_mixture = ttk.Entry(frame_mixture_amount)
+    entry_amount_mixture.pack(side=tk.LEFT)
+
+    search_frame, label, string_var, trees, tree_frames = make_treeview_with_search(current_frame=frame_mixture_ingredients, 
+                                                                              heading_names= ("Ingredient List", "Amount", "Unit") , 
+                                                                              heading_width= (250,100,50))
+    search_frame.pack_forget()
+    tree_ingredient_list = trees["0"]
+
+    tree_mixture.bind("<<TreeviewSelect>>", select_mixture)
+
+    button_update_mixture = ttk.Button(frame_mixture_ingredients, text="Update Mixture", command=update_mixture)
+    button_update_mixture.pack(pady=5)
+
+    # frame_products = tk.Frame(frame_main)
+    # frame_products.pack(side=tk.LEFT, padx=20)
+
+    # frame_ingredients = tk.Frame(frame_main)
+    # frame_ingredients.pack(side=tk.LEFT)
+
+    # frame_search_products = tk.Frame(frame_products)
+    # frame_search_products.pack(pady=5)
+    
+    # frame_search_ingredients = tk.Frame(frame_ingredients)
+    # frame_search_ingredients.pack(pady=5)
+
+    # # Dropdown options  
+    # products, categorys = get_set_funcs.getProductsAndCategorys(active_database) # categorys and products include an "All Products" category
+
+    # # Selected option variable  
+    # opt = StringVar()  
+
+    # # Dropdown menu  
+    # dropdown_categorys = ttk.OptionMenu(frame_search_products, opt, categorys[0], *categorys, command=change_category)
+    # dropdown_categorys.pack(side=tk.LEFT, padx=20)
+
+    # label_search_products = tk.Label(frame_search_products, text="Search:")
+    # label_search_products.pack(side=tk.LEFT)
+
+    # search_products_var = tk.StringVar()
+    # entry_search_products = ttk.Entry(frame_search_products, textvariable=search_products_var)
+    # entry_search_products.pack(side=tk.LEFT)
+
+    # listBox_frame = tk.Frame(frame_products)
+    # listBox_frame.pack(pady=5)
+
+    # # style = ttk.Style(listBox_frame)
+    # # style.theme_use("clam")
+
+    # scrollbar_products = ttk.Scrollbar(listBox_frame) 
+    # scrollbar_products.pack(side = RIGHT, fill = BOTH) 
+
+    # list_of_products_tree = {}
+    # for cat in categorys :
+    #     temp_tree = ttk.Treeview(listBox_frame, columns=("Product Name", "Linked Ingredient"), show="headings")
+    #     temp_tree.heading("Product Name", text="Product Name")
+    #     temp_tree.heading("Linked Ingredient", text="Linked Ingredient")
+    #     # tempListBox = tk.Listbox(listBox_frame, selectmode='multiple', height=14, width=50)
+    #     for item in products[cat] :
+    #         temp_tree.insert("", tk.END, values=item)
+    #     list_of_products_tree[cat] = temp_tree
+
+    # active_category = categorys[0]
+    # active_products = products[active_category]
+    # list_of_products_tree[active_category].pack(side=tk.LEFT)
+
+    # list_of_products_tree[active_category].config(yscrollcommand = scrollbar_products.set)
+    # scrollbar_products.config(command = list_of_products_tree[active_category].yview)
+
+    # search_products_var.trace_add("write", lambda *args: update_search_products_list())
+
+    # label_search_ingredients = tk.Label(frame_search_ingredients, text="Search:")
+    # label_search_ingredients.pack(side=tk.LEFT)
+
+    # search_ingredients_var = tk.StringVar()
+    # entry_search_ingredients = ttk.Entry(frame_search_ingredients, textvariable=search_ingredients_var)
+    # entry_search_ingredients.pack(side=tk.LEFT)
+
+    # active_ingrediets = []
+
+    # frame_tree_ingredient = tk.Frame(frame_ingredients)
+    # frame_tree_ingredient.pack(pady=5)
+
+    # ingredients = get_set_funcs.get_ingredients(active_database)
+
+    # tree_ingredient = ttk.Treeview(frame_tree_ingredient, columns=("Ingredient Name", "Ingredient Comment"), show="headings")
+    # tree_ingredient.heading("Ingredient Name", text="Ingredient Name")
+    # tree_ingredient.heading("Ingredient Comment", text="Ingredient Comment")
+    # tree_ingredient.column("Ingredient Name", width=120)
+
+    # for ingr in ingredients:
+    #     tree_ingredient.insert("", tk.END, values=ingr)
+
+    # scrollbar_ingredient = ttk.Scrollbar(frame_tree_ingredient) 
+    # scrollbar_ingredient.pack(side = RIGHT, fill = BOTH)
+
+    # tree_ingredient.config(yscrollcommand = scrollbar_ingredient.set)
+    # scrollbar_ingredient.config(command = tree_ingredient.yview)
+
+    # tree_ingredient.pack(expand=True)
+    # tree_ingredient.pack(pady=5)
+
+    # search_ingredients_var.trace_add("write", lambda *args: update_search_ingredients_list())
+
+    # frame_add_ingredient = tk.Frame(frame_ingredients)
+    # frame_add_ingredient.pack(pady=5)
+
+    # label_name_ingredients = tk.Label(frame_add_ingredient, text="Name:")
+    # label_name_ingredients.pack(side=tk.LEFT)
+
+    # entry_add_ingredient_name = ttk.Entry(frame_add_ingredient)
+    # entry_add_ingredient_name.pack(side=tk.LEFT)
+
+    # label_comment_ingredients = tk.Label(frame_add_ingredient, text="    Comment:")
+    # label_comment_ingredients.pack(side=tk.LEFT)
+
+    # entry_add_ingredient_comment = ttk.Entry(frame_add_ingredient)
+    # entry_add_ingredient_comment.pack(side=tk.LEFT)
+
+    # frame_add_ingredient_buttons = tk.Frame(frame_ingredients)
+    # frame_add_ingredient_buttons.pack(pady=5)
+
+    # button_add_ingredient = ttk.Button(frame_add_ingredient_buttons, text="Add Ingredient", command=add_ingredient)
+    # button_add_ingredient.pack(side=tk.LEFT, padx=5)
+
+    # button_remove_ingredient = ttk.Button(frame_add_ingredient_buttons, text="Remove Ingredient", command=remove_ingredient)
+    # button_remove_ingredient.pack(side=tk.LEFT, padx=5)
+
+    # frame_link_buttons = tk.Frame(popup_ingredient)
+    # frame_link_buttons.pack(pady=5)
+
+    # button_link = ttk.Button(frame_link_buttons, text="LINK!", command=on_link)
+    # button_link.pack(side=tk.LEFT, padx=10)
+
+    # button_unlink = ttk.Button(frame_link_buttons, text="UNLINK!", command=on_unlink)
+    # button_unlink.pack(side=tk.LEFT, padx=10)
+
+    # button_ingredient_cancel = ttk.Button(frame_link_buttons, text="CANCEL", command=on_close)
+    # button_ingredient_cancel.pack(side=tk.LEFT, pady=10)
+
 
 
 if __name__ == "__main__" :
     active_database = "hilbertDatabase.db" # Name of active database
+    bold_font = ("Segoe UI", 10, "bold")
+    bigger_font = ("Segoe UI", 12)
 
     root = tk.Tk()
     root.title("Hilbot 2000")
     root.geometry("600x600")
 
-    label_info_text = "This is a tool to 'help'/replace mackåsnan..."
-    label_info = tk.Label(root, text=label_info_text)
+    style = ttk.Style(root)
+    style.theme_use("clam")
+
+    label_info = tk.Label(root, text="This is a tool to help/replace mackåsnan...", font=bigger_font)
     label_info.pack(pady=5)
 
-    button_open_scraper = tk.Button(root, text="Open Scraper",command=open_popup_scraper)
+    button_open_scraper = ttk.Button(root, text="Open Scraper",command=open_popup_scraper)
     button_open_scraper.pack(pady=5)
 
-    button_open_plotter = tk.Button(root, text="Open Plotter",command=open_popup_plotter)
+    button_open_plotter = ttk.Button(root, text="Open Plotter",command=open_popup_plotter)
     button_open_plotter.pack(pady=5)
 
-    button_open_backup = tk.Button(root, text="Create Backup of Database", command=create_backup)
+    button_open_backup = ttk.Button(root, text="Create Backup of Database", command=create_backup)
     button_open_backup.pack(pady=5)
 
-    button_open_ingredient_editor = tk.Button(root, text="Open Ingredient Editor",command=open_popup_ingredient)
+    button_open_ingredient_editor = ttk.Button(root, text="Open Ingredient Editor",command=open_popup_ingredient)
     button_open_ingredient_editor.pack(pady=5)
 
-    # button3 = tk.Button(root, text="Pop-Up",command=test)
+    button_open_recipe_editor = ttk.Button(root, text="Open Recipe Editor",command=open_popup_recipe)
+    button_open_recipe_editor.pack(pady=5)
+
+    # button3 = ttk.Button(root, text="Pop-Up",command=test)
     # button3.pack(pady=5)
 
 
 
-    # tooltip = ListboxTooltip(listOfListBoxes[activeCategory], get_tooltip_text=lambda i: str(i) + "hej")
+    # tooltip = ListboxTooltip(listOfListBoxes[active_category], get_tooltip_text=lambda i: str(i) + "hej")
 
     # label2 = tk.Label(root, text="Recored Movment")
     # label2.pack(pady=5)
@@ -452,13 +788,13 @@ if __name__ == "__main__" :
     # label3 = tk.Label(root, text="Nummber of Clicks: " + str(clickCount))
     # label3.pack(pady=0)
 
-    # button2 = tk.Button(root, text="Start",command=startRecored)
+    # button2 = ttk.Button(root, text="Start",command=startRecored)
     # button2.pack(pady=5)
 
     # label4 = tk.Label(root, text="Time Between Clicks: (sek)")
     # label4.pack(pady=0)
 
-    # entry1 = tk.Entry(root, textvariable=timeDelay)
+    # entry1 = ttk.Entry(root, textvariable=timeDelay)
     # #entry1.pack(pady=5)
 
 

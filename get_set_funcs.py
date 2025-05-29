@@ -50,7 +50,6 @@ def getProductsAndCategorys(active_database) :
 
     return (products, categorys)
 
-
 def get_ingredients(active_database) :
     conn = sqlite3.connect(active_database)
     cursor = conn.cursor()
@@ -61,21 +60,21 @@ def get_ingredients(active_database) :
     elems = cursor.fetchall()
     conn.close()
 
-    print(elems)
-    print([item[0] for item in elems if item[0] == "test"])
+    # print(elems)
+    # print([item[0] for item in elems if item[0] == "test"])
+
+    elems.sort()
 
     return elems
 
-
-def set_ingredient(active_database, ingredient_name, ingredient_comment) :
+def add_ingredient(active_database, ingredient_name, ingredient_comment) :
     with sqlite3.connect(active_database) as conn :
         cursor = conn.cursor()
 
         cursor.execute('''
             INSERT OR REPLACE INTO ingredients (ingredient_name, ingredient_comment)
             VALUES(?,?)
-        ''',(ingredient_name.lower(), ingredient_comment))
-
+        ''',(ingredient_name, ingredient_comment))
 
 def remove_ingredient(active_database, ingredient_name) :
     with sqlite3.connect(active_database) as conn :
@@ -85,7 +84,6 @@ def remove_ingredient(active_database, ingredient_name) :
             DELETE FROM ingredients
             WHERE ingredient_name = ?
         ''',(ingredient_name,))
-
 
 def link_product_ingredient(active_database, product_name, ingredient_name) :
     with sqlite3.connect(active_database) as conn :
@@ -106,4 +104,41 @@ def unlink_product_ingredient(active_database, product_name) :
             SET ingredient_name = ''
             WHERE product_name = ?
         ''',(product_name,))
+
+def get_mixtures(active_database) :
+    conn = sqlite3.connect(active_database)
+    cursor = conn.cursor()
+
+    cursor.execute('''
+        SELECT mixture_name, nbr_of_sandwiches, mixture_instruction FROM mixtures;
+    ''')
+    elems = cursor.fetchall()
+    conn.close()
+
+    # print(elems)
+    # print([item[0] for item in elems if item[0] == "test"])
+
+    elems.sort()
+
+    return elems
+
+def add_mixture(active_database, mixture_name) :
+    with sqlite3.connect(active_database) as conn :
+        cursor = conn.cursor()
+
+        # print(mixture_name)
+
+        cursor.execute('''
+            INSERT OR REPLACE INTO mixtures (mixture_name, nbr_of_sandwiches, mixture_instruction)
+            VALUES(?,'','')
+        ''',(mixture_name,))
+
+def remove_mixture(active_database, mixture_name) :
+    with sqlite3.connect(active_database) as conn :
+        cursor = conn.cursor()
+
+        cursor.execute('''
+            DELETE FROM mixtures
+            WHERE mixture_name = ?
+        ''',(mixture_name,))
 
