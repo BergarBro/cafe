@@ -612,7 +612,7 @@ def open_popup_recipe() :
     search_frame.pack_forget()
     tree_ingredient_list = trees["0"]
 
-    tree_mixture.bind("<<TreeviewSelect>>", select_mixture)
+    tree_mixture.bind("<ButtonRelease-1>", select_mixture)
 
     button_update_mixture = ttk.Button(frame_mixture_ingredients, text="Update Mixture", command=update_mixture)
     button_update_mixture.pack(pady=5)
