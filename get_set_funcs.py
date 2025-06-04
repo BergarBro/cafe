@@ -122,7 +122,7 @@ def get_mixtures(active_database) :
 
     return elems
 
-def add_mixture(active_database, mixture_name) :
+def add_mixture(active_database, mixture_name, nbr_of_sandwiches) :
     with sqlite3.connect(active_database) as conn :
         cursor = conn.cursor()
 
@@ -130,8 +130,8 @@ def add_mixture(active_database, mixture_name) :
 
         cursor.execute('''
             INSERT OR REPLACE INTO mixtures (mixture_name, nbr_of_sandwiches, mixture_instruction)
-            VALUES(?,'','')
-        ''',(mixture_name,))
+            VALUES(?,?,'')
+        ''',(mixture_name,nbr_of_sandwiches))
 
 def remove_mixture(active_database, mixture_name) :
     with sqlite3.connect(active_database) as conn :
@@ -142,3 +142,12 @@ def remove_mixture(active_database, mixture_name) :
             WHERE mixture_name = ?
         ''',(mixture_name,))
 
+def update_mixture(active_database, mixture_name_old, mixture_name_new, nbr_of_sandwiches, mixture_instructions) :
+    with sqlite3.connect(active_database) as conn :
+        cursor = conn.cursor()
+
+        cursor.execute('''
+            UPDATE mixtures
+            SET mixture_name = ?, nbr_of_sandwiches = ?, mixture_instruction = ?
+            WHERE mixture_name = ?
+        ''',(mixture_name_new, nbr_of_sandwiches, mixture_instructions,mixture_name_old))

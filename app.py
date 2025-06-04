@@ -18,11 +18,11 @@ def make_treeview_with_search(current_frame, heading_names, heading_width = [], 
     frame_search.pack(pady=5)
     
     label_search = tk.Label(frame_search, text="Search:")
-    label_search.pack(side=tk.LEFT)
+    label_search.pack(side="left")
 
     search_var = tk.StringVar()
     entry_search = ttk.Entry(frame_search, textvariable=search_var)
-    entry_search.pack(side=tk.LEFT)
+    entry_search.pack(side="left")
 
     frame_tree = tk.Frame(current_frame)
     frame_tree.pack(pady=5)
@@ -53,15 +53,45 @@ def make_treeview_with_search(current_frame, heading_names, heading_width = [], 
 
     return (frame_search, label_search, search_var, trees, tree_frames)
 
-def update_search_in_tree(tree, search_var, list_of_items) :
+def update_search_in_tree(tree, search_var, list_of_items, index_of_items = []) :
     search_term = search_var.get().lower()
     # print(search_term)
     for i in tree.get_children() :
         tree.delete(i)
 
+    if index_of_items == [] :
+        index_of_items = range(len(list_of_items[0]))
+
     for item in list_of_items :
         if search_term in item[0].lower() :
-            tree.insert("", tk.END, values=item)
+            tree.insert("", tk.END, values=tuple(item[i] for i in index_of_items))
+
+def make_entry_with_label(current_frame, label_text) :
+    frame = ttk.Frame(current_frame)
+
+    label = tk.Label(frame, text=label_text)
+    label.pack(side="left")
+    
+    str_var = tk.StringVar()
+    entry = ttk.Entry(frame, textvariable=str_var)
+    entry.pack(side="left")
+
+    return (frame, str_var)
+
+def make_popup_window(current_fame, title_text, info_text) :
+    def on_ok() :
+        window.destroy()
+
+    window = tk.Toplevel(current_fame)
+    window.title(title_text)
+    window.geometry("300x100")
+
+    label_info = tk.Label(window, text=info_text)
+    label_info.pack(pady=5)
+
+    ok_button = ttk.Button(window, text="OK", command=on_ok)
+    ok_button.pack(pady=5)
+    
 
 
 ### Button Functions ###
@@ -106,7 +136,7 @@ def open_popup_scraper():
 
 def open_popup_plotter() :
     global categorys, products, listOfListBoxes, scrollbar
-    global active_category, active_products, search_var, search_entry
+    global active_category, active_products, search_var
 
     def plot_prices() :
         global categorys, active_category, active_products
@@ -138,7 +168,7 @@ def open_popup_plotter() :
 
     def update_search_category_list() :
         global active_products, listOfListBoxes, active_products, active_category
-        search_term = search_entry.get().lower()
+        search_term = search_var.get().lower()
         # print(search_term)
         listOfListBoxes[active_category].delete(0,tk.END)
         active_products = []
@@ -162,7 +192,7 @@ def open_popup_plotter() :
     # button3.pack(pady=5)
 
     frame_search = tk.Frame(popup_plotter)
-    frame_search.pack(pady=5)  # You can also use padx here
+    frame_search.pack(pady=5)
 
     # Dropdown options  
     products, categorys = get_set_funcs.getProductsAndCategorys(active_database)
@@ -174,13 +204,8 @@ def open_popup_plotter() :
     dropdown_categorys = ttk.OptionMenu(frame_search, opt, categorys[0], *categorys, command=change_category)
     dropdown_categorys.pack(side=tk.LEFT, padx=5)
 
-    label_search = tk.Label(frame_search, text="Search:")
-    label_search.pack(side=tk.LEFT)
-
-    search_var = tk.StringVar()
-    search_entry = ttk.Entry(frame_search, textvariable=search_var)
-    # search_entry.insert(0, "Search...")
-    search_entry.pack(side=tk.LEFT)
+    frame_entry, search_var = make_entry_with_label(current_frame=frame_search, label_text="Search:")
+    frame_entry.pack(side="left")
 
     # Buttons packed inside the frame side-by-side
     button_select_all = ttk.Button(frame_search, text="Select All", command=select_all)
@@ -224,7 +249,29 @@ def open_popup_plotter() :
     button_plotter_cancel.pack(side=tk.LEFT, pady=10)
 
 def create_backup() :
-    makeBackupDB.create_backup_of_DB(active_database)
+    def on_ok():
+        makeBackupDB.create_backup_of_DB(active_database)
+        popup_backup.destroy()
+
+    def on_cancel():
+        print("You canceled the Backup:er")
+        popup_backup.destroy()
+
+    popup_backup = tk.Toplevel(root)
+    popup_backup.title("Create Backup?")
+    popup_backup.geometry("300x100")
+    
+    label_backup_info = tk.Label(popup_backup, text="Do you want to make a backup of the database?")
+    label_backup_info.pack(pady=10)
+
+    frame_select = tk.Frame(popup_backup)
+    frame_select.pack(pady=5)
+
+    button_create_backup = ttk.Button(frame_select, text="CREATE BACKUP!", command=on_ok)
+    button_create_backup.pack(side=tk.LEFT, padx=10)
+
+    button_cancel = ttk.Button(frame_select, text="CANCEL", command=on_cancel)
+    button_cancel.pack(side=tk.LEFT, padx=10)
 
 def open_popup_ingredient() :
     global categorys, products, product_tress, scrollbar, search_products_var, search_ingredients_var, product_frames
@@ -241,13 +288,13 @@ def open_popup_ingredient() :
         global ingredients
 
         def add_new_ingredient(ingredient_name) :
-            ingredient_comment = entry_add_ingredient_comment.get()
+            ingredient_comment = ingredient_comment_var.get()
             get_set_funcs.add_ingredient(active_database, ingredient_name, ingredient_comment)
             update_ingredients()
-            entry_add_ingredient_name.delete(0, tk.END)
-            entry_add_ingredient_comment.delete(0, tk.END)
+            ingredient_name_var.set("")
+            ingredient_comment_var.set("")
 
-        ingredient_name = entry_add_ingredient_name.get().upper()
+        ingredient_name = ingredient_name_var.get().upper()
         if ingredient_name != "" :
             if [item[0] for item in ingredients if item[0].lower() == ingredient_name.lower()] != [] :
                 popup_add_ingredient = tk.Toplevel(popup_ingredient)
@@ -394,17 +441,11 @@ def open_popup_ingredient() :
     frame_add_ingredient = tk.Frame(frame_ingredients)
     frame_add_ingredient.pack(pady=5)
 
-    label_name_ingredients = tk.Label(frame_add_ingredient, text="Name:")
-    label_name_ingredients.pack(side=tk.LEFT)
+    frame_name, ingredient_name_var = make_entry_with_label(current_frame=frame_add_ingredient, label_text="Name:")
+    frame_name.pack(side="left")
 
-    entry_add_ingredient_name = ttk.Entry(frame_add_ingredient)
-    entry_add_ingredient_name.pack(side=tk.LEFT)
-
-    label_comment_ingredients = tk.Label(frame_add_ingredient, text="    Comment:")
-    label_comment_ingredients.pack(side=tk.LEFT)
-
-    entry_add_ingredient_comment = ttk.Entry(frame_add_ingredient)
-    entry_add_ingredient_comment.pack(side=tk.LEFT)
+    frame_comment, ingredient_comment_var = make_entry_with_label(current_frame=frame_add_ingredient, label_text="    Comment:")
+    frame_comment.pack(side="left")
 
     frame_add_ingredient_buttons = tk.Frame(frame_ingredients)
     frame_add_ingredient_buttons.pack(pady=5)
@@ -428,31 +469,22 @@ def open_popup_ingredient() :
     button_ingredient_cancel.pack(side=tk.LEFT, pady=10)
 
 def open_popup_recipe() :
-    global frame_sandwich, frame_mixture, search_mixture_var, mixtures, tree_mixture
-
-    # def change_category(newCategory) :
-    #     global active_category, list_of_products_tree, categorys, active_products, scrollbar
-    #     list_of_products_tree[active_category].pack_forget()
-    #     list_of_products_tree[newCategory].pack(pady=5)
-    #     active_category = newCategory
-    #     active_products = products[active_category]
-    #     # search_entry.delete(0, tk.END)
-    #     # print(listOfListBoxes[active_category].size())
-    #     list_of_products_tree[active_category].config(yscrollcommand = scrollbar_products.set)
-    #     scrollbar_products.config(command = list_of_products_tree[active_category].yview)
+    global frame_sandwich, frame_mixture, search_mixture_var, mixtures, tree_mixture, mixture_name_var
 
     def create_new_mixture() :
         global mixtures, tree_mixture
 
         name_of_new_mixture = "NEW MIXTURE"
+        nbr_of_sandwiches = 0
 
-        get_set_funcs.add_mixture(active_database, name_of_new_mixture)
+        get_set_funcs.add_mixture(active_database, name_of_new_mixture, nbr_of_sandwiches)
         update_mixture_tree()
         for i in tree_mixture.get_children() :
             if tree_mixture.item(i, "values")[0] == name_of_new_mixture :
                 tree_mixture.selection_set(i)
                 tree_mixture.see(i)
                 break
+        select_mixture(event=EventType)
 
     def remove_mixture() :
         if (tree_mixture.item(tree_mixture.selection())["values"]) != "" :
@@ -474,7 +506,9 @@ def open_popup_recipe() :
                                         command= lambda : (
                                             get_set_funcs.remove_mixture(active_database, mixture_to_remove),
                                             popup_remove_mixture.destroy(),
-                                            update_mixture_tree()))
+                                            update_mixture_tree(),
+                                            mixture_name_var.set(""),
+                                            mixture_nbr_sand_var.set("")))
             button_remove_ok.pack(side=tk.LEFT, padx=5)
 
             button_remove_cancel = ttk.Button(frame_buttons, text="CANCEL",
@@ -483,42 +517,46 @@ def open_popup_recipe() :
                                                 update_mixture_tree()))
             button_remove_cancel.pack(side=tk.LEFT, padx=5)
 
-    # def on_link() :
-    #     product_name = list_of_products_tree[active_category].item(list_of_products_tree[active_category].selection())["values"][0]
-    #     ingredient_name = tree_ingredient.item(tree_ingredient.selection())["values"][0]
-    #     get_set_funcs.link_product_ingredient(active_database, product_name, ingredient_name)
-    #     update_products()
-
-    # def on_unlink() :
-    #     product_name = list_of_products_tree[active_category].item(list_of_products_tree[active_category].selection())["values"][0]
-    #     get_set_funcs.unlink_product_ingredient(active_database, product_name)
-    #     update_products()
-
     # def on_close():
     #     print("You closed the Ingredient Editor.")
     #     popup_ingredient.destroy()
 
     def update_mixture_tree() :
         global mixtures, tree_mixture
-        list = get_set_funcs.get_mixtures(active_database)
-        mixtures = []
-        for mix, nbr, com in list :
-            mixtures.append((mix,))
+        mixtures = get_set_funcs.get_mixtures(active_database)
         # print(mixtures)
         tree_mixture.selection_remove(tree_mixture.selection())
-        update_search_in_tree(tree=tree_mixture, search_var=search_mixture_var, list_of_items= mixtures)
+        update_search_in_tree(tree=tree_mixture, search_var=search_mixture_var, list_of_items= mixtures, index_of_items=[0,1])
 
     def update_mixture() :
-        print("UPDATE!!!")
+        global tree_mixture
+        if tree_mixture.item(tree_mixture.selection(), "values") != "" :
+            mixture_name_old = tree_mixture.item(tree_mixture.selection(), "values")[0]
+            mixture_name_new = mixture_name_var.get().upper()
+            if not mixture_nbr_sand_var.get().isnumeric() :
+                make_popup_window(current_fame=popup_recipe, title_text="Not A Nummber!", info_text="Number of Sandwiches has to be a nummber!")
+                mixture_nbr_sand_var.set("")
+            else :
+                mixture_nbr_sand = int(mixture_nbr_sand_var.get())
+                mixture_instructions = mixture_instructions_var.get()
+                get_set_funcs.update_mixture(active_database, mixture_name_old, mixture_name_new, mixture_nbr_sand, mixture_instructions)
+                update_mixture_tree()
+
 
     def select_mixture(event) :
         global tree_mixture
-        temp = tree_mixture.item(tree_mixture.selection(), "values")
-        print(temp)
-        if temp != [] :
-            mixture_name = temp[0]
-            print(mixture_name)
-            mixture_name_var.set(mixture_name)
+        selected_mixture = tree_mixture.item(tree_mixture.selection(), "values")
+        # print(temp)
+        if selected_mixture != [] :
+            mixture_name = selected_mixture[0]
+            for mix in mixtures :
+                if mix[0] == mixture_name :
+                    mixture_name_var.set(mix[0])
+                    mixture_nbr_sand_var.set(mix[1])
+                    mixture_instructions_var.set(mix[2])
+
+    def update_ingredients(current_ingredients) :
+        update_search_in_tree(tree=tree_ingredient_list, search_var=ingredient_search_var, list_of_items=current_ingredients, index_of_items=[0])
 
 
     popup_recipe = tk.Toplevel(root)
@@ -558,8 +596,8 @@ def open_popup_recipe() :
 
 
     frame, label, search_mixture_var, trees, tree_frames = make_treeview_with_search(current_frame=frame_mixture_select, 
-                                                                              heading_names= ("Mixture Name",) , 
-                                                                              heading_width= (300,))
+                                                                              heading_names= ("Mixture Name","Nummber of Sandwiches") , 
+                                                                              heading_width= (150,150))
     tree_mixture = trees["0"]
 
     update_mixture_tree()
@@ -571,12 +609,6 @@ def open_popup_recipe() :
     frame_add_mixture = tk.Frame(frame_mixture_select)
     frame_add_mixture.pack(pady=5)
 
-    # label_name_mixture = tk.Label(frame_add_mixture, text="Name:")
-    # label_name_mixture.pack(side=tk.LEFT)
-
-    # entry_add_mixture_name = ttk.Entry(frame_add_mixture)
-    # entry_add_mixture_name.pack(side=tk.LEFT)
-
     button_add_mixture = ttk.Button(frame_add_mixture, text="Create New Mixture", command=create_new_mixture)
     button_add_mixture.pack(side=tk.LEFT, padx=10)
 
@@ -587,30 +619,23 @@ def open_popup_recipe() :
     frame_mixture_ingredients = tk.Frame(frame_mixture)
     frame_mixture_ingredients.pack(side=tk.LEFT, padx=20)
 
-    frame_mixture_name = tk.Frame(frame_mixture_ingredients)
+    frame_mixture_name, mixture_name_var = make_entry_with_label(current_frame=frame_mixture_ingredients, label_text="Name:")
     frame_mixture_name.pack(pady=5)
 
-    label_name_mixture = tk.Label(frame_mixture_name, text="Name:")
-    label_name_mixture.pack(side=tk.LEFT)
+    frame_mixture_nbr_sand, mixture_nbr_sand_var = make_entry_with_label(current_frame=frame_mixture_ingredients, label_text="Number of Sandwiches(st):")
+    frame_mixture_nbr_sand.pack(pady=5)
 
-    mixture_name_var = tk.StringVar()
-    entry_name_mixture = ttk.Entry(frame_mixture_name, textvariable=mixture_name_var)
-    entry_name_mixture.pack(side=tk.LEFT)
+    frame_mixture_instructions, mixture_instructions_var = make_entry_with_label(current_frame=frame_mixture_ingredients, label_text="Instructions:")
+    frame_mixture_instructions.pack(pady=5)
 
-    frame_mixture_amount = tk.Frame(frame_mixture_ingredients)
-    frame_mixture_amount.pack(pady=5)
-
-    label_amount_mixture = tk.Label(frame_mixture_amount, text="Number of Sandwiches(st):")
-    label_amount_mixture.pack(side=tk.LEFT)
-
-    entry_amount_mixture = ttk.Entry(frame_mixture_amount)
-    entry_amount_mixture.pack(side=tk.LEFT)
-
-    search_frame, label, string_var, trees, tree_frames = make_treeview_with_search(current_frame=frame_mixture_ingredients, 
+    search_frame, label, ingredient_search_var, trees, tree_frames = make_treeview_with_search(current_frame=frame_mixture_ingredients, 
                                                                               heading_names= ("Ingredient List", "Amount", "Unit") , 
                                                                               heading_width= (250,100,50))
     search_frame.pack_forget()
     tree_ingredient_list = trees["0"]
+
+    ingredients = get_set_funcs.get_ingredients(active_database)
+    update_ingredients(ingredients)
 
     tree_mixture.bind("<ButtonRelease-1>", select_mixture)
 
