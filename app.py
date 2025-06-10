@@ -7,91 +7,8 @@ import random as rd
 import multiprocessing
 
 import plotPrices, scraperScript, get_set_funcs, makeBackupDB
+import aux_func as af
 from tooltip import ListboxTooltip
-
-### Global Helper Functions ###
-def make_treeview_with_search(current_frame, heading_names, heading_width = [], tree_names = ["0"]) :
-    if heading_width == [] :
-        heading_width = [-1] * len(heading_names)
-
-    frame_search = tk.Frame(current_frame)
-    frame_search.pack(pady=5)
-    
-    label_search = tk.Label(frame_search, text="Search:")
-    label_search.pack(side="left")
-
-    search_var = tk.StringVar()
-    entry_search = ttk.Entry(frame_search, textvariable=search_var)
-    entry_search.pack(side="left")
-
-    frame_tree = tk.Frame(current_frame)
-    frame_tree.pack(pady=5)
-
-    tree_frames = {}
-    trees = {}
-    for j in range(len(tree_names)) :
-        temp_frame = tk.Frame(frame_tree)
-        temp_tree = ttk.Treeview(temp_frame, columns=heading_names, show="headings", selectmode="browse")
-
-        for i in range(len(heading_names)) :
-            temp_tree.heading(heading_names[i], text=heading_names[i])
-            if heading_width[i] > 0 :
-                temp_tree.column(heading_names[i], width=heading_width[i])
-
-        scrollbar = ttk.Scrollbar(temp_frame) 
-        scrollbar.pack(side = RIGHT, fill = BOTH)
-
-        temp_tree.config(yscrollcommand = scrollbar.set)
-        scrollbar.config(command = temp_tree.yview)
-
-        temp_tree.pack(expand=True)
-
-        tree_frames[tree_names[j]] = temp_frame
-        trees[tree_names[j]] = temp_tree
-
-    tree_frames[tree_names[0]].pack()
-
-    return (frame_search, label_search, search_var, trees, tree_frames)
-
-def update_search_in_tree(tree, search_var, list_of_items, index_of_items = []) :
-    search_term = search_var.get().lower()
-    # print(search_term)
-    for i in tree.get_children() :
-        tree.delete(i)
-
-    if index_of_items == [] :
-        index_of_items = range(len(list_of_items[0]))
-
-    for item in list_of_items :
-        if search_term in item[0].lower() :
-            tree.insert("", tk.END, values=tuple(item[i] for i in index_of_items))
-
-def make_entry_with_label(current_frame, label_text) :
-    frame = ttk.Frame(current_frame)
-
-    label = tk.Label(frame, text=label_text)
-    label.pack(side="left")
-    
-    str_var = tk.StringVar()
-    entry = ttk.Entry(frame, textvariable=str_var)
-    entry.pack(side="left")
-
-    return (frame, str_var)
-
-def make_popup_window(current_fame, title_text, info_text) :
-    def on_ok() :
-        window.destroy()
-
-    window = tk.Toplevel(current_fame)
-    window.title(title_text)
-    window.geometry("300x100")
-
-    label_info = tk.Label(window, text=info_text)
-    label_info.pack(pady=5)
-
-    ok_button = ttk.Button(window, text="OK", command=on_ok)
-    ok_button.pack(pady=5)
-    
 
 
 ### Button Functions ###
@@ -204,7 +121,7 @@ def open_popup_plotter() :
     dropdown_categorys = ttk.OptionMenu(frame_search, opt, categorys[0], *categorys, command=change_category)
     dropdown_categorys.pack(side=tk.LEFT, padx=5)
 
-    frame_entry, search_var = make_entry_with_label(current_frame=frame_search, label_text="Search:")
+    frame_entry, search_var = af.make_entry_with_label(current_frame=frame_search, label_text="Search:")
     frame_entry.pack(side="left")
 
     # Buttons packed inside the frame side-by-side
@@ -374,12 +291,12 @@ def open_popup_ingredient() :
         global ingredients, tree_ingredient, search_ingredients_var
         ingredients = get_set_funcs.get_ingredients(active_database)
         print(ingredients)
-        update_search_in_tree(tree= tree_ingredient, search_var= search_ingredients_var, list_of_items= ingredients)
+        af.update_search_in_tree(tree= tree_ingredient, search_var= search_ingredients_var, list_of_items= ingredients)
 
     def update_products() :
         global products
         products, x = get_set_funcs.getProductsAndCategorys(active_database)
-        update_search_in_tree(tree= product_tress[active_category], search_var= search_products_var, list_of_items= products[active_category])
+        af.update_search_in_tree(tree= product_tress[active_category], search_var= search_products_var, list_of_items= products[active_category])
 
 
     popup_ingredient = tk.Toplevel(root)
@@ -409,7 +326,7 @@ def open_popup_ingredient() :
     # Dropdown options  
     products, categorys = get_set_funcs.getProductsAndCategorys(active_database) # categorys and products include an "All Products" category
 
-    search_frame, search_label, search_products_var, product_tress, product_frames = make_treeview_with_search(current_frame= frame_products, 
+    search_frame, search_label, search_products_var, product_tress, product_frames = af.make_treeview_with_search(current_frame= frame_products, 
                                                                                                                heading_names= ("Product Name", "Linked Ingredient"), 
                                                                                                                tree_names= categorys)
 
@@ -423,28 +340,28 @@ def open_popup_ingredient() :
 
     active_category = categorys[0]
 
-    search_products_var.trace_add("write", lambda *args: update_search_in_tree(tree= product_tress[active_category],
+    search_products_var.trace_add("write", lambda *args: af.update_search_in_tree(tree= product_tress[active_category],
                                                                                search_var= search_products_var, 
                                                                                list_of_items= products[active_category]))
 
-    frame, label, search_ingredients_var, trees, tree_frames = make_treeview_with_search(current_frame= frame_ingredients, 
+    frame, label, search_ingredients_var, trees, tree_frames = af.make_treeview_with_search(current_frame= frame_ingredients, 
                                                                                       heading_names= ("Ingredient Name", "Ingredient Comment"), 
                                                                                       heading_width= (120, -1))
     tree_ingredient = trees["0"]
 
     update_ingredients()
 
-    search_ingredients_var.trace_add("write", lambda *args: update_search_in_tree(tree= tree_ingredient, 
+    search_ingredients_var.trace_add("write", lambda *args: af.update_search_in_tree(tree= tree_ingredient, 
                                                                                   search_var= search_ingredients_var, 
                                                                                   list_of_items= ingredients))
 
     frame_add_ingredient = tk.Frame(frame_ingredients)
     frame_add_ingredient.pack(pady=5)
 
-    frame_name, ingredient_name_var = make_entry_with_label(current_frame=frame_add_ingredient, label_text="Name:")
+    frame_name, ingredient_name_var = af.make_entry_with_label(current_frame=frame_add_ingredient, label_text="Name:")
     frame_name.pack(side="left")
 
-    frame_comment, ingredient_comment_var = make_entry_with_label(current_frame=frame_add_ingredient, label_text="    Comment:")
+    frame_comment, ingredient_comment_var = af.make_entry_with_label(current_frame=frame_add_ingredient, label_text="    Comment:")
     frame_comment.pack(side="left")
 
     frame_add_ingredient_buttons = tk.Frame(frame_ingredients)
@@ -526,7 +443,7 @@ def open_popup_recipe() :
         mixtures = get_set_funcs.get_mixtures(active_database)
         # print(mixtures)
         tree_mixture.selection_remove(tree_mixture.selection())
-        update_search_in_tree(tree=tree_mixture, search_var=search_mixture_var, list_of_items= mixtures, index_of_items=[0,1])
+        af.update_search_in_tree(tree=tree_mixture, search_var=search_mixture_var, list_of_items= mixtures, index_of_items=[0,1])
 
     def update_mixture() :
         global tree_mixture
@@ -534,7 +451,7 @@ def open_popup_recipe() :
             mixture_name_old = tree_mixture.item(tree_mixture.selection(), "values")[0]
             mixture_name_new = mixture_name_var.get().upper()
             if not mixture_nbr_sand_var.get().isnumeric() :
-                make_popup_window(current_fame=popup_recipe, title_text="Not A Nummber!", info_text="Number of Sandwiches has to be a nummber!")
+                af.make_popup_window(current_fame=popup_recipe, title_text="Not A Nummber!", info_text="Number of Sandwiches has to be a nummber!")
                 mixture_nbr_sand_var.set("")
             else :
                 mixture_nbr_sand = int(mixture_nbr_sand_var.get())
@@ -556,7 +473,7 @@ def open_popup_recipe() :
                     mixture_instructions_var.set(mix[2])
 
     def update_ingredients(current_ingredients) :
-        update_search_in_tree(tree=tree_ingredient_list, search_var=ingredient_search_var, list_of_items=current_ingredients, index_of_items=[0])
+        af.update_search_in_tree(tree=tree_ingredient_list, search_var=ingredient_search_var, list_of_items=current_ingredients, index_of_items=[0])
 
 
     popup_recipe = tk.Toplevel(root)
@@ -595,14 +512,14 @@ def open_popup_recipe() :
     frame_mixture_select.pack(side=tk.LEFT, padx=20)
 
 
-    frame, label, search_mixture_var, trees, tree_frames = make_treeview_with_search(current_frame=frame_mixture_select, 
+    frame, label, search_mixture_var, trees, tree_frames = af.make_treeview_with_search(current_frame=frame_mixture_select, 
                                                                               heading_names= ("Mixture Name","Nummber of Sandwiches") , 
                                                                               heading_width= (150,150))
     tree_mixture = trees["0"]
 
     update_mixture_tree()
 
-    search_mixture_var.trace_add("write", lambda *args: update_search_in_tree(tree=tree_mixture, 
+    search_mixture_var.trace_add("write", lambda *args: af.update_search_in_tree(tree=tree_mixture, 
                                                                               search_var=search_mixture_var, 
                                                                               list_of_items= mixtures))
 
@@ -619,16 +536,16 @@ def open_popup_recipe() :
     frame_mixture_ingredients = tk.Frame(frame_mixture)
     frame_mixture_ingredients.pack(side=tk.LEFT, padx=20)
 
-    frame_mixture_name, mixture_name_var = make_entry_with_label(current_frame=frame_mixture_ingredients, label_text="Name:")
+    frame_mixture_name, mixture_name_var = af.make_entry_with_label(current_frame=frame_mixture_ingredients, label_text="Name:")
     frame_mixture_name.pack(pady=5)
 
-    frame_mixture_nbr_sand, mixture_nbr_sand_var = make_entry_with_label(current_frame=frame_mixture_ingredients, label_text="Number of Sandwiches(st):")
+    frame_mixture_nbr_sand, mixture_nbr_sand_var = af.make_entry_with_label(current_frame=frame_mixture_ingredients, label_text="Number of Sandwiches(st):")
     frame_mixture_nbr_sand.pack(pady=5)
 
-    frame_mixture_instructions, mixture_instructions_var = make_entry_with_label(current_frame=frame_mixture_ingredients, label_text="Instructions:")
+    frame_mixture_instructions, mixture_instructions_var = af.make_entry_with_label(current_frame=frame_mixture_ingredients, label_text="Instructions:")
     frame_mixture_instructions.pack(pady=5)
 
-    search_frame, label, ingredient_search_var, trees, tree_frames = make_treeview_with_search(current_frame=frame_mixture_ingredients, 
+    search_frame, label, ingredient_search_var, trees, tree_frames = af.make_treeview_with_search(current_frame=frame_mixture_ingredients, 
                                                                               heading_names= ("Ingredient List", "Amount", "Unit") , 
                                                                               heading_width= (250,100,50))
     search_frame.pack_forget()

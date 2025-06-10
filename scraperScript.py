@@ -1,8 +1,12 @@
 from playwright.sync_api import sync_playwright
 import sqlite3
 import datetime
+import tkinter as tk
+from tkinter import *
+from tkinter import ttk
 
 import importBread
+import aux_func as af
 
 def main() :
     run_scraper_script([True, False, True])
@@ -134,5 +138,20 @@ def run_scraper_script(optionsList, active_database) :
     if not error :
         print("Total Items Scraped from Svensk Cater:", total_items_scraped)
         print("Done Scrapeing!")
+        root = tk.Tk()
+        root.title("Price Changes")
+        root.geometry("600x600")
+
+        style = ttk.Style(root)
+        style.theme_use("clam")
+
+        frame, label, var, trees, frames = af.make_treeview_with_search(current_frame=root, heading_names=("hej","då"))
+        tree = trees["0"]
+
+        var.trace_add("write", lambda *args: af.update_search_in_tree(tree= tree, 
+                                                                      search_var= var, 
+                                                                      list_of_items= [("hej","då"),("salut","id")]))
+
+        root.mainloop()
 
 # main()
