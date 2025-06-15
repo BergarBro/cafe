@@ -13,6 +13,21 @@ from tooltip import ListboxTooltip
 
 ### Button Functions ###
 def open_popup_scraper():
+    def on_ok():
+        selected = [var.get() for opt, var in option_vars.items()]
+
+        multiproc_scraper = multiprocessing.Process(
+            target=scraperScript.run_scraper_script,
+            args=(selected, active_database)
+            )
+        multiproc_scraper.start()
+        popup_scraper.destroy()
+
+    def on_cancel():
+        print("You canceled the Scraper")
+        popup_scraper.destroy()
+    
+    
     popup_scraper = tk.Toplevel(root)
     popup_scraper.title("Scraping Prices")
     popup_scraper.geometry("300x300")
@@ -28,22 +43,16 @@ def open_popup_scraper():
         tk.Checkbutton(popup_scraper, text=opt, variable=var).pack(pady=5)
         option_vars[opt] = var
 
-    def on_ok():
-        selected = [var.get() for opt, var in option_vars.items()]
+    max_date = af.make_date_obj(get_set_funcs.get_max_date(active_database=active_database))
+    
+    label_scraper_max_date_1 = tk.Label(popup_scraper, text="Last time scraping prices: ")
+    label_scraper_max_date_1.pack()
 
-        multiproc_scraper = multiprocessing.Process(
-            target=scraperScript.run_scraper_script,
-            args=(selected, active_database)
-            )
-        multiproc_scraper.start()
-        popup_scraper.destroy()
-
-    def on_cancel():
-        print("You canceled the Scraper")
-        popup_scraper.destroy()
+    label_scraper_max_date_2 = tk.Label(popup_scraper, font=bold_font, text=str(max_date))
+    label_scraper_max_date_2.pack()
 
     frame_select = tk.Frame(popup_scraper)
-    frame_select.pack(pady=5)
+    frame_select.pack(pady=10)
 
     button_scraper_ok = ttk.Button(frame_select, text="SCRAPE!", command=on_ok)
     button_scraper_ok.pack(side=tk.LEFT, padx=10)
@@ -112,7 +121,7 @@ def open_popup_plotter() :
     frame_search.pack(pady=5)
 
     # Dropdown options  
-    products, categorys = get_set_funcs.getProductsAndCategorys(active_database)
+    products, categorys = get_set_funcs.get_products_and_categorys(active_database)
 
     # Selected option variable  
     opt = StringVar()  

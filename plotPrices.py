@@ -22,6 +22,8 @@ import numpy as np
 import random as rn
 import datetime
 
+import aux_func as af
+
 # def main():
     # print("Main")
     # test()
@@ -63,7 +65,7 @@ def makePricePlot(productsName, active_database) :
         if elems != [] :
 
             price, unit, date = list(zip(*elems))
-            time = list(map(makeDateObj, date))
+            time = list(map(af.make_date_obj, date))
             units.append(unit[0])
 
             # print(price)
@@ -123,8 +125,8 @@ def test() :
     slider.on_changed(update)
     plt.show()
 
-def makeDateObj(str) :
-    d = str.split('-')
-    return datetime.date(int(d[0]), int(d[1]), int(d[2]))
+# def makeDateObj(str) :
+#     d = str.split('-')
+#     return datetime.date(int(d[0]), int(d[1]), int(d[2]))
 
 # main()

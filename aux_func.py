@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
+import datetime
 
 ### Global Helper Functions ###
 def make_treeview_with_search(current_frame, heading_names, heading_width = [], tree_names = ["0"]) :
@@ -84,5 +85,11 @@ def make_popup_window(current_fame, title_text, info_text) :
 
     ok_button = ttk.Button(window, text="OK", command=on_ok)
     ok_button.pack(pady=5)
+
+def make_date_obj(str) :
+    d = str.split('-')
+    return datetime.date(int(d[0]), int(d[1]), int(d[2]))
+
+
 
 
