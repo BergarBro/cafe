@@ -304,7 +304,7 @@ def open_popup_ingredient() :
 
     def update_products() :
         global products
-        products, x = get_set_funcs.getProductsAndCategorys(active_database)
+        products, x = get_set_funcs.get_products_and_categorys(active_database)
         af.update_search_in_tree(tree= product_tress[active_category], search_var= search_products_var, list_of_items= products[active_category])
 
 
@@ -333,7 +333,7 @@ def open_popup_ingredient() :
     frame_search_products.pack(pady=5)
 
     # Dropdown options  
-    products, categorys = get_set_funcs.getProductsAndCategorys(active_database) # categorys and products include an "All Products" category
+    products, categorys = get_set_funcs.get_products_and_categorys(active_database) # categorys and products include an "All Products" category
 
     search_frame, search_label, search_products_var, product_tress, product_frames = af.make_treeview_with_search(current_frame= frame_products, 
                                                                                                                heading_names= ("Product Name", "Linked Ingredient"), 
