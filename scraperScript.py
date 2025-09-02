@@ -51,6 +51,7 @@ def run_scraper_script(optionsList, active_database) :
     # Step 2: Connect to SQLite (creates file if if doesn't exist)
     error = False
     total_items_scraped = 0
+    items_scraped_per_category = []
     try :
         with sqlite3.connect(active_database) as conn :
             cursor = conn.cursor()
@@ -79,7 +80,6 @@ def run_scraper_script(optionsList, active_database) :
 
                     # page.wait_for_timeout(delayLogin)
                     page.wait_for_selector('text="STARTA DIN BESTÄLLNING"', timeout=120000)
-                    i = 0
                     for url, categoryName in zip(urlList[1:],urlCategory[1:]) :
                         page.goto(url, wait_until="networkidle")
                         # page.wait_for_timeout(delay)
@@ -91,6 +91,7 @@ def run_scraper_script(optionsList, active_database) :
                                 print("Error fetching products from: ", categoryName)
                                 print("Trying fetching again!")
                                 page.wait_for_timeout(delayRetry)
+                        item_count = 0
                         for product in product_wrapper:
                             productId = int(product.query_selector(".productId").text_content())
                             name = product.query_selector("strong a").text_content()
@@ -118,11 +119,12 @@ def run_scraper_script(optionsList, active_database) :
                                     INSERT INTO price_offers (product_id, offer_price, offer_unit, offer_timestamp)
                                     VALUES (?, ?, ?, ?)
                                 ''', (productId, price, unit, timestamp))
+
+                            item_count += 1
                             total_items_scraped += 1
-                            # print(f"{i:<4} {productId:<10} {name:<30} {brandName:<20} {price:<10} {unit:<10} {timestamp:<10}")
+                            # print(f"{tempCounter:<5} {total_items_scraped:<4} {productId:<10} {name:<30} {brandName:<20} {price:<10} {unit:<10} {timestamp:<30} {categoryName:<15}")
 
-
-                        # print("-" * 30)
+                        items_scraped_per_category.append((categoryName, item_count))
 
                     # print(i)
                     browser.close()
@@ -136,6 +138,8 @@ def run_scraper_script(optionsList, active_database) :
     if optionsList[2] :
         importBread.importBread(active_database)
     if not error :
+        for catName, item_cnt in items_scraped_per_category :
+            print(f"Items in Category ({catName:<16}): {item_cnt:<4}")
         print("Total Items Scraped from Svensk Cater:", total_items_scraped)
         print("Done Scrapeing!")
         root = tk.Tk()
