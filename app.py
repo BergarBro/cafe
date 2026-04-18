@@ -489,6 +489,8 @@ def open_popup_recipe() :
     popup_recipe.title("Recipe Editor")
     popup_recipe.geometry("1000x500")
 
+    get_set_funcs.test_funk(active_database=active_database)
+
     label_ingredient_info = tk.Label(popup_recipe, text="Make Recipe...")
     label_ingredient_info.pack(pady=5)
 

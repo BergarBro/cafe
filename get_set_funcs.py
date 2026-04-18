@@ -235,3 +235,26 @@ def get_max_date(active_database) :
     conn.close()
 
     return max_date
+
+def test_funk(active_database) :
+    conn = sqlite3.connect(active_database)
+    cursor = conn.cursor()
+
+    cursor.execute('''
+        select product_id, product_name, category_name, offer_price, offer_unit  
+        from price_offers 
+        join products using (product_id) 
+        group by product_id 
+        having offer_timestamp = max(offer_timestamp) 
+        order by product_name;
+    ''')
+
+    elems = cursor.fetchall()
+
+    with open("prices.txt", "w", encoding="utf-8") as f :
+        for elem in elems :   
+            for text in elem :
+                word = str(text)
+                word = word.replace(".",",")
+                f.write(word + "\t")
+            f.write("\n")

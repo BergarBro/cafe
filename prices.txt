@@ -1,0 +1,264 @@
+87410	A-tork Basic Miljö	Ej Mat	613,66	kr / St	
+106190	Ahlgrens Bilar 125g	Skåp	112,55	kr / Kg	
+52970	Ajax Universalspray 750 ml	Ej Mat	120,89	kr / L	
+101508	American BBQ 2,5L	Kyl	59,2	kr / L	
+114361	Ananas Split	Glass	9,84	kr / St	
+50216	Apelsin Nygårda 33cl	Läsk och Dryck	14,65	kr / L	
+46850	Aprikosmarmelad 2,3kg	Kyl	72,83	kr / Kg	
+61986	Avkalkn,medel Lime-A-Way 1L	Ej Mat	152,7	kr / Kg	
+105706	Avocado Hass 22 Rest, Ätmogen	Frukt och Grönt	104	kr / Kg	
+34533	Avocado tärnad 1 kg	Frys	97,83	kr / Kg	
+43958	Babyleaf Ruccola 100g	Frukt och Grönt	169,65	kr / Kg	
+44074	Babyleaf Spenat 100g	Frukt och Grönt	169,65	kr / Kg	
+99412	Babyspenat Tvättad 500g	Frukt och Grönt	102,7	kr / Kg	
+200001	Bagle	Bröd	8,57	kr / st	
+80104	Bakplåtspapper Gastro 53x32,5	Ej Mat	0,98	kr / St	
+54605	Banan EKO Färg 4	Frukt och Grönt	20,41	kr / Kg	
+77820	Basilika 145g	Kryddor	358,83	kr / Kg	
+200002	Baugette	Bröd	15,71	kr / st	
+124467	Bitsocker Snabb 1kg	Skåp	26,88	kr / Kg	
+117345	Blomkål Ofilmad Lösvikt	Frukt och Grönt	37,11	kr / Kg	
+93428	Bounty 57g	Skåp	148,94	kr / Kg	
+102643	Brie President 1kg	Kyl	113	kr / Kg	
+43279	Bönor Stora Vita 2,6kg	Kolonial	54,93	kr / Kg	
+77950	Cayennepeppar 450g	Kryddor	286,62	kr / Kg	
+115714	Champis 33 Brk	Läsk och Dryck	17,26	kr / L	
+77965	Chilipeppar Röd Flakes 295g	Kryddor	300,2	kr / Kg	
+77966	Chilipulver 430g	Kryddor	262,9	kr / Kg	
+67148	Chilisås Sriracha Hot	Kolonial	119,55	kr / Kg	
+35257	Chips Dill & Gräslök 40g	Skåp	182,33	kr / Kg	
+25896	Chips Lättsaltade 20x40gr	Skåp	182,33	kr / Kg	
+92090	Chips Sourcream&onion 40g	Skåp	182,33	kr / Kg	
+93102	Choklad Prem,mini Dark 70%	Skåp	455,44	kr / Kg	
+54226	Chokladdryck Ögonblink Port	Skåp	137,4	kr / Kg	
+200003	Ciabatta	Bröd	6,43	kr / st	
+52023	Citron Pressad 1L	Kyl	39,47	kr / Kg	
+41811	Clementiner Imp	Frukt och Grönt	29,51	kr / Kg	
+93577	Cocktailpinne Trä 10 cm	Ej Mat	480,65	kr / Kg	
+62516	Creme Fraiche 2kg	Kyl	60,48	kr / Kg	
+120351	Cuba Cola 33cl RG	Läsk och Dryck	14,65	kr / L	
+77978	Curry Madras 435g	Kryddor	140,68	kr / Kg	
+59210	Dallassallad 2,5kg	Kyl	63,52	kr / Kg	
+56150	Delicatoboll 58g	Kakor	106,51	kr / Kg	
+127935	Djungelvrål Påse 90g	Skåp	97,02	kr / Kg	
+131886	Donut Socker 50g	Kakor	117,62	kr / Kg	
+57752	Dr Pepper 33cl	Läsk och Dryck	22,66	kr / L	
+44755	Dragon torkad 250 g	Kryddor	151,88	kr / Kg	
+111775	Dream Fraiche Oddlygood 400g	Kyl	61,43	kr / Kg	
+127642	Dressing Caesar 900g	Kyl	66	kr / Kg	
+124500	Dressing Mangoraja 900g	Kyl	74,23	kr / Kg	
+47350	Fetaost skivad EKO/KRAV 1kg	Kyl	192,53	kr / Kg	
+120698	Flingsalt Naturell 1,5kg	Kryddor	133,25	kr / Kg	
+129486	Färs Vegetarisk 1,5kg	Frys	133,12	kr / Kg	
+121766	Färs Växtbaserad Original 5kg	Frys	119,66	kr / Kg	
+77107	Färskost Naturell EKO 1,5kg	Kyl	82,66	kr / Kg	
+77034	Gaffel Trä 16,5cm	Ej Mat	0,41	kr / St	
+32160	Getost Chevre Rulle BE ca 1kg	Kyl	153,71	kr / Kg	
+133617	Gillemix 2x4 sorter	Kakor	79,68	kr / Kg	
+120946	Glass Dolce 16st	Glass	17,32	kr / St	
+120956	Glass Dumlestrut 12st	Glass	19,1	kr / St	
+114363	Glass Farbror Arnes Brynt Smör	Glass	17,53	kr / St	
+138598	Glass Farbror Arnes Brynt Smör	Glass	17,96	kr / St	
+133365	Glass Farbror Arnes Kanelbulle	Glass	17,96	kr / St	
+102746	Glass Farbror Arnes Kladdkaka	Glass	17,53	kr / St	
+138341	Glass Farbror Arnes Kladdkaka	Glass	17,96	kr / St	
+127158	Glass Farbror Arnes Lemon Curd	Glass	17,96	kr / St	
+127160	Glass Farbror Arnes Marshmallo	Glass	17,53	kr / St	
+138595	Glass Farbror Arnes Saltkola	Glass	17,96	kr / St	
+133614	Glass Farbror Arnes Saltlakrit	Glass	17,96	kr / St	
+127156	Glass Hockeypulver 20st	Glass	12,25	kr / St	
+133366	Glass Jordgubb/Lemon Curd	Glass	12,25	kr / St	
+120948	Glass Nöt Creme 20st	Glass	12,25	kr / St	
+111781	Glass Smarties Pop Up 85ml	Glass	13,31	kr / St	
+120950	Glass Snickers White 24st	Glass	14,96	kr / St	
+138597	Glass Vanilj/Svart Vinbär 	Glass	11,83	kr / St	
+51048	Glögg Koncentr 2,5 L	Läsk och Dryck	22,96	kr / Kg	
+78022	Grillkrydda 650g	Kryddor	103,29	kr / Kg	
+49553	Gurka Bas Ofilm, Lösv,	Frukt och Grönt	12,65	kr / Kg	
+78778	H-ficka Deli News 15x15,5cm	Ej Mat	0,27	kr / St	
+56078	Hallongrotta 42g	Kakor	188,7	kr / Kg	
+50366	Hallonsoda Nygårda 33cl	Läsk och Dryck	14,65	kr / L	
+200004	Halvfralla	Bröd	5	kr / st	
+89779	Handdisk Suma Light 1L 	Ej Mat	67,29	kr / L	
+11681	Handdiskmedel Suma Light 1 l	Ej Mat	39,59	kr / Kg	
+69286	Honung flytande 1kg	Kolonial	95,93	kr / Kg	
+44721	Huvudsallad 	Frukt och Grönt	20,99	kr / St	
+21511	Ingefära färskriven 500g	Kyl	210,63	kr / Kg	
+49555	Isbergssallad Bas Lösv,	Frukt och Grönt	39,65	kr / Kg	
+23825	Jordgubbstopp Laktfri 24st	Glass	15	kr / St	
+50312	Julmust Light Nygårda 33Cl Spe	Läsk och Dryck	14,65	kr / L	
+50147	Julmust Nygårda 33 cl	Läsk och Dryck	13,79	kr / L	
+71534	Kaffe 100 g EKO Roast 87	Skåp	195,5	kr / Kg	
+49973	Kaffe 100 g Mörk EKO/Fairtrade	Skåp	218,08	kr / Kg	
+54116	Kaffe 100 g Original blend	Skåp	224,6	kr / Kg	
+54375	Kaffe 100 g Skånerost	Skåp	177,1	kr / Kg	
+54374	Kaffe Mell,rost 100 g	Skåp	173,65	kr / Kg	
+13301	Kaffefilter 523	Ej Mat	2,95	kr / St	
+72931	Kalkonbröst Rökt Skivat 500g	Kyl	173,88	kr / Kg	
+30112	Kanelbulle Singelpack 35g	Kakor	87,29	kr / Kg	
+30977	Kexchoklad 60g	Skåp	177,63	kr / Kg	
+42068	Kikärtor/Garbanzo EKO 2,6kg	Kolonial	48	kr / Kg	
+14053	Klubbor Björnar Klubbmix	Skåp	0,98	kr / St	
+77032	Kniv Trä 16,5cm	Ej Mat	0,33	kr / St	
+60956	Krutonger Naturell 500g	Kolonial	123,9	kr / Kg	
+78193	Kryddmix Taco 532g	Kryddor	207,59	kr / Kg	
+105116	Kyckling Sallads 2kg	Frys	141,55	kr / Kg	
+5360	Kyckling Sallads 6 kg	Frys	145,45	kr / Kg	
+95657	Lantchips Gräddfil 40g	Skåp	232,38	kr / Kg	
+100495	Laxfile Kallrökt Buffeskur ASC	Frys	277,6	kr / Kg	
+33194	Lion King Size Strut	Glass	21,61	kr / St	
+84021	Lock Salladskål 800/1200 Bagas	Ej Mat	3,51	kr / St	
+80146	Lock Salladsskål Bagasse 950ml	Ej Mat	4,07	kr / St	
+115692	Loka Crush Hallon 33 Brk	Läsk och Dryck	19,9	kr / L	
+115691	Loka Crush Päron 33 Brk	Läsk och Dryck	19,9	kr / L	
+49559	Lök Gul Bas Lösv,	Frukt och Grönt	6,44	kr / Kg	
+85611	Lök Rostad 500g	Kolonial	95,61	kr / Kg	
+49560	Lök Röd Bas Lösv,	Frukt och Grönt	10,66	kr / Kg	
+43970	Lök Schalotten Banan Lösv	Frukt och Grönt	17,68	kr / Kg	
+75412	MER Apelsin Brik Mindre Socker	Läsk och Dryck	18,5	kr / L	
+75268	MER Hallon/Blåb Brik Mind Sock	Läsk och Dryck	16,02	kr / L	
+74975	MER Jordgubb Brik Mindre socke	Läsk och Dryck	18,5	kr / L	
+75381	MER Päron Brik Mindre Socker	Läsk och Dryck	18,5	kr / L	
+86976	Majonnäs Vegan 65% 2,5kg	Kyl	40,83	kr / Kg	
+43112	Majs Crispy 600g	Kolonial	80,82	kr / Kg	
+124087	Margarin Lätta 2,5kg	Kyl	46,98	kr / Kg	
+136699	Margarin Lätta 2kg	Kyl	48,01	kr / Kg	
+33211	Mars extra	Glass	266,18	kr / Kg	
+77035	Matsked Trä 16,5cm	Ej Mat	0,59	kr / St	
+104109	Mazarin 55g	Kakor	152,14	kr / Kg	
+62503	Mjölk Standard 1L	Kyl	14,78	kr / L	
+66558	Monster Energy Ultra 50 cl brk	Läsk och Dryck	27,61	kr / L	
+49572	Morot Bas Lösvikt	Frukt och Grönt	11,12	kr / Kg	
+38505	Mountain Dew 33 cl	Läsk och Dryck	13,19	kr / L	
+115709	Mountain Dew 33cl Brk	Läsk och Dryck	17,33	kr / L	
+107745	Mozzarella Flavour Riven 1kg	Kyl	133,89	kr / Kg	
+35760	Mozzarella Galbani 125 g	Kyl	118,53	kr / Kg	
+87541	Nitrilhandske L Svart Puderfr 	Ej Mat	0,32	kr / St	
+87334	Nitrilhandske M Puderfri Svart	Ej Mat	0,32	kr / St	
+87879	Nitrilhandske S Puderfri Svart	Ej Mat	0,32	kr / St	
+85798	Nitrilhandske XL Puderfr Svart	Ej Mat	0,32	kr / St	
+6060	Oatly Havredryck choklad 25 cl	Läsk och Dryck	22,15	kr / Kg	
+131501	Oatly iKaffe 1,5L	Kyl	16,86	kr / L	
+88392	Oregano 65g	Kryddor	761,98	kr / Kg	
+30612	Ost Gouda Skivad 1kg	Kyl	71,77	kr / Kg	
+88948	Ost Riven 28% 2kg	Kyl	106,91	kr / Kg	
+200005	Ostbulle	Bröd	7,14	kr / st	
+28961	Ostbågar 20x35g	Skåp	212,21	kr / Kg	
+110699	Oumph Grill 2 kg	Frys	158,19	kr / Kg	
+110698	Oumph The Pure Chunk 2 kg	Frys	155,61	kr / Kg	
+41517	Paprika Grillad Röd 1,6kg	Kyl	184,96	kr / Kg	
+49578	Paprika Röd Bas Lösv,	Frukt och Grönt	46,42	kr / Kg	
+136222	Paprika Rökt 450g	Kryddor	149,16	kr / Kg	
+130921	Paprikapulver Rökt 150g	Kryddor	352,8	kr / Kg	
+73322	Pasta Penne 5 kg	Kolonial	24,75	kr / Kg	
+21524	Pepparrot Färskriven 500g	Kyl	122,6	kr / Kg	
+115702	Pepsi Max 33cl Brk	Läsk och Dryck	17,98	kr / L	
+115703	Pepsi Regular 33cl Brk	Läsk och Dryck	17,98	kr / L	
+17642	Pesto Genovese 500 g	Kyl	152,55	kr / Kg	
+67080	Pesto Org, Genovese 1kg	Kyl	151,23	kr / Kg	
+65215	Piplock 80mm	Ej Mat	0,59	kr / St	
+122521	Pirulo Watermelon 73ml	Glass	9,72	kr / St	
+55459	Plastfilm 45 cm Refill 8my	Ej Mat	247	kr / St	
+115711	Pommac 33cl Brk	Läsk och Dryck	17,33	kr / L	
+65643	Pucko Original 27 cl	Läsk och Dryck	38,54	kr / L	
+78717	Pulled Vego 3kg	Frys	157,02	kr / Kg	
+9377	Punschrulle 48g	Kakor	129,77	kr / Kg	
+27879	Purjolök	Frukt och Grönt	17,88	kr / Kg	
+42065	Purjolök Finskuren	Frukt och Grönt	45,36	kr / Kg	
+50048	Päronsoda Nygårda 33cl	Läsk och Dryck	14,65	kr / L	
+50070	Påskmust Nygårda 33 cl	Läsk och Dryck	14,65	kr / L	
+107511	Quorn Bitar 1kg	Frys	105,46	kr / Kg	
+108991	Ramlösa Citrus 33cl Brk	Läsk och Dryck	13,03	kr / L	
+108994	Ramlösa Granatäpple 33cl Brk	Läsk och Dryck	13,03	kr / L	
+121402	Ramlösa Hallon Äpple 33cl Brk	Läsk och Dryck	13,06	kr / L	
+83795	Ramlösa Mango 33cl Brk	Läsk och Dryck	10,09	kr / L	
+127119	Ramlösa Mango Grapefr 33cl Brk	Läsk och Dryck	13,03	kr / L	
+108986	Ramlösa Original 33cl Brk	Läsk och Dryck	13,03	kr / L	
+108995	Ramlösa Päron 33cl Brk	Läsk och Dryck	13,71	kr / L	
+127120	Ramlösa Svarta Vinbär 33cl Brk	Läsk och Dryck	13,03	kr / L	
+23499	Rapsolja svensk 2 l	Kolonial	34,08	kr / Kg	
+118208	Red Bull Apricot Edition 25cl	Läsk och Dryck	53,09	kr / L	
+128113	Red Bull Curuba Green Edition 	Läsk och Dryck	51,82	kr / L	
+120671	Red Bull Edition BLUE 25cl	Läsk och Dryck	53,09	kr / L	
+8738	Red Bull Energy 25cl Brk	Läsk och Dryck	53,09	kr / L	
+133510	Red Bull Pink Edition S-Fri 25	Läsk och Dryck	53,09	kr / L	
+9929	Red Bull S-Free 25 cl brk	Läsk och Dryck	53,09	kr / L	
+48513	Retursäck Burk/pet Rulle	Ej Mat	7,07	kr / St	
+78178	Rosmarin 275g	Kryddor	195,53	kr / Kg	
+99413	Ruccolasallad Tvättad 500g	Frukt och Grönt	108,3	kr / Kg	
+22473	Russin 6-pack 42,5g Sun Maid	Skåp	182,53	kr / Kg	
+200006	Rågbröd	Bröd	25	kr / st	
+43913	Rödbetor Kokta Vac,	Kyl	28,47	kr / Kg	
+5717	Salami Dansk Skivad 500 g	Kyl	148,16	kr / Kg	
+80144	Salladsskål Bagasse 950ml	Ej Mat	3,54	kr / St	
+95275	Salmiakki Glasspinnar 20st	Glass	16,48	kr / St	
+120699	Salt m Jod Finkornig 1kg	Kryddor	12,54	kr / Kg	
+108542	Sandwich 32st	Glass	12,68	kr / St	
+57824	Sandwich Cr,Cheese/Fr,Ört	Skåp	259,75	kr / Kg	
+57290	Sandwich Cr,cheese/grä	Skåp	210,61	kr / Kg	
+57823	Sandwich Cr,cheese/tom/bas	Skåp	194,81	kr / Kg	
+72855	Sandwich EKO 32 st	Glass	11,83	kr / St	
+14429	Sandwich cr,cheese paprika	Skåp	215,83	kr / Kg	
+55232	Sandwichbröd Ljust Skiv 1,2kg	Frys	37,94	kr / Kg	
+65041	Senap Dijon 865g	Kyl	67,54	kr / Kg	
+98199	Servett 33 1-L Vit 1/4 Delsvik	Ej Mat	0,16	kr / St	
+84280	Servett 33x33cm 1-lag Vit Disp	Ej Mat	0,13	kr / St	
+118808	Sesamkaka Original 40g	Skåp	175,04	kr / Kg	
+127098	Sesamolja Mörkrostad	Kolonial	185,35	kr / L	
+115706	Seven Up 33cl Brk	Läsk och Dryck	17,98	kr / L	
+115708	Seven up Free 33cl Brk	Läsk och Dryck	17,98	kr / L	
+18208	Sitting Bull 20st	Glass	9,84	kr / St	
+134721	Skinka Rökt Skivad 1kg	Kyl	178,03	kr / Kg	
+73113	Skinka Rökt Skivad 1kg 	Kyl	82,45	kr / Kg	
+69813	Skinka Serrano Skiv 12 mån	Kyl	283,77	kr / Kg	
+127162	Skruven Tropical 20st	Glass	9,72	kr / St	
+139470	Skruven Tropical 20st	Glass	9,72	kr / St	
+128238	Snickers Singel 50g	Skåp	202,19	kr / Kg	
+33210	Snickers extra	Glass	15,97	kr / St	
+8198	Sojafärs Vegetarisk	Frys	113	kr / Kg	
+119192	Solroskärnor 1kg	Kolonial	52,67	kr / Kg	
+70853	Sopsäck 170 L Svart	Ej Mat	3,77	kr / St	
+68202	Soya Japan Sakura 1L Glutfri	Kolonial	47,51	kr / Kg	
+77977	Spiskummin 430g	Kryddor	307,77	kr / Kg	
+83685	Spiskummin Malen EKO 460g	Kryddor	492,4	kr / Kg	
+38973	Strösocker 1 kg	Kolonial	15,93	kr / Kg	
+90873	Surdegsbröd Grovt Glutfri 500g	Frys	111,48	kr / Kg	
+20612	Svampduk Blå 180x200 mm	Ej Mat	7,35	kr / St	
+44799	Svartpeppar Grov 800 g	Kryddor	192,86	kr / Kg	
+89614	Såpa Grön 750 ml Grumme	Ej Mat	71,13	kr / Kg	
+103496	Sås American Original BBQ	Kyl	96,48	kr / Kg	
+16913	Sås tomatino 3 kg	Kolonial	52,75	kr / Kg	
+50137	Tacosås Mild 3,7kg	Kyl	69,51	kr / Kg	
+99326	Tahini Sesampasta 900g	Kyl	112,32	kr / Kg	
+28619	Te Grönt KRAV/Rättvisem	Skåp	1,29	kr / St	
+47893	Te Sortimentkartong Twinings	Skåp	1,35	kr / St	
+73423	Te Svartvinbär 100 st	Skåp	1,2	kr / St	
+45033	Timjan Torkad 300 g	Kryddor	66,29	kr / Kg	
+15582	Tofu Fast Tärnad 540g	Kolonial	66,5	kr / Kg	
+49583	Tomat Bas Lösvikt	Frukt och Grönt	56,68	kr / Kg	
+9391	Tomat Körsbär Soltorkad 960g	Kolonial	212,7	kr / Kg	
+116179	Tomat Soltorkad 428g	Kolonial	130,33	kr / Kg	
+115698	Trocadero 33 Brk	Läsk och Dryck	17,26	kr / L	
+115699	Trocadero Zero 33 Brk	Läsk och Dryck	17,26	kr / L	
+31483	Tvål pump Bliw blå 300 ml x 8	Ej Mat	214,85	kr / Kg	
+26305	Twix Singel 50g	Skåp	170,56	kr / Kg	
+131819	Tzatziki 2,5kg	Kyl	70,63	kr / Kg	
+29682	Vattenkastanjer Skivad 2,95kg	Kolonial	61,11	kr / Kg	
+111709	Veganska Bitar Chicken Style	Frys	155,16	kr / Kg	
+60953	Vegobullar 10 g	Frys	90,99	kr / Kg	
+74568	Vegofärs 3kg	Frys	128,38	kr / Kg	
+86554	Vegofärs Formbar 3kg	Frys	79,95	kr / Kg	
+37617	Vitkål strimlad 3-4 mm 1kg	Frukt och Grönt	22,82	kr / Kg	
+41592	Vitlök 55+ Lösvikt	Frukt och Grönt	52,26	kr / Kg	
+121783	Vitlöksklyftor 1kg	Frys	50,25	kr / Kg	
+71345	Vitpeppar Mald 900g	Kryddor	457,29	kr / Kg	
+63556	Yoghurt Turkisk 10% 1 kg	Kyl	30,95	kr / Kg	
+115660	Zingo 33cl Brk	Läsk och Dryck	17,98	kr / L	
+124673	Zingo Citron 33 s-Fri Brk	Läsk och Dryck	17,98	kr / L	
+34314	Äpple Granny Smith 65/70 Imp	Frukt och Grönt	20,61	kr / Kg	
+113145	Äpple Royal Gala 70/75	Frukt och Grönt	24,48	kr / Kg	
+93599	Ärtor Små Petit Pois 2,5kg	Kolonial	57,64	kr / Kg	
+27715	Ättika Perstorp 30 cl	Kolonial	56,66	kr / L	
+60214	Öl Grängesberg Lättöl 2,1 33RG	Läsk och Dryck	14,64	kr / L	
+57778	Öl Lätt Blå 33 Brk	Läsk och Dryck	19,88	kr / L	
+138811	Öl Lätt Blå Brk 33cl	Läsk och Dryck	19,88	kr / L	
